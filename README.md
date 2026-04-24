@@ -16,13 +16,13 @@ python3 -m http.server 8080
 
 ## Deploy
 
-Auto-deploy qua Vercel khi push lên `main`. Cấu hình tại `vercel.json` (rewrite `/` → `NAK-Landing-2025.html`).
+Auto-deploy qua Vercel khi push lên `main`. Vercel tự serve `index.html` cho `/`.
 
 ## Cấu trúc
 
 ```
 .
-├── NAK-Landing-2025.html   # Landing page chính
+├── index.html   # Landing page chính
 ├── images/                 # Asset .webp tối ưu
 ├── logo-nak.png
 ├── vercel.json
