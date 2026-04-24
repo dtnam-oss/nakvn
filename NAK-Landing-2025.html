@@ -1,0 +1,3459 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAK Logistics — Giải pháp vận tải thế hệ mới</title>
+<meta name="description" content="NAK Logistics · CPTM Dịch vụ và Vận tải N.A.K Việt Nam. 120+ phương tiện · 3 trung tâm khai thác · E-Trucking · xử lý sự cố 4 cấp trong 5 phút."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   NAK LOGISTICS LANDING · 2025
+   Light theme · Logo palette extracted from logo-nak.png
+   =========================================================== */
+:root {
+  --blue-50:  #E3F1FC;
+  --blue-100: #CDE6FA;
+  --blue-400: #3AAEF0;
+  --blue-500: #128FD1;
+  --blue-600: #0273BE;
+  --blue-700: #014E80;
+
+  --orange-300: #FFC140;
+  --orange-400: #F8B638;
+  --orange-500: #F1A82B;
+  --orange-600: #DB8F00;
+  --orange-700: #B8863F;
+
+  --bg-0: #FFFFFF;
+  --bg-1: #F5F9FD;
+  --bg-2: #EAF2FA;
+  --bg-3: #DCEAF6;
+
+  --ink-100: #0B1F3A;
+  --ink-200: #1F334D;
+  --ink-300: #42536B;
+  --ink-400: #6B7890;
+  --ink-500: #9AA6BE;
+
+  --border: rgba(2,115,190,.10);
+  --border-strong: rgba(2,115,190,.20);
+
+  --grad-brand: linear-gradient(135deg, #0273BE 0%, #128FD1 50%, #F1A82B 100%);
+  --grad-blue: linear-gradient(135deg, #0273BE, #128FD1);
+  --grad-orange: linear-gradient(135deg, #F1A82B, #FFC140);
+
+  --shadow-sm: 0 1px 3px rgba(2,115,190,.06), 0 1px 2px rgba(2,115,190,.04);
+  --shadow-md: 0 8px 24px rgba(2,115,190,.10), 0 2px 6px rgba(2,115,190,.06);
+  --shadow-lg: 0 20px 48px rgba(2,115,190,.14), 0 6px 16px rgba(2,115,190,.08);
+  --shadow-xl: 0 40px 80px rgba(2,115,190,.18), 0 12px 32px rgba(2,115,190,.10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* Icon system (replaces all emoji) */
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -.15em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex-shrink: 0;
+}
+.icon-lg { width: 32px; height: 32px; }
+.icon-md { width: 22px; height: 22px; }
+.icon-sm { width: 16px; height: 16px; }
+.svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+body {
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  background: var(--bg-0);
+  color: var(--ink-100);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--orange-500); color: #fff; }
+img { max-width: 100%; display: block; }
+
+/* Subtle grid background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(2,115,190,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,115,190,.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(800px 600px at 10% 5%, rgba(2,115,190,.08), transparent 70%),
+    radial-gradient(700px 500px at 90% 95%, rgba(241,168,43,.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+section, nav, footer { position: relative; z-index: 1; }
+
+/* ===========================================================
+   NAV
+   =========================================================== */
+.nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 13px;
+  box-shadow: var(--shadow-md);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 6px;
+  border-right: 1px solid var(--border);
+  margin-right: 4px;
+}
+.nav-brand img { height: 34px; width: auto; filter: drop-shadow(0 2px 3px rgba(0,0,0,.06)); }
+.nav-brand-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 10px #22C55E;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity:.6; } 50% { opacity:1; } }
+.nav a {
+  color: var(--ink-200);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-weight: 500;
+  transition: all .2s;
+}
+.nav a:hover { background: var(--blue-50); color: var(--blue-600); }
+.nav-cta {
+  background: var(--orange-500) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  padding: 8px 18px !important;
+  box-shadow: 0 4px 12px rgba(241,168,43,.35);
+}
+.nav-cta:hover { background: var(--orange-400) !important; }
+
+/* ===========================================================
+   SECTION COMMON
+   =========================================================== */
+.section {
+  padding: 120px 6vw;
+}
+.sec-head { text-align: center; margin-bottom: 56px; }
+.sec-head.left { text-align: left; max-width: 900px; margin-left: 0; }
+.sec-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange-600);
+  margin-bottom: 16px;
+}
+.sec-kicker::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--orange-500);
+  border-radius: 2px;
+}
+.sec-title {
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: var(--ink-100);
+  max-width: 880px;
+  margin: 0 auto;
+}
+.sec-head.left .sec-title { margin: 0; }
+.sec-title .accent {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sec-dek {
+  font-size: 17px;
+  color: var(--ink-300);
+  max-width: 680px;
+  margin: 18px auto 0;
+  line-height: 1.6;
+}
+.sec-head.left .sec-dek { margin-left: 0; }
+
+/* ===========================================================
+   HERO
+   =========================================================== */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  padding: 140px 6vw 80px;
+  gap: 48px;
+}
+.hero-breadcrumb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--ink-400);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+.hero-breadcrumb em { color: var(--orange-500); font-style: normal; font-weight: 700; }
+.hero h1 {
+  font-size: clamp(40px, 5.8vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.8px;
+  color: var(--ink-100);
+  margin-bottom: 20px;
+}
+.hero h1 .accent {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink-300);
+  line-height: 1.6;
+  max-width: 560px;
+  margin-bottom: 36px;
+}
+.hero h2 strong { color: var(--ink-100); font-weight: 700; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: .5px;
+  text-decoration: none;
+  transition: all .25s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  white-space: nowrap;
+}
+.btn-orange {
+  background: var(--grad-orange);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(241,168,43,.35);
+}
+.btn-orange:hover { box-shadow: 0 14px 32px rgba(241,168,43,.5); transform: translateY(-2px); }
+.btn-blue {
+  background: #fff;
+  color: var(--blue-600);
+  border: 1.5px solid var(--blue-600);
+  box-shadow: var(--shadow-sm);
+}
+.btn-blue:hover { background: var(--blue-600); color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 6px #22C55E;
+  animation: pulse 2s infinite;
+}
+
+.hero-stats-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 520px;
+  box-shadow: var(--shadow-md);
+}
+.hero-stat-mini {
+  padding: 16px 14px;
+  background: #fff;
+  text-align: center;
+}
+.hero-stat-mini .n {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.8px;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.hero-stat-mini .l {
+  font-size: 10.5px;
+  color: var(--ink-400);
+  margin-top: 5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Hero visual: big image + truck road animation overlay */
+.hero-visual {
+  position: relative;
+  height: 600px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+}
+.hero-visual-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(1.15) contrast(1.05);
+}
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(2,115,190,.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-live-badge {
+  position: absolute;
+  top: 20px; left: 20px;
+  z-index: 3;
+  background: rgba(255,255,255,.95);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--ink-200);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-weight: 600;
+}
+.hero-route-stamp {
+  position: absolute;
+  bottom: 20px; left: 20px; right: 20px;
+  z-index: 3;
+  background: rgba(11,31,58,.85);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  letter-spacing: 1px;
+}
+.hero-route-stamp .l { color: var(--orange-300); }
+.hero-route-stamp strong { color: #fff; }
+
+/* Horizontal truck strip animation below hero */
+.truck-strip {
+  margin-top: -2px;
+  padding: 14px 0;
+  background: var(--ink-100);
+  color: var(--bg-0);
+  overflow: hidden;
+  border-top: 3px solid var(--orange-500);
+}
+.truck-strip-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  animation: truckScroll 40s linear infinite;
+  white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  width: max-content;
+}
+.truck-strip-track span { display: inline-flex; align-items: center; gap: 12px; }
+.truck-strip-track .truck-emoji { width: 26px; height: 26px; color: var(--orange-300); vertical-align: middle; }
+.truck-strip-track .delim { color: var(--ink-400); }
+@keyframes truckScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ===========================================================
+   ABOUT US
+   =========================================================== */
+.about {
+  background: linear-gradient(180deg, #fff 0%, var(--bg-1) 100%);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  aspect-ratio: 5/4;
+}
+.about-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.about-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(2,115,190,.18), transparent 50%);
+  pointer-events: none;
+}
+.about-image-badge {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.about-image-badge .big {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--blue-600);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.about-image-badge .sml {
+  font-size: 11px;
+  color: var(--ink-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.about-copy h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  margin-bottom: 20px;
+  color: var(--ink-100);
+}
+.about-copy h2 .accent {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-copy p {
+  font-size: 16px;
+  color: var(--ink-300);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.about-quote {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: #fff;
+  border-left: 4px solid var(--orange-500);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-100);
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+.about-stat {
+  padding: 22px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all .3s;
+}
+.about-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.about-stat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.about-stat-icon .icon-lg { width: 26px; height: 26px; }
+.about-stat:nth-child(1) .about-stat-icon { background: var(--grad-blue); }
+.about-stat:nth-child(2) .about-stat-icon { background: var(--grad-orange); }
+.about-stat:nth-child(3) .about-stat-icon { background: linear-gradient(135deg, var(--blue-500), var(--orange-500)); }
+.about-stat .big {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  line-height: 1;
+  color: var(--ink-100);
+}
+.about-stat .big .unit { font-size: 16px; color: var(--orange-500); font-weight: 800; }
+.about-stat .lbl {
+  font-size: 12.5px;
+  color: var(--ink-300);
+  margin-top: 6px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ===========================================================
+   SERVICES (4 flip cards)
+   =========================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: 1280px;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+.flip-card {
+  aspect-ratio: 3/4;
+  perspective: 1200px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform .7s cubic-bezier(.4,0,.2,1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+}
+.flip-card-front {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--ink-100);
+}
+/* ---- Front face with real image ---- */
+.flip-card-front.has-img {
+  padding: 22px;
+  color: #fff;
+  border: none;
+  background: #0B1F3A;
+}
+.flip-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1.04);
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1), filter .6s;
+  filter: saturate(1.05) contrast(1.02);
+}
+.flip-card:hover .flip-card-img { transform: scale(1.12); filter: saturate(1.15) contrast(1.05); }
+.flip-card-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(11,31,58,.55) 0%, rgba(11,31,58,.10) 35%, rgba(11,31,58,.55) 70%, rgba(11,31,58,.92) 100%),
+    radial-gradient(120% 60% at 50% 100%, rgba(243,146,0,.20), transparent 60%);
+  pointer-events: none;
+}
+.flip-card-front.has-img .flip-card-top,
+.flip-card-front.has-img .flip-card-bottom {
+  position: relative;
+  z-index: 2;
+}
+.flip-card-front.has-img .flip-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.flip-card-front.has-img .icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grad-blue);
+  box-shadow: 0 8px 18px rgba(2,115,190,.45), inset 0 1px 0 rgba(255,255,255,.25);
+  flex-shrink: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.flip-card-front.has-img .service-ic svg { width: 28px; height: 28px; color: #fff; }
+.flip-card:nth-child(2) .flip-card-front.has-img .icon { background: var(--grad-orange); box-shadow: 0 8px 18px rgba(243,146,0,.5), inset 0 1px 0 rgba(255,255,255,.3); }
+.flip-card:nth-child(3) .flip-card-front.has-img .icon { background: linear-gradient(135deg, var(--blue-500), var(--orange-500)); }
+.flip-card:nth-child(4) .flip-card-front.has-img .icon { background: var(--grad-orange); box-shadow: 0 8px 18px rgba(243,146,0,.5), inset 0 1px 0 rgba(255,255,255,.3); }
+.flip-card-front.has-img .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(11,31,58,.6);
+  padding: 5px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.18);
+}
+.flip-card-front.has-img .flip-card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.flip-card-front.has-img h3 {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -.4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+}
+.flip-card-front.has-img .hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(243,146,0,.92);
+  border-radius: 100px;
+  align-self: flex-start;
+  border: none;
+  box-shadow: 0 6px 14px rgba(243,146,0,.4);
+  transition: gap .3s, background .3s;
+}
+.flip-card:hover .flip-card-front.has-img .hint { background: var(--orange-500); gap: 12px; }
+.flip-card-front.has-img .hint::after {
+  content: "→";
+  transition: transform .3s;
+}
+.flip-card:hover .flip-card-front.has-img .hint::after { transform: translateX(3px); }
+.flip-card-front .icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--grad-blue);
+  box-shadow: 0 10px 20px rgba(2,115,190,.3);
+  flex-shrink: 0;
+}
+.flip-card-front .service-ic svg { width: 32px; height: 32px; display: block; }
+.flip-card:nth-child(2) .flip-card-front .icon { background: var(--grad-orange); box-shadow: 0 10px 20px rgba(241,168,43,.3); }
+.flip-card:nth-child(3) .flip-card-front .icon { background: linear-gradient(135deg, var(--blue-500), var(--orange-500)); }
+.flip-card:nth-child(4) .flip-card-front .icon { background: var(--grad-orange); box-shadow: 0 10px 20px rgba(241,168,43,.3); }
+
+.flip-card-front .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-400);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.flip-card-front h3 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink-100);
+  letter-spacing: -.3px;
+}
+.flip-card-front .hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--blue-600);
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+.flip-card-front .hint::after {
+  content: "→";
+  transition: transform .2s;
+}
+.flip-card-back {
+  background: var(--grad-blue);
+  color: #fff;
+  transform: rotateY(180deg);
+  border: none;
+}
+.flip-card:nth-child(2) .flip-card-back,
+.flip-card:nth-child(4) .flip-card-back {
+  background: var(--grad-orange);
+}
+.flip-card:nth-child(3) .flip-card-back {
+  background: linear-gradient(135deg, var(--blue-600), var(--orange-500));
+}
+.flip-card-back h4 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.flip-card-back p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: .95;
+  margin-bottom: auto;
+}
+.flip-card-back ul {
+  list-style: none;
+  padding: 12px 0 0;
+  border-top: 1px solid rgba(255,255,255,.2);
+}
+.flip-card-back li {
+  font-size: 13px;
+  padding: 5px 0;
+  padding-left: 18px;
+  position: relative;
+  opacity: .92;
+}
+.flip-card-back li::before {
+  content: "▸";
+  position: absolute;
+  left: 0; top: 4px;
+  opacity: .6;
+}
+
+/* ===========================================================
+   WHY CHOOSE US
+   =========================================================== */
+.why {
+  background: linear-gradient(180deg, var(--bg-1) 0%, #fff 50%, var(--bg-1) 100%);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.why-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all .3s;
+  display: flex;
+  flex-direction: column;
+}
+.why-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.why-card-img {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+.why-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.why-card:hover .why-card-img img { transform: scale(1.08); }
+.why-card-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(11,31,58,.15), transparent 50%);
+}
+.why-card-tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,.95);
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: var(--blue-600);
+  border-radius: 100px;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+.why-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.why-card-body h3 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+  margin-bottom: 12px;
+  line-height: 1.25;
+  color: var(--ink-100);
+}
+.why-card-body h3 .accent { color: var(--orange-500); }
+.why-card-body p {
+  font-size: 14.5px;
+  color: var(--ink-300);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.why-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+}
+.why-chip {
+  padding: 5px 10px;
+  background: var(--blue-50);
+  color: var(--blue-700);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 6px;
+}
+.why-card:nth-child(2) .why-chip { background: rgba(241,168,43,.15); color: var(--orange-600); }
+
+/* ===========================================================
+   NETWORK SECTION (Mạng lưới khai thác)
+   =========================================================== */
+.network-sec { background: linear-gradient(180deg, #fff 0%, var(--bg-1) 100%); }
+.network-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 44px;
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.leadtime-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, #0B1F3A 0%, #1860B0 55%, #2778D4 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 22px 26px;
+  box-shadow: 0 18px 38px rgba(24,96,176,.32);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.leadtime-hero::before {
+  content: "";
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(243,146,0,.4), transparent 70%);
+}
+.leadtime-hero-icon {
+  font-size: 42px;
+  width: 66px; height: 66px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.16);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.leadtime-hero-text { flex: 1; line-height: 1.1; position: relative; z-index: 2; }
+.leadtime-hero-val {
+  font-size: 54px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #FFB347;
+  line-height: 1;
+}
+.leadtime-hero-val span { font-size: 32px; margin: 0 4px; opacity: .7; }
+.leadtime-hero-val small { font-size: 26px; margin-left: 4px; }
+.leadtime-hero-lbl {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  opacity: .9;
+  margin-top: 8px;
+}
+.leadtime-hero-arrow {
+  font-size: 54px;
+  color: #F59E0B;
+  font-weight: 900;
+  transform: rotate(-12deg);
+  text-shadow: 0 0 28px rgba(245,158,11,.7);
+  position: relative; z-index: 2;
+}
+.noc-list { display: flex; flex-direction: column; gap: 14px; }
+.noc-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 22px;
+  border-left: 4px solid #1860B0;
+  box-shadow: 0 4px 14px rgba(11,31,58,.06);
+  transition: transform .3s, box-shadow .3s;
+}
+.noc-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(11,31,58,.12); }
+.noc-card:nth-child(2) { border-left-color: #0E3F7E; }
+.noc-card.hub { border-left-color: var(--orange-500); }
+.noc-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #1860B0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.noc-card.hub .noc-tag { color: var(--orange-600); }
+.noc-pin { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.noc-pin.n { background: #1860B0; box-shadow: 0 0 8px rgba(24,96,176,.5); }
+.noc-pin.s { background: #0E3F7E; box-shadow: 0 0 8px rgba(14,63,126,.5); }
+.noc-pin.h { background: var(--orange-500); box-shadow: 0 0 8px rgba(243,146,0,.6); }
+.noc-card h4 { font-size: 22px; font-weight: 800; margin-bottom: 6px; color: #0B1F3A; }
+.noc-card p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+.network-map { display: flex; justify-content: center; align-items: stretch; }
+.netmap-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(11,31,58,.22), 0 0 0 1px rgba(24,96,176,.1);
+  background: linear-gradient(180deg, #fff, #F6F8FC);
+}
+.netmap-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.netmap-status {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: rgba(11,31,58,.92);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(6px);
+}
+.netmap-dot {
+  width: 9px; height: 9px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #22C55E;
+  animation: netpulse 1.6s ease-in-out infinite;
+}
+@keyframes netpulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.55; transform:scale(1.2); } }
+.netmap-route {
+  position: absolute;
+  bottom: 16px; left: 16px; right: 16px;
+  background: rgba(255,255,255,.96);
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(11,31,58,.12);
+}
+.netmap-route svg { width: 32px; height: 32px; fill: var(--orange-500); flex-shrink: 0; }
+.netmap-route strong { display: block; font-size: 13px; color: #0B1F3A; font-weight: 800; letter-spacing: .3px; }
+.netmap-route span { font-size: 11.5px; color: var(--ink-soft); letter-spacing: .3px; }
+
+/* ===========================================================
+   FLEET SECTION (Năng lực phương tiện)
+   =========================================================== */
+.fleet-sec { background: #fff; }
+.fleet-infographic { max-width: 1280px; margin: 0 auto; }
+.dim-hero {
+  background:
+    radial-gradient(1200px 400px at 0% 0%, rgba(39,120,212,.55), transparent 55%),
+    radial-gradient(900px 360px at 100% 100%, rgba(243,146,0,.22), transparent 60%),
+    linear-gradient(135deg, #0A1A33 0%, #0E3F7E 45%, #1860B0 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: dimAurora 14s ease-in-out infinite;
+  color: #fff;
+  border-radius: 24px;
+  padding: 40px 48px 36px;
+  box-shadow:
+    0 30px 60px rgba(24,96,176,.32),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+  isolation: isolate;
+}
+.dim-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 35%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 35%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+  animation: dimGridDrift 30s linear infinite;
+}
+.dim-hero::after {
+  content: "";
+  position: absolute;
+  right: -120px; top: -120px;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(243,146,0,.45), transparent 65%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+  animation: dimGlowPulse 5s ease-in-out infinite;
+}
+@keyframes dimAurora {
+  0%, 100% { background-position: 0% 0%, 100% 100%, 0% 50%; }
+  50%      { background-position: 100% 50%, 0% 0%, 100% 50%; }
+}
+@keyframes dimGridDrift {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 40px 40px, 40px 40px; }
+}
+@keyframes dimGlowPulse {
+  0%, 100% { opacity: .9; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.08); }
+}
+.dim-label {
+  font-size: 11.5px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: var(--orange-300);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+.dim-label::before {
+  content: "";
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--orange-400, #ff9d2c);
+  box-shadow: 0 0 10px var(--orange-400, #ff9d2c), 0 0 20px rgba(243,146,0,.6);
+  animation: dimDotPulse 1.6s ease-in-out infinite;
+}
+@keyframes dimDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .55; transform: scale(1.35); }
+}
+.dim-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+  perspective: 800px;
+}
+.dim-block {
+  text-align: center;
+  flex: 0 1 auto;
+  padding: 14px 22px 12px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.dim-hero.on .dim-block {
+  animation: dimBlockIn .8s cubic-bezier(.2,.8,.2,1) backwards;
+}
+.dim-hero.on .dim-block:nth-of-type(1) { animation-delay: .1s; }
+.dim-hero.on .dim-block:nth-of-type(2) { animation-delay: .25s; }
+.dim-hero.on .dim-block:nth-of-type(3) { animation-delay: .4s; }
+@keyframes dimBlockIn {
+  from { opacity: 0; transform: translateY(14px) rotateX(-8deg); }
+  to   { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+.dim-block:hover {
+  transform: translateY(-4px) rotateX(4deg);
+  border-color: rgba(243,146,0,.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 12px 28px rgba(243,146,0,.25);
+}
+.dim-val {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -2.5px;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(180deg, #fff 0%, #DCEAFB 60%, #9CC0EE 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 24px rgba(120,180,255,.18);
+  position: relative;
+}
+.dim-val span {
+  font-size: 28px;
+  background: linear-gradient(180deg, #FFD494, var(--orange-400, #ff9d2c));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 4px;
+}
+.dim-lbl {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  opacity: .85;
+  margin-top: 12px;
+  position: relative;
+  display: inline-block;
+}
+.dim-lbl::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 8px auto 0;
+  width: 28px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--orange-400, #ff9d2c), transparent);
+  opacity: .8;
+}
+.dim-x {
+  font-size: 38px;
+  font-weight: 200;
+  opacity: .55;
+  color: var(--orange-300);
+  text-shadow: 0 0 12px rgba(243,146,0,.35);
+  animation: dimXSpin 6s ease-in-out infinite;
+}
+@keyframes dimXSpin {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: .5; }
+  50%      { transform: rotate(90deg) scale(1.1); opacity: .9; }
+}
+.dim-volumes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  position: relative;
+  z-index: 2;
+}
+.vol-label {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: .8;
+  margin-right: 8px;
+}
+.vol-chip {
+  position: relative;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.24);
+  padding: 9px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  overflow: hidden;
+  cursor: default;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s, box-shadow .3s;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.vol-chip::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .8s ease;
+  pointer-events: none;
+}
+.vol-chip:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.45);
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+}
+.vol-chip:hover::before { transform: translateX(120%); }
+.dim-hero.on .vol-chip {
+  animation: dimChipIn .6s cubic-bezier(.2,.8,.2,1) backwards;
+}
+.dim-hero.on .vol-chip:nth-of-type(1) { animation-delay: .55s; }
+.dim-hero.on .vol-chip:nth-of-type(2) { animation-delay: .65s; }
+.dim-hero.on .vol-chip:nth-of-type(3) { animation-delay: .75s; }
+.dim-hero.on .vol-chip:nth-of-type(4) { animation-delay: .85s; }
+.dim-hero.on .vol-chip:nth-of-type(5) { animation-delay: .95s; }
+@keyframes dimChipIn {
+  from { opacity: 0; transform: translateY(8px) scale(.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.vol-chip.vol-hot {
+  background: linear-gradient(135deg, #FFB347 0%, var(--orange-500) 60%, #E8740B 100%);
+  border-color: rgba(255,255,255,.35);
+  box-shadow:
+    0 8px 22px rgba(243,146,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.4);
+  font-size: 15px;
+  padding: 10px 20px;
+  animation: dimHotPulse 2.2s ease-in-out infinite;
+}
+.vol-chip.vol-hot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 100px;
+  border: 2px solid rgba(243,146,0,.55);
+  animation: dimHotRing 2.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes dimHotPulse {
+  0%, 100% { box-shadow: 0 8px 22px rgba(243,146,0,.55), inset 0 1px 0 rgba(255,255,255,.4); }
+  50%      { box-shadow: 0 12px 30px rgba(243,146,0,.85), inset 0 1px 0 rgba(255,255,255,.5); }
+}
+@keyframes dimHotRing {
+  0%   { transform: scale(1);   opacity: .7; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+/* ---- Isometric truck-box backdrop ---- */
+.dim-iso {
+  position: absolute;
+  right: 28px; top: 50%;
+  transform: translateY(-50%);
+  width: 360px; height: 260px;
+  opacity: .35;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 12px 30px rgba(0,0,0,.25));
+}
+.dim-iso .iso-face { transition: opacity .6s ease; opacity: 0; }
+.dim-iso .dim-iso-edges polyline,
+.dim-iso .dim-iso-edges line {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+}
+.dim-iso .dim-iso-dims line,
+.dim-iso .dim-iso-dims text { opacity: 0; transition: opacity .5s ease; }
+
+.dim-hero.on .dim-iso { animation: dimIsoFloat 6s ease-in-out infinite; }
+.dim-hero.on .dim-iso .iso-face { opacity: 1; transition-delay: 1.2s; }
+.dim-hero.on .dim-iso .dim-iso-edges polyline,
+.dim-hero.on .dim-iso .dim-iso-edges line {
+  animation: dimIsoDraw 1.8s cubic-bezier(.7,.0,.3,1) forwards;
+  animation-delay: .3s;
+}
+.dim-hero.on .dim-iso .dim-iso-dims line,
+.dim-hero.on .dim-iso .dim-iso-dims text {
+  opacity: 1;
+  transition-delay: 1.6s;
+}
+@keyframes dimIsoDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes dimIsoFloat {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50%      { transform: translateY(-52%) translateX(-4px); }
+}
+
+@media (max-width: 960px) {
+  .dim-iso { display: none; }
+}
+
+/* ---- Scan-line sweep ---- */
+.dim-scanline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 24px;
+}
+.dim-scanline::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 30%;
+  left: -40%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,.0) 30%,
+    rgba(120,180,255,.18) 50%,
+    rgba(255,255,255,.0) 70%,
+    transparent 100%);
+  filter: blur(2px);
+  transform: skewX(-18deg);
+}
+.dim-hero.on .dim-scanline::before {
+  animation: dimScan 4.5s cubic-bezier(.6,0,.4,1) 1.4s infinite;
+}
+@keyframes dimScan {
+  0%   { left: -40%; opacity: 0; }
+  20%  { opacity: 1; }
+  60%  { opacity: 1; }
+  80%  { left: 110%; opacity: 0; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* ---- Volume chip with scale bar ---- */
+.vol-chip {
+  --vol-fill: 0%;
+}
+.vol-chip > .vol-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(120,180,255,.65), rgba(243,146,0,.85));
+  width: var(--vol-fill);
+  border-radius: 0 0 100px 100px;
+  opacity: .85;
+}
+.vol-chip.vol-hot > .vol-bar {
+  background: linear-gradient(90deg, #fff, #FFE0AE);
+  height: 4px;
+}
+.fleet-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.fleet-brands, .fleet-container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-100);
+}
+.fb-head { margin-bottom: 18px; }
+.fb-tag {
+  display: inline-block;
+  background: rgba(24,96,176,.08);
+  color: #1860B0;
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+.fb-tag.cont { background: rgba(243,146,0,.12); color: var(--orange-600); }
+.fleet-brands h3, .fleet-container h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0B1F3A;
+  letter-spacing: -0.3px;
+}
+.brand-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.brand-chip {
+  background: linear-gradient(135deg, #1860B0, #3A7FD4);
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  box-shadow: 0 4px 10px rgba(24,96,176,.28);
+}
+.weight-bars { display: flex; flex-direction: column; gap: 14px; }
+.wbar {
+  position: relative;
+  background: #0B1F3A;
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  min-height: 110px;
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 8px 22px rgba(11,31,58,.10);
+  isolation: isolate;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+}
+.wbar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(11,31,58,.18);
+}
+.wbar-scene {
+  position: relative;
+  overflow: hidden;
+  background: #0B1F3A;
+}
+.wbar-scene svg { display: block; width: 100%; height: 100%; }
+.wbar-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 60%, #fff 100%);
+  pointer-events: none;
+}
+.wbar-content {
+  background: #fff;
+  padding: 12px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+.wbar-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.wbar-zone {
+  display: inline-block;
+  font-size: 9.5px;
+  letter-spacing: 2.2px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #1860B0, #2778D4);
+  padding: 4px 9px;
+  border-radius: 100px;
+  box-shadow: 0 3px 8px rgba(24,96,176,.3);
+}
+.wbar-trunk .wbar-zone {
+  background: linear-gradient(135deg, var(--orange-500, #F39200), #E8740B);
+  box-shadow: 0 3px 8px rgba(243,146,0,.35);
+}
+.wbar-region .wbar-zone {
+  background: linear-gradient(135deg, #2778D4, #5BA0E8);
+  box-shadow: 0 3px 8px rgba(39,120,212,.3);
+}
+.wbar-head strong {
+  font-size: 24px;
+  font-weight: 900;
+  color: #0B1F3A;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.wbar-head strong em {
+  font-style: normal;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 700;
+  margin-left: 2px;
+  letter-spacing: .3px;
+}
+.wbar-desc {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 600;
+  letter-spacing: .2px;
+  line-height: 1.45;
+}
+.wbar-bar {
+  margin-top: 6px;
+  height: 6px;
+  background: var(--gray-100);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.wbar-bar > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #1860B0, #3A7FD4);
+  border-radius: 100px;
+  transition: width 1.2s cubic-bezier(.2,.8,.2,1) .4s;
+  position: relative;
+}
+.wbar-bar > span::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 8px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.65));
+  animation: wbarShine 2s ease-in-out infinite;
+}
+@keyframes wbarShine {
+  0%, 100% { opacity: .3; }
+  50%      { opacity: 1; }
+}
+.wbar-trunk .wbar-bar > span { background: linear-gradient(90deg, var(--orange-500,#F39200), #FFB347); }
+.wbar-region .wbar-bar > span { background: linear-gradient(90deg, #2778D4, #6FB0F2); }
+.wbar.on .wbar-bar > span,
+.fleet-brands.on .wbar .wbar-bar > span { width: var(--cap, 50%); }
+
+/* Truck movement across scene */
+.wbar-truck {
+  transform: translateX(-50px);
+  animation: wbarDrive 9s linear infinite;
+}
+.wbar-region .wbar-truck { animation-duration: 8s; }
+.wbar-trunk  .wbar-truck { animation-duration: 7s; }
+@keyframes wbarDrive {
+  0%   { transform: translateX(-60px); }
+  100% { transform: translateX(380px); }
+}
+
+/* City window twinkle */
+.city-windows rect {
+  animation: cityTwinkle 2.4s ease-in-out infinite;
+}
+.city-windows rect:nth-child(2n)  { animation-delay: .4s; }
+.city-windows rect:nth-child(3n)  { animation-delay: .8s; }
+.city-windows rect:nth-child(5n)  { animation-delay: 1.2s; }
+.city-windows rect:nth-child(7n)  { animation-delay: 1.6s; }
+@keyframes cityTwinkle {
+  0%, 100% { opacity: .4; }
+  50%      { opacity: 1; }
+}
+
+/* Cloud drift */
+.cloud-layer { animation: cloudDrift 28s linear infinite; }
+@keyframes cloudDrift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(40px); }
+}
+
+@media (max-width: 540px) {
+  .wbar { grid-template-columns: 100px 1fr; min-height: 92px; }
+  .wbar-head strong { font-size: 20px; }
+}
+.cont-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 18px; }
+
+/* ---- Hero port scene ---- */
+.cont-hero {
+  position: relative;
+  height: 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: -8px -8px 18px;
+  box-shadow: 0 10px 24px rgba(11,31,58,.18);
+  isolation: isolate;
+}
+.cont-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(11,31,58,.35) 100%);
+  pointer-events: none;
+}
+.cont-port { display: block; width: 100%; height: 100%; }
+.cont-hero-overlay {
+  position: absolute;
+  bottom: 10px; left: 12px;
+  z-index: 2;
+}
+.cont-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(11,31,58,.85);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.cont-dot {
+  width: 7px; height: 7px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22C55E;
+  animation: contLive 1.6s ease-in-out infinite;
+}
+@keyframes contLive {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .55; transform: scale(1.25); }
+}
+.cont-clouds { animation: cloudDrift 32s linear infinite; }
+.water-ripples { animation: waterShift 6s ease-in-out infinite; }
+@keyframes waterShift {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(6px); }
+}
+.crane-trolley {
+  transform-origin: 342px 14px;
+  animation: craneSlide 8s ease-in-out infinite;
+}
+@keyframes craneSlide {
+  0%, 100% { transform: translateX(-60px); }
+  50%      { transform: translateX(60px); }
+}
+.port-truck {
+  transform: translateX(-90px);
+  animation: portDrive 11s linear infinite;
+}
+@keyframes portDrive {
+  0%   { transform: translateX(-90px); }
+  100% { transform: translateX(480px); }
+}
+
+/* ---- Container grid ---- */
+.cont-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cont-item {
+  position: relative;
+  background: linear-gradient(180deg, #F6F8FC 0%, #ECF1F8 100%);
+  border: 1px solid var(--gray-100);
+  border-radius: 14px;
+  padding: 14px 10px 12px;
+  text-align: center;
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cont-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(11,31,58,.04) 7px 8px);
+  pointer-events: none;
+  opacity: .6;
+}
+.cont-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(11,31,58,.18);
+  border-color: rgba(24,96,176,.35);
+}
+.cont-item:hover .cont-illu { transform: translateY(-3px) scale(1.04); }
+.cont-illu {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 6px 10px rgba(11,31,58,.18));
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.cont-item.hot {
+  background: linear-gradient(135deg, #FFE0AE 0%, #FFB347 60%, var(--orange-500) 100%);
+  border-color: rgba(243,146,0,.6);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(243,146,0,.42);
+  animation: contHotPulse 2.6s ease-in-out infinite;
+}
+@keyframes contHotPulse {
+  0%, 100% { box-shadow: 0 12px 26px rgba(243,146,0,.42); }
+  50%      { box-shadow: 0 18px 38px rgba(243,146,0,.65); }
+}
+.cont-item.hot::before {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(255,255,255,.10) 7px 8px);
+}
+.cont-item.hot::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,.5) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: contHotShine 3.2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes contHotShine {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+.cont-flag {
+  position: absolute;
+  top: 6px; right: 6px;
+  background: #fff;
+  color: var(--orange-600, #c4660b);
+  font-size: 8.5px;
+  letter-spacing: 1.2px;
+  font-weight: 900;
+  padding: 3px 6px;
+  border-radius: 4px;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.cont-size {
+  font-size: 28px;
+  font-weight: 900;
+  color: #1860B0;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+.cont-size span { font-size: 14px; opacity: .7; margin-left: 1px; font-weight: 800; }
+.cont-item.hot .cont-size {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+.cont-ton {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+.cont-item.hot .cont-ton {
+  color: #fff;
+  background: rgba(0,0,0,.18);
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+.cont-foot {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* ===========================================================
+   TECH SECTION (Công nghệ vận hành số)
+   =========================================================== */
+.tech-sec { background: linear-gradient(180deg, var(--bg-1) 0%, #fff 100%); }
+.tech-grid-lp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.tech-card-lp {
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform .4s, box-shadow .4s;
+  display: flex;
+  flex-direction: column;
+}
+.tech-card-lp:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.tech-banner-lp {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: #0B1F3A;
+}
+.tech-banner-lp img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.tech-card-lp:hover .tech-banner-lp img { transform: scale(1.06); }
+.tech-banner-lp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.4) 100%);
+  pointer-events: none;
+}
+.tech-body-lp { padding: 26px 28px; flex: 1; display: flex; flex-direction: column; }
+.tech-tag-lp {
+  display: inline-block;
+  background: rgba(24,96,176,.1);
+  color: #1860B0;
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+.tech-zalo .tech-tag-lp { background: rgba(243,146,0,.14); color: var(--orange-600); }
+.tech-body-lp h3 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: #0B1F3A;
+  margin-bottom: 12px;
+  line-height: 1.22;
+}
+.tech-body-lp h3 .accent { color: var(--orange-500); }
+.tech-body-lp p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+.tech-chips-lp { display: flex; flex-wrap: wrap; gap: 7px; }
+.tech-chips-lp span {
+  background: var(--bg-1);
+  color: #1860B0;
+  border: 1px solid var(--gray-100);
+  padding: 5px 11px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.tech-zalo .tech-chips-lp span { background: rgba(243,146,0,.08); color: var(--orange-600); border-color: rgba(243,146,0,.2); }
+
+/* Zalo mockup banner */
+.zalo-mockup-lp {
+  background: linear-gradient(180deg, #E8F4FF 0%, #C9E3FF 100%) !important;
+  padding: 14px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px;
+  justify-content: center;
+}
+.zalo-mockup-lp::after { display: none !important; }
+.zalo-m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #006AF5;
+  letter-spacing: .5px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0,106,245,.18);
+  margin-bottom: 2px;
+}
+.zalo-m-live {
+  color: #EF4444;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  font-weight: 900;
+}
+.zalo-m-msg {
+  font-size: 11px;
+  padding: 6px 11px;
+  border-radius: 12px;
+  max-width: 80%;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #0B1F3A;
+}
+.zalo-m-msg.driver {
+  background: #fff;
+  align-self: flex-start;
+  border: 1px solid rgba(0,106,245,.12);
+}
+.zalo-m-msg.me {
+  background: #006AF5;
+  color: #fff;
+  align-self: flex-end;
+}
+
+@media (max-width: 960px) {
+  .network-layout { grid-template-columns: 1fr; }
+  .netmap-frame { height: auto; }
+  .netmap-frame img { height: auto; object-fit: contain; }
+  .fleet-split { grid-template-columns: 1fr; }
+  .tech-grid-lp { grid-template-columns: 1fr; }
+  .dim-numbers { gap: 10px; }
+  .dim-val { font-size: 44px; }
+  .leadtime-hero-val { font-size: 40px; }
+}
+
+/* ===========================================================
+   PROCESS (6 steps + incident box)
+   =========================================================== */
+.process {
+  background: var(--bg-1);
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+.process-steps::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue-500), var(--orange-500));
+  z-index: 0;
+}
+.pstep {
+  background: #fff;
+  padding: 22px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: all .3s;
+}
+.pstep:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.pstep-no {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--blue-600);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  margin: 0 auto 14px;
+  border: 2.5px solid var(--blue-500);
+  position: relative;
+  font-family: 'JetBrains Mono', monospace;
+}
+.pstep:nth-child(4) .pstep-no,
+.pstep:nth-child(5) .pstep-no,
+.pstep:nth-child(6) .pstep-no {
+  color: var(--orange-600);
+  border-color: var(--orange-500);
+}
+.pstep h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--ink-100);
+  line-height: 1.3;
+}
+.pstep p { font-size: 12px; color: var(--ink-300); line-height: 1.5; }
+
+.incident-box {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--ink-100), #1F334D);
+  color: #fff;
+  padding: 40px 44px;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+  align-items: center;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+.incident-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(241,168,43,.2), transparent 70%);
+  pointer-events: none;
+}
+.incident-icon {
+  width: 68px; height: 68px;
+  background: var(--grad-orange);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(241,168,43,.4);
+  position: relative;
+  z-index: 1;
+}
+.incident-icon svg { width: 34px; height: 34px; display: block; }
+.incident-text { position: relative; z-index: 1; }
+.incident-text h4 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -.4px;
+}
+.incident-text h4 .accent { color: var(--orange-400); }
+.incident-text p { font-size: 14px; opacity: .85; line-height: 1.5; max-width: 480px; }
+.incident-levels {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+.incident-level {
+  padding: 10px 14px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 10px;
+  text-align: center;
+  min-width: 80px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.incident-level .lv { font-size: 10px; color: var(--orange-400); letter-spacing: 1.5px; font-weight: 700; }
+.incident-level .t { font-size: 14px; color: #fff; font-weight: 700; margin-top: 3px; }
+
+/* ===========================================================
+   PARTNERS MARQUEE
+   =========================================================== */
+.partners {
+  padding: 80px 0;
+  background: #fff;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.partners-head {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 6vw;
+}
+.partners-strip {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.partners-track {
+  display: flex;
+  gap: 60px;
+  animation: partnerScroll 32s linear infinite;
+  align-items: center;
+  width: max-content;
+}
+.partners:hover .partners-track { animation-play-state: paused; }
+.partner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 28px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  min-width: 220px;
+  transition: all .3s;
+}
+.partner:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.partner-name {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -.3px;
+  line-height: 1;
+}
+.partner-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  display: block;
+  margin-top: 3px;
+}
+@keyframes partnerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ===========================================================
+   LEAD FORM
+   =========================================================== */
+.lead {
+  background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-600) 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.lead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    url('images/01-hero-trucks.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: .15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.lead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 400px at 10% 20%, rgba(241,168,43,.18), transparent 70%),
+    radial-gradient(500px 400px at 90% 80%, rgba(58,174,240,.22), transparent 70%);
+  pointer-events: none;
+}
+.lead-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.lead-copy h2 {
+  font-size: clamp(32px, 4.5vw, 54px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  margin-bottom: 20px;
+}
+.lead-copy h2 .accent { color: var(--orange-300); }
+.lead-copy p {
+  font-size: 17px;
+  opacity: .92;
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.lead-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 480px;
+}
+.lead-perk {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.lead-perk .ic {
+  width: 32px; height: 32px;
+  background: var(--orange-500);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(241,168,43,.4);
+}
+.lead-perk .ic svg { width: 18px; height: 18px; display: block; }
+
+.lead-form {
+  background: #fff;
+  padding: 36px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-xl);
+  color: var(--ink-100);
+}
+.lead-form h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -.4px;
+  color: var(--ink-100);
+}
+.lead-form .lead-form-sub {
+  font-size: 13px;
+  color: var(--ink-400);
+  margin-bottom: 24px;
+}
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.field input, .field select {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--bg-1);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--ink-100);
+  transition: all .2s;
+}
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3e%3cpath d='M1 1L6 6L11 1' stroke='%230B1F3A' stroke-width='1.5'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+}
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(2,115,190,.12);
+}
+.lead-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--grad-orange);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px rgba(241,168,43,.4);
+  transition: all .25s;
+  margin-top: 8px;
+}
+.btn-submit:hover { box-shadow: 0 14px 32px rgba(241,168,43,.55); transform: translateY(-2px); }
+.lead-form-trust {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--ink-400);
+  text-align: center;
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+.footer {
+  background: var(--bg-1);
+  padding: 60px 6vw 30px;
+  border-top: 1px solid var(--border);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto 40px;
+}
+.footer-brand-col .fb-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.footer-brand-col .fb-logo img { height: 52px; }
+.footer-brand-col .fb-name {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -.5px;
+  line-height: 1.1;
+}
+.footer-brand-col .fb-name .sub {
+  font-size: 10px;
+  display: block;
+  color: var(--orange-500);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.footer-brand-col p {
+  font-size: 13.5px;
+  color: var(--ink-300);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 380px;
+}
+.footer-brand-col .fb-company {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-100);
+}
+
+.footer-col h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col li {
+  font-size: 13.5px;
+  color: var(--ink-200);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-col li .ic {
+  color: var(--orange-500);
+  flex-shrink: 0;
+  margin-top: 1px;
+  width: 16px; height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-col li .ic svg { width: 16px; height: 16px; display: block; }
+.footer-col a { color: inherit; text-decoration: none; transition: color .2s; }
+.footer-col a:hover { color: var(--blue-600); }
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12.5px;
+  color: var(--ink-400);
+}
+.footer-bottom .meta {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); }
+  .process-steps::before { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding: 120px 5vw 60px; gap: 40px; min-height: auto; }
+  .hero-visual { height: 400px; }
+  .hero-stats-mini { max-width: 100%; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-stats { grid-template-columns: 1fr; gap: 12px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .flip-card { aspect-ratio: 4/2.5; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .incident-box { grid-template-columns: 1fr; text-align: center; gap: 20px; padding: 32px 24px; }
+  .incident-icon { margin: 0 auto; }
+  .incident-levels { justify-content: center; flex-wrap: wrap; }
+  .lead-layout { grid-template-columns: 1fr; gap: 40px; }
+  .lead-perks { grid-template-columns: 1fr; }
+  .lead-form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .nav a:not(.nav-cta) { display: none; }
+  .section { padding: 80px 5vw; }
+  .nav { padding: 6px 8px; gap: 4px; }
+}
+
+/* Reveal on scroll */
+.r { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.r.on { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ========== SVG ICON SPRITE ========== -->
+<svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-truck" viewBox="0 0 32 32">
+      <path d="M3 8h17v14H3V8Zm17 4h6l3 4v6h-9V12Z" stroke="currentColor" stroke-width="2"/>
+      <circle cx="9" cy="24" r="2.5" fill="currentColor"/>
+      <circle cx="23" cy="24" r="2.5" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-package" viewBox="0 0 32 32">
+      <path d="M16 4 28 10v12L16 28 4 22V10L16 4Z" stroke="currentColor" stroke-width="2"/>
+      <path d="M4 10l12 6 12-6M16 16v12M10 7l12 6" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-route" viewBox="0 0 32 32">
+      <path d="M7 5c0 6 4 10 9 10s9 4 9 10" stroke="currentColor" stroke-width="2"/>
+      <circle cx="7" cy="5" r="3" stroke="currentColor" stroke-width="2"/>
+      <circle cx="25" cy="27" r="3" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 19l4 4 4-4" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-crane" viewBox="0 0 32 32">
+      <path d="M8 28V4h16L18 10H8M8 14h8" stroke="currentColor" stroke-width="2"/>
+      <path d="M16 10v10" stroke="currentColor" stroke-width="2"/>
+      <rect x="12" y="20" width="8" height="8" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-warehouse" viewBox="0 0 32 32">
+      <path d="M4 14 16 6l12 8v14H4V14Z" stroke="currentColor" stroke-width="2"/>
+      <rect x="10" y="17" width="12" height="11" stroke="currentColor" stroke-width="2"/>
+      <path d="M10 21h12M10 25h12" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-lightning" viewBox="0 0 32 32">
+      <path d="M18 3 6 18h8l-2 11 14-15h-8l0-11Z" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity=".12"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 32 32">
+      <rect x="5" y="14" width="22" height="15" rx="2" stroke="currentColor" stroke-width="2"/>
+      <path d="M10 14v-4a6 6 0 0 1 12 0v4" stroke="currentColor" stroke-width="2"/>
+      <circle cx="16" cy="21" r="1.5" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 32 32">
+      <path d="M26 22.5V26c0 1.1-.9 2-2 2C14.6 28 4 17.4 4 8c0-1.1.9-2 2-2h3.5L12 12l-2 2c1 3 5 7 8 8l2-2 6 2.5Z" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+      <path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 32 32">
+      <path d="M16 28s10-8 10-16a10 10 0 1 0-20 0c0 8 10 16 10 16Z" stroke="currentColor" stroke-width="2"/>
+      <circle cx="16" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+      <path d="M4 16h24M16 4c4 4 6 8 6 12s-2 8-6 12c-4-4-6-8-6-12s2-8 6-12Z" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-hub" viewBox="0 0 32 32">
+      <path d="M16 4 28 16 16 28 4 16 16 4Z" stroke="currentColor" stroke-width="2"/>
+      <circle cx="16" cy="16" r="4" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-fleet" viewBox="0 0 32 32">
+      <rect x="3" y="11" width="11" height="11" stroke="currentColor" stroke-width="2"/>
+      <rect x="16" y="11" width="13" height="11" stroke="currentColor" stroke-width="2"/>
+      <circle cx="6" cy="25" r="2" fill="currentColor"/>
+      <circle cx="11" cy="25" r="2" fill="currentColor"/>
+      <circle cx="20" cy="25" r="2" fill="currentColor"/>
+      <circle cx="26" cy="25" r="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-tech" viewBox="0 0 32 32">
+      <rect x="8" y="8" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+      <rect x="12" y="12" width="8" height="8" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity=".15"/>
+      <path d="M13 4v4M19 4v4M13 24v4M19 24v4M4 13h4M4 19h4M24 13h4M24 19h4" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-network" viewBox="0 0 32 32">
+      <circle cx="8" cy="9" r="3" stroke="currentColor" stroke-width="2"/>
+      <circle cx="24" cy="9" r="3" stroke="currentColor" stroke-width="2"/>
+      <circle cx="16" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
+      <path d="M11 9h10M10 12l5 10M22 12l-5 10" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 32 32">
+      <path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-live" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="5" fill="currentColor"/>
+      <path d="M23 9a10 10 0 0 1 0 14M9 9a10 10 0 0 0 0 14M27 5a16 16 0 0 1 0 22M5 5a16 16 0 0 0 0 22" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <div class="nav-brand">
+    <img src="logo-nak.png" alt="NAK Logistics"/>
+    <span class="nav-brand-dot"></span>
+  </div>
+  <a href="#about">Về chúng tôi</a>
+  <a href="#network">Mạng lưới</a>
+  <a href="#fleet">Phương tiện</a>
+  <a href="#services">Dịch vụ</a>
+  <a href="#tech">Công nghệ</a>
+  <a href="#process">Quy trình</a>
+  <a href="#partners">Đối tác</a>
+  <a href="#contact" class="nav-cta">Nhận báo giá</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-breadcrumb">NAK · Hồ sơ năng lực · <em>2025</em></div>
+    <h1>
+      NAK Logistics — <br/>
+      <span class="accent">Giải pháp vận tải<br/>thế hệ mới.</span>
+    </h1>
+    <h2>
+      <strong>Vận hành thông minh — Phủ sóng toàn quốc.</strong>
+      NAK Việt Nam cam kết mang đến dịch vụ vận chuyển nhanh chóng, an toàn và
+      tối ưu chi phí nhất cho doanh nghiệp của bạn.
+    </h2>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-orange">NHẬN BÁO GIÁ NGAY →</a>
+      <a href="tel:0986524228" class="btn btn-blue"><span class="dot"></span> 0986.524.228</a>
+    </div>
+    <div class="hero-stats-mini">
+      <div class="hero-stat-mini"><div class="n">2019</div><div class="l">Năm thành lập</div></div>
+      <div class="hero-stat-mini"><div class="n">120+</div><div class="l">Phương tiện</div></div>
+      <div class="hero-stat-mini"><div class="n">63</div><div class="l">Tỉnh phủ sóng</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img class="hero-visual-img" src="images/01-hero-trucks.webp" alt="Xe NAK trên cao tốc Việt Nam" width="1600" height="900"/>
+    <div class="hero-live-badge"><span class="nav-brand-dot"></span> <span><strong>121 xe</strong> đang vận hành</span></div>
+    <div class="hero-route-stamp">
+      <span class="l" style="display:inline-flex;align-items:center;gap:6px;"><svg class="icon"><use href="#i-live"/></svg> LIVE</span>
+      <span><strong>Hà Nội</strong> → <strong>TP.HCM</strong> · 1,720 km · lead-time 36h</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUCK STRIP ========== -->
+<div class="truck-strip" aria-hidden="true">
+  <div class="truck-strip-track">
+    <span><svg class="icon truck-emoji"><use href="#i-truck"/></svg> 120+ phương tiện hoạt động 24/7</span><span class="delim">///</span>
+    <span>Camera cabin + thùng xe 100%</span><span class="delim">///</span>
+    <span>SLA xử lý sự cố cấp 1 &lt; 5 phút</span><span class="delim">///</span>
+    <span>3 trung tâm khai thác · Bắc Trung Nam</span><span class="delim">///</span>
+    <span><svg class="icon truck-emoji"><use href="#i-truck"/></svg> E-Trucking · GPS realtime</span><span class="delim">///</span>
+    <span>On-time Q1/2025 · 98.7%</span><span class="delim">///</span>
+
+    <span><svg class="icon truck-emoji"><use href="#i-truck"/></svg> 120+ phương tiện hoạt động 24/7</span><span class="delim">///</span>
+    <span>Camera cabin + thùng xe 100%</span><span class="delim">///</span>
+    <span>SLA xử lý sự cố cấp 1 &lt; 5 phút</span><span class="delim">///</span>
+    <span>3 trung tâm khai thác · Bắc Trung Nam</span><span class="delim">///</span>
+    <span><svg class="icon truck-emoji"><use href="#i-truck"/></svg> E-Trucking · GPS realtime</span><span class="delim">///</span>
+    <span>On-time Q1/2025 · 98.7%</span><span class="delim">///</span>
+  </div>
+</div>
+
+<!-- ========== ABOUT US ========== -->
+<section class="section about" id="about">
+  <div class="about-grid">
+    <div class="about-image r">
+      <img src="images/05-driver-team.webp" alt="Tài xế NAK Logistics"/>
+      <div class="about-image-badge">
+        <div class="big">06<span style="font-size:18px; color:var(--orange-500);">+</span></div>
+        <div class="sml">NĂM KINH NGHIỆM<br/>VẬN CHUYỂN</div>
+      </div>
+    </div>
+    <div class="about-copy r">
+      <span class="sec-kicker">§ Về chúng tôi</span>
+      <h2>Tự hào đồng hành<br/>cùng <span class="accent">doanh nghiệp Việt</span>.</h2>
+      <p>Được thành lập từ <strong>năm 2019</strong>, Công ty CPTM Dịch Vụ và Vận Tải N.A.K Việt Nam tự hào là đối tác vận tải uy tín, luôn đặt lợi ích khách hàng lên hàng đầu.</p>
+      <div class="about-quote">“Chăm sóc khách hàng là để tồn tại và phát triển.”</div>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-hub"/></svg></div>
+          <div class="big">3<span class="unit">+</span></div>
+          <div class="lbl">Trung tâm khai thác lớn<br/>Hà Nội · Đà Nẵng · TP.HCM</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-fleet"/></svg></div>
+          <div class="big">120<span class="unit">+</span></div>
+          <div class="lbl">Phương tiện đa dạng<br/>1.4 tấn → 15 tấn</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-tech"/></svg></div>
+          <div class="big">100<span class="unit">%</span></div>
+          <div class="lbl">Phương tiện giám sát bằng<br/>công nghệ E-Trucking</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES · 4 FLIP CARDS ========== -->
+<section class="section" id="services">
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Hệ sinh thái dịch vụ B2B</span>
+    <h2 class="sec-title">FTL · Multi-drop · <span class="accent">W2W · D2D</span></h2>
+    <p class="sec-dek">Bốn khối dịch vụ thông minh, phục vụ xuyên suốt chuỗi cung ứng doanh nghiệp — từ nguyên chuyến tới phân phối rải điểm, từ kho tới cửa. Di chuột vào thẻ để xem chi tiết.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="flip-card r">
+      <div class="flip-card-inner">
+        <div class="flip-card-front has-img">
+          <img class="flip-card-img" src="images/01-hero-trucks-branded.webp" alt="Vận tải nguyên chuyến NAK"/>
+          <div class="flip-card-shade"></div>
+          <div class="flip-card-top">
+            <div class="icon service-ic"><svg><use href="#i-package"/></svg></div>
+            <div class="num">FTL · 01</div>
+          </div>
+          <div class="flip-card-bottom">
+            <h3>Vận tải<br/>Nguyên chuyến</h3>
+            <div class="hint">Xem chi tiết</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <h4>Full-Truckload<br/>Liên vùng · Nội tỉnh</h4>
+          <p>Thuê nguyên chuyến điểm–điểm cho hàng khối lượng lớn. Không dừng trung chuyển, tối ưu SLA và tính bảo mật chuỗi hàng.</p>
+          <ul>
+            <li>Liên vùng · nội vùng · nội tỉnh</li>
+            <li>Tải trọng 2T / 5T / 8T / container</li>
+            <li>Lead-time chuẩn xác theo hợp đồng</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card r">
+      <div class="flip-card-inner">
+        <div class="flip-card-front has-img">
+          <img class="flip-card-img" src="images/06-vietnam-3d-network.webp" alt="Mạng lưới phân phối toàn quốc"/>
+          <div class="flip-card-shade"></div>
+          <div class="flip-card-top">
+            <div class="icon service-ic"><svg><use href="#i-route"/></svg></div>
+            <div class="num">MULTI-DROP · 02</div>
+          </div>
+          <div class="flip-card-bottom">
+            <h3>Phân phối<br/>Rải điểm</h3>
+            <div class="hint">Xem chi tiết</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <h4>Multi-drop<br/>Delivery</h4>
+          <p>Gom hàng & phân phối đồng thời tới nhiều điểm đích trong 1 tuyến. Tối ưu CPK cho FMCG, chuỗi siêu thị, nhà bán lẻ.</p>
+          <ul>
+            <li>AI Routing tự động xếp tuyến</li>
+            <li>Tracking từng điểm đích real-time</li>
+            <li>ePOD đa điểm trên App</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card r">
+      <div class="flip-card-inner">
+        <div class="flip-card-front has-img">
+          <img class="flip-card-img" src="images/03-warehouse.webp" alt="Kho trung tâm phân phối"/>
+          <div class="flip-card-shade"></div>
+          <div class="flip-card-top">
+            <div class="icon service-ic"><svg><use href="#i-warehouse"/></svg></div>
+            <div class="num">W2W · 03</div>
+          </div>
+          <div class="flip-card-bottom">
+            <h3>Kho → Kho<br/>Warehouse-to-Warehouse</h3>
+            <div class="hint">Xem chi tiết</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <h4>Direct<br/>Distribution</h4>
+          <p>Phân phối nguyên chuyến giữa các DC / kho trung tâm. Đồng bộ lịch xuất–nhập, cân đối tồn kho giữa chuỗi cung ứng đa vùng.</p>
+          <ul>
+            <li>Lịch chạy đường trục cố định</li>
+            <li>Container 20ft / 40ft / 45ft</li>
+            <li>Cross-docking tại 3 miền</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card r">
+      <div class="flip-card-inner">
+        <div class="flip-card-front has-img">
+          <img class="flip-card-img" src="images/05-driver-team.webp" alt="Đội ngũ giao hàng tận cửa"/>
+          <div class="flip-card-shade"></div>
+          <div class="flip-card-top">
+            <div class="icon service-ic"><svg><use href="#i-pin"/></svg></div>
+            <div class="num">D2D · 04</div>
+          </div>
+          <div class="flip-card-bottom">
+            <h3>Cửa → Cửa<br/>Door-to-Door</h3>
+            <div class="hint">Xem chi tiết</div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <h4>End-to-End<br/>Delivery</h4>
+          <p>Giải pháp trọn gói từ kho người gửi tới tận tay người nhận: pickup, đường trục, bốc dỡ, giao tận nơi — 01 điểm chạm trách nhiệm.</p>
+          <ul>
+            <li>Pickup tận nơi · giao tận cửa</li>
+            <li>Leadtime Bắc–Nam 48h – 60h</li>
+            <li>Bảo hiểm hàng hoá full chain</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== NETWORK · MẠNG LƯỚI KHAI THÁC ========== -->
+<section class="section network-sec" id="network">
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Mạng lưới khai thác</span>
+    <h2 class="sec-title">Trung tâm điều hành <span class="accent">Bắc – Nam</span> · Leadtime đường trục chuẩn xác.</h2>
+    <p class="sec-dek">Hai NOC (Network Operations Center) Hà Nội – TP.HCM kiểm soát và điều phối luồng hàng toàn quốc. Hub trung chuyển Đà Nẵng tối ưu AI Routing đường trục.</p>
+  </div>
+
+  <div class="network-layout">
+    <div class="network-info r">
+      <div class="leadtime-hero">
+        <div class="leadtime-hero-icon">⏱</div>
+        <div class="leadtime-hero-text">
+          <div class="leadtime-hero-val">48<span>–</span>60<small>h</small></div>
+          <div class="leadtime-hero-lbl">DOOR-TO-DOOR · TRỤC BẮC ↔ NAM</div>
+        </div>
+        <div class="leadtime-hero-arrow">↯</div>
+      </div>
+
+      <div class="noc-list">
+        <div class="noc-card">
+          <div class="noc-tag"><span class="noc-pin n"></span> NOC MIỀN BẮC</div>
+          <h4>Hà Nội</h4>
+          <p>Trung tâm điều hành phụ trách các tỉnh phía Bắc: Hải Phòng · Quảng Ninh · Bắc Ninh · Hưng Yên · Nam Định · Thanh Hoá · Nghệ An…</p>
+        </div>
+        <div class="noc-card">
+          <div class="noc-tag"><span class="noc-pin s"></span> NOC MIỀN NAM</div>
+          <h4>TP. Hồ Chí Minh</h4>
+          <p>Điều phối mạng lưới phân phối các tỉnh phía Nam: Bình Dương · Đồng Nai · Long An · Vũng Tàu · Cần Thơ · An Giang · Cà Mau…</p>
+        </div>
+        <div class="noc-card hub">
+          <div class="noc-tag"><span class="noc-pin h"></span> HUB TRUNG CHUYỂN</div>
+          <h4>Đà Nẵng</h4>
+          <p>Điểm trung chuyển đường trục miền Trung — AI Routing & cân tải 2 chiều Bắc ↔ Nam, đảm bảo tần suất chạy liên tục 24/7.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="network-map r">
+      <div class="netmap-frame">
+        <img src="images/06-vietnam-3d-network.webp" alt="Bản đồ mạng lưới NAK Logistics"/>
+        <div class="netmap-status"><span class="netmap-dot"></span> LIVE NETWORK · 24/7</div>
+        <div class="netmap-route">
+          <svg viewBox="0 0 100 100"><use href="#i-arrow"/></svg>
+          <div>
+            <strong>HÀ NỘI → TP.HCM</strong>
+            <span>1,720 km · 48h Door-to-Door</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FLEET · NĂNG LỰC PHƯƠNG TIỆN ========== -->
+<section class="section fleet-sec" id="fleet">
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Năng lực phương tiện</span>
+    <h2 class="sec-title">Lợi thế <span class="accent">kích thước thùng xe</span> siêu lớn.</h2>
+    <p class="sec-dek">Đội xe tải thùng kín hùng hậu ISUZU · HINO · CHENLONG · FAW — giải quyết triệt để bài toán hàng cồng kềnh, tối ưu chi phí trên mỗi chuyến.</p>
+  </div>
+
+  <div class="fleet-infographic">
+    <!-- Hero dimensions card -->
+    <div class="dim-hero r">
+      <div class="dim-scanline"></div>
+      <svg class="dim-iso" viewBox="0 0 420 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="dimIsoFront" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(120,180,255,.18)"/>
+            <stop offset="100%" stop-color="rgba(120,180,255,.04)"/>
+          </linearGradient>
+          <linearGradient id="dimIsoTop" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(255,255,255,.22)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,.06)"/>
+          </linearGradient>
+          <linearGradient id="dimIsoSide" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(243,146,0,.18)"/>
+            <stop offset="100%" stop-color="rgba(243,146,0,.04)"/>
+          </linearGradient>
+        </defs>
+        <g class="dim-iso-faces">
+          <polygon class="iso-face iso-front" points="60,140 280,140 280,260 60,260" fill="url(#dimIsoFront)"/>
+          <polygon class="iso-face iso-top"   points="60,140 280,140 360,80 140,80"  fill="url(#dimIsoTop)"/>
+          <polygon class="iso-face iso-side"  points="280,140 360,80 360,200 280,260" fill="url(#dimIsoSide)"/>
+        </g>
+        <g class="dim-iso-edges" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.4" stroke-linecap="round">
+          <polyline points="60,140 280,140 280,260 60,260 60,140"/>
+          <polyline points="60,140 140,80 360,80 280,140"/>
+          <polyline points="280,140 360,80 360,200 280,260"/>
+          <line x1="360" y1="200" x2="280" y2="260" stroke-dasharray="3 4" opacity=".6"/>
+        </g>
+        <g class="dim-iso-dims" fill="rgba(255,255,255,.85)" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="800" letter-spacing="2">
+          <line x1="60" y1="278" x2="280" y2="278" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <line x1="60" y1="272" x2="60" y2="284" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <line x1="280" y1="272" x2="280" y2="284" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <text x="170" y="296" text-anchor="middle" fill="var(--orange-300,#FFB347)">L · 9.9m</text>
+          <line x1="42" y1="140" x2="42" y2="260" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <line x1="36" y1="140" x2="48" y2="140" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <line x1="36" y1="260" x2="48" y2="260" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <text x="32" y="205" text-anchor="end" fill="var(--orange-300,#FFB347)">H · 2.58m</text>
+          <line x1="290" y1="265" x2="370" y2="205" stroke="var(--orange-400,#ff9d2c)" stroke-width="1.2"/>
+          <text x="380" y="220" fill="var(--orange-300,#FFB347)">W · 2.43m</text>
+        </g>
+      </svg>
+      <div class="dim-label">HIGHLIGHT · KÍCH THƯỚC LÒNG THÙNG TỐI ĐA</div>
+      <div class="dim-numbers">
+        <div class="dim-block">
+          <div class="dim-val" data-count="9.9" data-decimals="1">0.0<span>m</span></div>
+          <div class="dim-lbl">CHIỀU DÀI</div>
+        </div>
+        <div class="dim-x">×</div>
+        <div class="dim-block">
+          <div class="dim-val" data-count="2.43" data-decimals="2">0.00<span>m</span></div>
+          <div class="dim-lbl">CHIỀU RỘNG</div>
+        </div>
+        <div class="dim-x">×</div>
+        <div class="dim-block">
+          <div class="dim-val" data-count="2.58" data-decimals="2">0.00<span>m</span></div>
+          <div class="dim-lbl">CHIỀU CAO</div>
+        </div>
+      </div>
+      <div class="dim-volumes">
+        <span class="vol-label">Thể tích thùng:</span>
+        <span class="vol-chip" data-vol="14">14m³</span>
+        <span class="vol-chip" data-vol="27">27m³</span>
+        <span class="vol-chip" data-vol="54">54m³</span>
+        <span class="vol-chip" data-vol="55">55m³</span>
+        <span class="vol-chip vol-hot" data-vol="60">60m³</span>
+      </div>
+    </div>
+
+    <!-- 2-col grid: brands + containers -->
+    <div class="fleet-split">
+      <div class="fleet-brands r">
+        <div class="fb-head">
+          <span class="fb-tag">ĐỘI XE TẢI THÙNG KÍN</span>
+          <h3>Đa dạng tải trọng <span class="accent">2T · 5T · 8T</span></h3>
+        </div>
+        <div class="brand-chips">
+          <span class="brand-chip">ISUZU</span>
+          <span class="brand-chip">HINO</span>
+          <span class="brand-chip">CHENLONG</span>
+          <span class="brand-chip">FAW</span>
+        </div>
+        <div class="weight-bars">
+
+          <!-- 2 TẤN · NỘI ĐÔ -->
+          <div class="wbar wbar-city" style="--cap:35%">
+            <div class="wbar-scene">
+              <svg viewBox="0 0 360 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="skyCity" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFC074"/>
+                    <stop offset="55%" stop-color="#F08A4D"/>
+                    <stop offset="100%" stop-color="#5C3B7A"/>
+                  </linearGradient>
+                </defs>
+                <rect width="360" height="86" fill="url(#skyCity)"/>
+                <circle cx="270" cy="40" r="16" fill="#FFE0AE" opacity=".85"/>
+                <g fill="#0B1F3A" opacity=".82">
+                  <rect x="0"   y="48" width="22" height="38"/>
+                  <rect x="24"  y="36" width="28" height="50"/>
+                  <rect x="54"  y="44" width="20" height="42"/>
+                  <rect x="76"  y="22" width="32" height="64"/>
+                  <rect x="110" y="38" width="22" height="48"/>
+                  <rect x="134" y="28" width="26" height="58"/>
+                  <rect x="162" y="46" width="18" height="40"/>
+                  <rect x="182" y="32" width="30" height="54"/>
+                  <rect x="214" y="42" width="22" height="44"/>
+                  <rect x="238" y="26" width="28" height="60"/>
+                  <rect x="268" y="40" width="20" height="46"/>
+                  <rect x="290" y="34" width="26" height="52"/>
+                  <rect x="318" y="46" width="22" height="40"/>
+                  <rect x="342" y="38" width="18" height="48"/>
+                </g>
+                <g class="city-windows" fill="#FFD494">
+                  <rect x="32" y="44" width="3" height="3"/><rect x="40" y="52" width="3" height="3"/>
+                  <rect x="84" y="32" width="3" height="3"/><rect x="92" y="48" width="3" height="3"/><rect x="100" y="62" width="3" height="3"/>
+                  <rect x="142" y="38" width="3" height="3"/><rect x="150" y="56" width="3" height="3"/>
+                  <rect x="190" y="42" width="3" height="3"/><rect x="200" y="60" width="3" height="3"/>
+                  <rect x="246" y="36" width="3" height="3"/><rect x="254" y="50" width="3" height="3"/>
+                  <rect x="296" y="44" width="3" height="3"/><rect x="304" y="60" width="3" height="3"/>
+                </g>
+                <rect x="0" y="86" width="360" height="24" fill="#0A1A33"/>
+                <g stroke="rgba(255,200,120,.55)" stroke-width="2" stroke-dasharray="8 10">
+                  <line x1="0" y1="98" x2="360" y2="98"/>
+                </g>
+                <g class="wbar-truck truck-sm">
+                  <rect x="0" y="74" width="22" height="14" rx="2" fill="#1860B0"/>
+                  <rect x="20" y="78" width="10" height="10" rx="1" fill="#0B1F3A"/>
+                  <rect x="22" y="80" width="6" height="5" fill="#9CC0EE"/>
+                  <circle cx="6"  cy="90" r="3" fill="#0B1F3A"/>
+                  <circle cx="24" cy="90" r="3" fill="#0B1F3A"/>
+                  <rect x="29" y="82" width="3" height="2" fill="#FFD494"/>
+                </g>
+              </svg>
+            </div>
+            <div class="wbar-content">
+              <div class="wbar-head">
+                <span class="wbar-zone">NỘI ĐÔ</span>
+                <strong>2 <em>Tấn</em></strong>
+              </div>
+              <div class="wbar-desc">Gom · phân phối lẻ trong thành phố</div>
+              <div class="wbar-bar"><span></span></div>
+            </div>
+          </div>
+
+          <!-- 5 TẤN · LIÊN VÙNG -->
+          <div class="wbar wbar-region" style="--cap:62%">
+            <div class="wbar-scene">
+              <svg viewBox="0 0 360 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="skyRegion" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#9DD9F4"/>
+                    <stop offset="100%" stop-color="#3A7FD4"/>
+                  </linearGradient>
+                  <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1F4E8E"/>
+                    <stop offset="100%" stop-color="#143666"/>
+                  </linearGradient>
+                </defs>
+                <rect width="360" height="86" fill="url(#skyRegion)"/>
+                <g class="cloud-layer" fill="rgba(255,255,255,.7)">
+                  <ellipse cx="60"  cy="22" rx="18" ry="5"/>
+                  <ellipse cx="180" cy="18" rx="22" ry="6"/>
+                  <ellipse cx="280" cy="26" rx="16" ry="5"/>
+                </g>
+                <circle cx="310" cy="32" r="14" fill="#FFE9B0" opacity=".9"/>
+                <path d="M0,72 Q60,48 130,60 T260,52 T360,58 L360,86 L0,86 Z" fill="url(#hillFar)" opacity=".65"/>
+                <path d="M0,80 Q70,62 150,72 T280,68 T360,72 L360,86 L0,86 Z" fill="#0E3F7E"/>
+                <g fill="#0B1F3A" opacity=".75">
+                  <polygon points="40,82 46,72 52,82"/>
+                  <polygon points="120,82 128,68 136,82"/>
+                  <polygon points="220,82 228,70 236,82"/>
+                  <polygon points="300,82 306,74 312,82"/>
+                </g>
+                <rect x="0" y="86" width="360" height="24" fill="#1A2D4D"/>
+                <g stroke="#FFD494" stroke-width="2" stroke-dasharray="14 12">
+                  <line x1="0" y1="98" x2="360" y2="98"/>
+                </g>
+                <g class="wbar-truck truck-md">
+                  <rect x="0" y="68" width="38" height="20" rx="2" fill="#fff"/>
+                  <rect x="2" y="70" width="34" height="12" fill="#1860B0"/>
+                  <rect x="36" y="72" width="14" height="16" rx="1" fill="#0E3F7E"/>
+                  <rect x="40" y="74" width="8" height="6" fill="#9CC0EE"/>
+                  <circle cx="10" cy="90" r="4" fill="#0B1F3A"/>
+                  <circle cx="28" cy="90" r="4" fill="#0B1F3A"/>
+                  <circle cx="44" cy="90" r="4" fill="#0B1F3A"/>
+                  <rect x="49" y="76" width="3" height="3" fill="#FFD494"/>
+                </g>
+              </svg>
+            </div>
+            <div class="wbar-content">
+              <div class="wbar-head">
+                <span class="wbar-zone">LIÊN VÙNG</span>
+                <strong>5 <em>Tấn</em></strong>
+              </div>
+              <div class="wbar-desc">Chuyến ngắn – trung · qua đèo · qua tỉnh</div>
+              <div class="wbar-bar"><span></span></div>
+            </div>
+          </div>
+
+          <!-- 8 TẤN · ĐƯỜNG TRỤC -->
+          <div class="wbar wbar-trunk" style="--cap:88%">
+            <div class="wbar-scene">
+              <svg viewBox="0 0 360 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="skyTrunk" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1F2C4F"/>
+                    <stop offset="55%" stop-color="#7A4B8C"/>
+                    <stop offset="100%" stop-color="#F08A4D"/>
+                  </linearGradient>
+                </defs>
+                <rect width="360" height="86" fill="url(#skyTrunk)"/>
+                <circle cx="290" cy="58" r="20" fill="#FFC074" opacity=".95"/>
+                <g class="cloud-layer" fill="rgba(255,180,140,.45)">
+                  <ellipse cx="80"  cy="38" rx="28" ry="4"/>
+                  <ellipse cx="220" cy="44" rx="34" ry="5"/>
+                </g>
+                <polygon points="0,86 60,42 110,68 170,30 230,72 290,38 360,86" fill="#1F2C4F" opacity=".85"/>
+                <polygon points="0,86 50,60 100,74 160,52 220,78 280,60 360,86" fill="#0B1F3A"/>
+                <rect x="0" y="86" width="360" height="24" fill="#06101F"/>
+                <path d="M0,98 L360,98" stroke="#FFD494" stroke-width="2" stroke-dasharray="20 14"/>
+                <g class="wbar-truck truck-lg">
+                  <rect x="0"  y="60" width="46" height="26" rx="2" fill="#0E3F7E"/>
+                  <rect x="2"  y="62" width="42" height="18" fill="#1860B0"/>
+                  <rect x="44" y="66" width="18" height="20" rx="1" fill="#0B1F3A"/>
+                  <rect x="48" y="68" width="10" height="8" fill="#9CC0EE"/>
+                  <rect x="46" y="76" width="2" height="6" fill="#F39200"/>
+                  <circle cx="8"  cy="88" r="4" fill="#0B1F3A"/>
+                  <circle cx="22" cy="88" r="4" fill="#0B1F3A"/>
+                  <circle cx="38" cy="88" r="4" fill="#0B1F3A"/>
+                  <circle cx="54" cy="88" r="4" fill="#0B1F3A"/>
+                  <rect x="61" y="70" width="4" height="4" fill="#FFD494"/>
+                </g>
+              </svg>
+            </div>
+            <div class="wbar-content">
+              <div class="wbar-head">
+                <span class="wbar-zone">ĐƯỜNG TRỤC</span>
+                <strong>8 <em>Tấn</em></strong>
+              </div>
+              <div class="wbar-desc">Bắc ↔ Nam · hàng khối lượng lớn · 24/7</div>
+              <div class="wbar-bar"><span></span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="fleet-container r">
+        <div class="cont-hero">
+          <svg class="cont-port" viewBox="0 0 460 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="portSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0E3F7E"/>
+                <stop offset="60%" stop-color="#1860B0"/>
+                <stop offset="100%" stop-color="#F08A4D"/>
+              </linearGradient>
+              <linearGradient id="portWater" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0B2444"/>
+                <stop offset="100%" stop-color="#04101F"/>
+              </linearGradient>
+            </defs>
+            <rect width="460" height="100" fill="url(#portSky)"/>
+            <circle cx="380" cy="40" r="14" fill="#FFE0AE" opacity=".9"/>
+            <g class="cont-clouds" fill="rgba(255,255,255,.45)">
+              <ellipse cx="80"  cy="22" rx="22" ry="4"/>
+              <ellipse cx="220" cy="28" rx="28" ry="5"/>
+              <ellipse cx="320" cy="18" rx="18" ry="4"/>
+            </g>
+            <!-- Container ship silhouette (background) -->
+            <g fill="#0B1F3A" opacity=".85">
+              <rect x="20" y="62" width="140" height="22"/>
+              <polygon points="20,84 4,72 4,84"/>
+              <polygon points="160,84 178,72 178,84"/>
+              <rect x="50" y="50" width="14" height="12" fill="#1F4E8E"/>
+              <rect x="68" y="46" width="14" height="16" fill="#F39200"/>
+              <rect x="86" y="50" width="14" height="12" fill="#1F4E8E"/>
+              <rect x="104" y="48" width="14" height="14" fill="#fff"/>
+              <rect x="122" y="50" width="14" height="12" fill="#F39200"/>
+              <rect x="140" y="46" width="14" height="16" fill="#1F4E8E"/>
+              <rect x="118" y="36" width="6" height="14" fill="#0B1F3A"/>
+              <rect x="120" y="20" width="2" height="20" fill="#0B1F3A"/>
+            </g>
+            <!-- Gantry crane -->
+            <g fill="#1F2C4F" stroke="#FFD494" stroke-width=".8">
+              <rect x="260" y="10" width="180" height="4"/>
+              <rect x="262" y="14" width="3" height="80" stroke="none" fill="#1F2C4F"/>
+              <rect x="436" y="14" width="3" height="80" stroke="none" fill="#1F2C4F"/>
+              <line x1="262" y1="14" x2="280" y2="94"/>
+              <line x1="439" y1="14" x2="420" y2="94"/>
+              <g class="crane-trolley">
+                <rect x="332" y="14" width="20" height="6" fill="#F39200"/>
+                <line x1="342" y1="20" x2="342" y2="58" stroke="#FFD494" stroke-width=".8"/>
+                <rect x="328" y="58" width="28" height="14" fill="#1860B0" stroke="none"/>
+              </g>
+            </g>
+            <!-- Stacked containers on dock -->
+            <g class="dock-stack">
+              <rect x="200" y="80" width="46" height="14" fill="#F39200"/>
+              <rect x="246" y="80" width="46" height="14" fill="#1860B0"/>
+              <rect x="200" y="66" width="46" height="14" fill="#1F4E8E"/>
+              <rect x="246" y="66" width="46" height="14" fill="#fff"/>
+              <rect x="223" y="52" width="46" height="14" fill="#F39200"/>
+            </g>
+            <!-- Water -->
+            <rect x="0" y="100" width="460" height="40" fill="url(#portWater)"/>
+            <g stroke="rgba(120,180,255,.4)" stroke-width=".6" fill="none" class="water-ripples">
+              <path d="M0,108 Q20,106 40,108 T80,108 T120,108 T160,108 T200,108 T240,108 T280,108 T320,108 T360,108 T400,108 T440,108"/>
+              <path d="M0,118 Q22,116 44,118 T88,118 T132,118 T176,118 T220,118 T264,118 T308,118 T352,118 T396,118 T440,118"/>
+            </g>
+            <!-- Tractor + container moving across -->
+            <g class="port-truck">
+              <rect x="0"  y="86" width="60" height="14" fill="#0E3F7E"/>
+              <rect x="2"  y="88" width="56" height="10" fill="#1860B0"/>
+              <rect x="60" y="84" width="20" height="16" fill="#0B1F3A"/>
+              <rect x="64" y="86" width="12" height="8" fill="#9CC0EE"/>
+              <circle cx="10" cy="102" r="4" fill="#0B1F3A"/>
+              <circle cx="22" cy="102" r="4" fill="#0B1F3A"/>
+              <circle cx="38" cy="102" r="4" fill="#0B1F3A"/>
+              <circle cx="50" cy="102" r="4" fill="#0B1F3A"/>
+              <circle cx="70" cy="102" r="4" fill="#0B1F3A"/>
+              <rect x="79" y="88" width="3" height="3" fill="#FFD494"/>
+            </g>
+          </svg>
+          <div class="cont-hero-overlay">
+            <span class="cont-badge-live"><span class="cont-dot"></span> ACTIVE FLEET · 24/7</span>
+          </div>
+        </div>
+        <div class="fb-head">
+          <span class="fb-tag cont">HỆ THỐNG CONTAINER CHUYÊN DỤNG</span>
+          <h3>Đầu kéo + <span class="accent">Container 20/40/45ft</span></h3>
+        </div>
+        <p class="cont-desc">Đáp ứng hoàn hảo yêu cầu vận tải hàng siêu trường – siêu trọng, phục vụ chuỗi cung ứng xuất nhập khẩu.</p>
+        <div class="cont-grid">
+          <div class="cont-item">
+            <svg class="cont-illu" viewBox="0 0 100 60" aria-hidden="true">
+              <g>
+                <rect x="14" y="18" width="66" height="32" rx="2" fill="url(#contBlue)"/>
+                <g stroke="rgba(255,255,255,.18)" stroke-width=".7">
+                  <line x1="22" y1="18" x2="22" y2="50"/><line x1="30" y1="18" x2="30" y2="50"/>
+                  <line x1="38" y1="18" x2="38" y2="50"/><line x1="46" y1="18" x2="46" y2="50"/>
+                  <line x1="54" y1="18" x2="54" y2="50"/><line x1="62" y1="18" x2="62" y2="50"/>
+                  <line x1="70" y1="18" x2="70" y2="50"/>
+                </g>
+                <rect x="76" y="22" width="3" height="24" fill="rgba(0,0,0,.25)"/>
+                <text x="47" y="38" text-anchor="middle" fill="#fff" font-family="ui-sans-serif" font-size="9" font-weight="800" letter-spacing="1">NAK</text>
+                <rect x="14" y="50" width="66" height="3" fill="rgba(0,0,0,.35)"/>
+              </g>
+              <defs>
+                <linearGradient id="contBlue" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3A7FD4"/>
+                  <stop offset="100%" stop-color="#1860B0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="cont-size">20<span>ft</span></div>
+            <div class="cont-ton">15 Tấn</div>
+          </div>
+          <div class="cont-item">
+            <svg class="cont-illu" viewBox="0 0 100 60" aria-hidden="true">
+              <g>
+                <rect x="4" y="18" width="86" height="32" rx="2" fill="url(#contBlue2)"/>
+                <g stroke="rgba(255,255,255,.18)" stroke-width=".7">
+                  <line x1="14" y1="18" x2="14" y2="50"/><line x1="22" y1="18" x2="22" y2="50"/>
+                  <line x1="30" y1="18" x2="30" y2="50"/><line x1="38" y1="18" x2="38" y2="50"/>
+                  <line x1="46" y1="18" x2="46" y2="50"/><line x1="54" y1="18" x2="54" y2="50"/>
+                  <line x1="62" y1="18" x2="62" y2="50"/><line x1="70" y1="18" x2="70" y2="50"/>
+                  <line x1="78" y1="18" x2="78" y2="50"/>
+                </g>
+                <rect x="84" y="22" width="3" height="24" fill="rgba(0,0,0,.25)"/>
+                <text x="47" y="38" text-anchor="middle" fill="#fff" font-family="ui-sans-serif" font-size="9" font-weight="800" letter-spacing="1">NAK · LOG</text>
+                <rect x="4" y="50" width="86" height="3" fill="rgba(0,0,0,.35)"/>
+              </g>
+              <defs>
+                <linearGradient id="contBlue2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3A7FD4"/>
+                  <stop offset="100%" stop-color="#0E3F7E"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="cont-size">40<span>ft</span></div>
+            <div class="cont-ton">25 Tấn</div>
+          </div>
+          <div class="cont-item hot">
+            <span class="cont-flag">FLAGSHIP</span>
+            <svg class="cont-illu" viewBox="0 0 100 60" aria-hidden="true">
+              <g>
+                <rect x="2" y="16" width="92" height="36" rx="2" fill="url(#contOrange)"/>
+                <g stroke="rgba(255,255,255,.28)" stroke-width=".8">
+                  <line x1="12" y1="16" x2="12" y2="52"/><line x1="22" y1="16" x2="22" y2="52"/>
+                  <line x1="32" y1="16" x2="32" y2="52"/><line x1="42" y1="16" x2="42" y2="52"/>
+                  <line x1="52" y1="16" x2="52" y2="52"/><line x1="62" y1="16" x2="62" y2="52"/>
+                  <line x1="72" y1="16" x2="72" y2="52"/><line x1="82" y1="16" x2="82" y2="52"/>
+                </g>
+                <rect x="88" y="20" width="4" height="28" fill="rgba(0,0,0,.3)"/>
+                <text x="47" y="38" text-anchor="middle" fill="#fff" font-family="ui-sans-serif" font-size="10" font-weight="900" letter-spacing="1.4">NAK · MAX</text>
+                <rect x="2" y="52" width="92" height="3" fill="rgba(0,0,0,.4)"/>
+              </g>
+              <defs>
+                <linearGradient id="contOrange" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFB347"/>
+                  <stop offset="100%" stop-color="#E8740B"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="cont-size">45<span>ft</span></div>
+            <div class="cont-ton">30T+</div>
+          </div>
+        </div>
+        <div class="cont-foot">
+          <span>✓ Siêu trường – siêu trọng</span>
+          <span>✓ Chuỗi cung ứng XNK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TECH · CÔNG NGHỆ VẬN HÀNH SỐ ========== -->
+<section class="section tech-sec" id="tech">
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Công nghệ vận hành số</span>
+    <h2 class="sec-title">Smart & <span class="accent">Green Logistics</span> — TMS tích hợp AI.</h2>
+    <p class="sec-dek">Nền tảng số hợp nhất TMS – AI – Camera – Zalo App Truck, hiện thực hóa cam kết minh bạch và giảm phát thải.</p>
+  </div>
+
+  <div class="tech-grid-lp">
+    <article class="tech-card-lp r tech-tms">
+      <div class="tech-banner-lp"><img src="images/04-tech-dashboard.webp" alt="TMS Dashboard NAK"/></div>
+      <div class="tech-body-lp">
+        <span class="tech-tag-lp">TMS · AI ROUTING</span>
+        <h3>Hệ thống TMS tích hợp <span class="accent">AI</span></h3>
+        <p>Smart Routing tối ưu lộ trình theo lưu lượng – tải trọng – giờ cao điểm. Thúc đẩy <strong>Green Logistics</strong>: gộp chuyến, giảm km rỗng, cắt giảm phát thải CO₂ trên mỗi tấn.km.</p>
+        <div class="tech-chips-lp">
+          <span>Smart Routing</span>
+          <span>Load Balancing</span>
+          <span>CO₂ Tracking</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="tech-card-lp r tech-zalo">
+      <div class="tech-banner-lp zalo-mockup-lp">
+        <div class="zalo-m-head">
+          <span class="zalo-m-brand">◈ Zalo App Truck · NAK</span>
+          <span class="zalo-m-live">● LIVE</span>
+        </div>
+        <div class="zalo-m-msg driver">🚛 NAK-2025 · Đang trên đường · ETA 14:25</div>
+        <div class="zalo-m-msg me">✔ Đã nhận hàng tại kho Bình Dương</div>
+        <div class="zalo-m-msg driver">📍 Cao tốc Long Thành — 48km còn lại</div>
+        <div class="zalo-m-msg me">👍 Xác nhận, cảm ơn bác tài</div>
+      </div>
+      <div class="tech-body-lp">
+        <span class="tech-tag-lp">E-TRACKING · ZALO MINI APP</span>
+        <h3>E-tracking & <span class="accent">Zalo App Truck</span></h3>
+        <p>Real-time Visibility trên từng đơn hàng — vị trí xe, trạng thái giao, ETA tự động. Tích hợp thẳng vào <strong>Zalo Mini App</strong>, khách hàng tương tác siêu tốc không cần cài thêm app.</p>
+        <div class="tech-chips-lp">
+          <span>Real-time GPS</span>
+          <span>ePOD</span>
+          <span>Zalo Mini App</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="tech-card-lp r tech-cam">
+      <div class="tech-banner-lp"><img src="images/05-driver-team.webp" alt="Camera giám sát AI 24/7"/></div>
+      <div class="tech-body-lp">
+        <span class="tech-tag-lp">AI CAMERA · 24/7</span>
+        <h3>Camera giám sát <span class="accent">AI kép</span></h3>
+        <p>Hệ camera kép (Cabin + Thùng xe) chạy AI 24/7: cảnh báo hành vi lái xe (mất tập trung, mệt mỏi), giám sát toàn vẹn hàng hóa, chống cạy phá khoang hàng.</p>
+        <div class="tech-chips-lp">
+          <span>Driver Behavior</span>
+          <span>Cargo Integrity</span>
+          <span>Anti-tamper</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="section process" id="process">
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Quy trình số hoá</span>
+    <h2 class="sec-title">6 bước vận hành <span class="accent">hoàn toàn trên App</span>.</h2>
+    <p class="sec-dek">Từ check-in nhận hàng đến ký nhận hoàn tất — mọi thao tác được số hoá, có dấu vết, có GPS, có cam kết thời gian.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="pstep r"><div class="pstep-no">01</div><h4>Check-in App</h4><p>Tài xế đến kho, check-in trên App.</p></div>
+    <div class="pstep r"><div class="pstep-no">02</div><h4>Chờ điều phối</h4><p>Tới KV quy định, chờ nhận hàng.</p></div>
+    <div class="pstep r"><div class="pstep-no">03</div><h4>Kiểm đếm & bốc xếp</h4><p>Giám sát chặt chẽ, đảm bảo đủ hàng.</p></div>
+    <div class="pstep r"><div class="pstep-no">04</div><h4>Ký điện tử</h4><p>Kiểm tra lần cuối, ký xác nhận trên App.</p></div>
+    <div class="pstep r"><div class="pstep-no">05</div><h4>Giao đúng lead-time</h4><p>Đúng lộ trình, đúng thời gian cam kết.</p></div>
+    <div class="pstep r"><div class="pstep-no">06</div><h4>Hoàn tất trên App</h4><p>Ký nhận & hoàn tất — lưu lịch sử.</p></div>
+  </div>
+
+  <div class="incident-box r">
+    <div class="incident-icon"><svg><use href="#i-lightning"/></svg></div>
+    <div class="incident-text">
+      <h4>Xử lý sự cố <span class="accent">siêu tốc</span> · 4 cấp độ</h4>
+      <p>Tài xế → Điều phối → Giám đốc Vận hành → Giám đốc. Cam kết đưa phương án trong <strong>5 – 30 phút</strong>, không cần chờ giờ hành chính.</p>
+    </div>
+    <div class="incident-levels">
+      <div class="incident-level"><div class="lv">L1</div><div class="t">5'</div></div>
+      <div class="incident-level"><div class="lv">L2</div><div class="t">5'</div></div>
+      <div class="incident-level"><div class="lv">L3</div><div class="t">30'</div></div>
+      <div class="incident-level"><div class="lv">L4</div><div class="t">Ngay</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PARTNERS ========== -->
+<section class="partners" id="partners">
+  <div class="partners-head r">
+    <span class="sec-kicker" style="margin: 0 auto;">§ Đối tác chiến lược</span>
+    <h2 class="sec-title" style="font-size: clamp(26px, 3.5vw, 40px); margin-top: 12px;">Được tin dùng bởi các <span class="accent">thương hiệu hàng đầu</span>.</h2>
+  </div>
+  <div class="partners-strip">
+    <div class="partners-track">
+      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">NINJA VAN</div><span class="partner-tag">Last-mile</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#F58220;">GHN</div><span class="partner-tag">Giao Hàng Nhanh</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#EE4D2D;">SHOPEE XPRESS</div><span class="partner-tag">eCommerce</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#189EFF;">TIKI</div><span class="partner-tag">Marketplace</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">BEST EXPRESS</div><span class="partner-tag">Express</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#F7B500;">GHTK</div><span class="partner-tag">Giao Hàng Tiết Kiệm</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#E60012;">J&amp;T EXPRESS</div><span class="partner-tag">Express</span></div></div>
+
+      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">NINJA VAN</div><span class="partner-tag">Last-mile</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#F58220;">GHN</div><span class="partner-tag">Giao Hàng Nhanh</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#EE4D2D;">SHOPEE XPRESS</div><span class="partner-tag">eCommerce</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#189EFF;">TIKI</div><span class="partner-tag">Marketplace</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">BEST EXPRESS</div><span class="partner-tag">Express</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#F7B500;">GHTK</div><span class="partner-tag">Giao Hàng Tiết Kiệm</span></div></div>
+      <div class="partner"><div><div class="partner-name" style="color:#E60012;">J&amp;T EXPRESS</div><span class="partner-tag">Express</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LEAD FORM ========== -->
+<section class="section lead" id="contact">
+  <div class="lead-layout">
+    <div class="lead-copy r">
+      <span class="sec-kicker" style="color: var(--orange-300);">§ Nhận báo giá</span>
+      <h2>Để lại thông tin — nhận <span class="accent">giải pháp vận tải tối ưu</span> cho doanh nghiệp bạn.</h2>
+      <p>Đội tư vấn của NAK trả lời trong ngày làm việc. Không gọi spam, không bán email, không ép hợp đồng.</p>
+      <div class="lead-perks">
+        <div class="lead-perk"><span class="ic"><svg><use href="#i-lightning"/></svg></span><span>Báo giá trong <strong>1 ngày</strong> làm việc</span></div>
+        <div class="lead-perk"><span class="ic"><svg><use href="#i-lock"/></svg></span><span>Không ràng buộc hợp đồng tối thiểu</span></div>
+        <div class="lead-perk"><span class="ic"><svg><use href="#i-phone"/></svg></span><span>Hotline <strong>24/7</strong>: 0986.524.228</span></div>
+        <div class="lead-perk"><span class="ic"><svg><use href="#i-check"/></svg></span><span>Tư vấn miễn phí bởi điều phối viên</span></div>
+      </div>
+    </div>
+    <form class="lead-form r" onsubmit="event.preventDefault(); alert('Cảm ơn bạn — NAK sẽ liên hệ lại trong ngày làm việc.');">
+      <h3>Gửi yêu cầu tư vấn</h3>
+      <p class="lead-form-sub">* Các trường bắt buộc</p>
+      <div class="field">
+        <label>Họ và tên *</label>
+        <input type="text" name="name" placeholder="Nguyễn Tuấn Anh" required/>
+      </div>
+      <div class="lead-form-row">
+        <div class="field">
+          <label>Số điện thoại *</label>
+          <input type="tel" name="phone" placeholder="0912.345.678" required/>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="anh@doanhnghiep.vn"/>
+        </div>
+      </div>
+      <div class="field">
+        <label>Nhu cầu vận chuyển *</label>
+        <select name="need" required>
+          <option value="">— Chọn loại dịch vụ —</option>
+          <option>Vận chuyển nguyên xe (1–15 tấn)</option>
+          <option>Vận chuyển hàng lẻ, hàng ghép</option>
+          <option>Vận chuyển theo dự án</option>
+          <option>Dịch vụ kho bãi, bốc xếp</option>
+          <option>Tư vấn giải pháp tổng thể</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Gửi yêu cầu →</button>
+      <div class="lead-form-trust"><svg class="icon" style="width:13px;height:13px;color:var(--ink-400);"><use href="#i-lock"/></svg> Thông tin được bảo mật & chỉ dùng để liên hệ.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <div class="fb-logo">
+        <img src="logo-nak.png" alt="NAK Logistics"/>
+        <div class="fb-name">NAK Logistics<span class="sub">EST. 2019</span></div>
+      </div>
+      <p>Công ty CPTM Dịch Vụ và Vận Tải N.A.K Việt Nam — Đối tác vận tải uy tín, đồng hành cùng doanh nghiệp Việt từ 2019.</p>
+      <div class="fb-company">“Chăm sóc khách hàng là để tồn tại và phát triển.”</div>
+    </div>
+    <div class="footer-col">
+      <h5>Dịch vụ</h5>
+      <ul>
+        <li><a href="#services">Vận chuyển nguyên xe</a></li>
+        <li><a href="#services">Hàng lẻ · Hàng ghép</a></li>
+        <li><a href="#services">Vận chuyển dự án</a></li>
+        <li><a href="#services">Kho bãi · Bốc xếp</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Công ty</h5>
+      <ul>
+        <li><a href="#about">Về chúng tôi</a></li>
+        <li><a href="#why">Năng lực vận hành</a></li>
+        <li><a href="#process">Quy trình vận hành</a></li>
+        <li><a href="#partners">Đối tác</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Liên hệ</h5>
+      <ul>
+        <li><span class="ic"><svg><use href="#i-pin"/></svg></span>70 Nguyễn Thời Trung, P. Thạch Bàn, Q. Long Biên, TP Hà Nội</li>
+        <li><span class="ic"><svg><use href="#i-phone"/></svg></span>0986.524.228 · 0983.983.838</li>
+        <li><span class="ic"><svg><use href="#i-globe"/></svg></span>Hotline 24/7 · 365 ngày/năm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 · Công ty CPTM Dịch Vụ và Vận Tải N.A.K Việt Nam</div>
+    <div class="meta">NAK LOGISTICS · Ấn bản HSNL 2025</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        if (e.target.matches('.dim-hero')) initDimHero(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: .08, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+  function initDimHero(root) {
+    // Count-up numbers
+    root.querySelectorAll('.dim-val[data-count]').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const unit = el.querySelector('span');
+      const unitHTML = unit ? unit.outerHTML : '';
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const val = (target * eased).toFixed(decimals);
+        el.innerHTML = val + unitHTML;
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+    // Volume bar fill (relative to max)
+    const chips = root.querySelectorAll('.vol-chip[data-vol]');
+    const max = Math.max(...[...chips].map(c => parseFloat(c.dataset.vol)));
+    chips.forEach((c, i) => {
+      if (!c.querySelector('.vol-bar')) {
+        const bar = document.createElement('span');
+        bar.className = 'vol-bar';
+        c.appendChild(bar);
+      }
+      const pct = (parseFloat(c.dataset.vol) / max) * 100;
+      setTimeout(() => { c.style.setProperty('--vol-fill', pct + '%'); }, 600 + i * 100);
+    });
+  }
+</script>
+</body>
+</html>

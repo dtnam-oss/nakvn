@@ -1,0 +1,38 @@
+# Large source files (not for production)
+*.xlsx
+*.xls
+*.pdf
+*.mp4
+*.mov
+
+# Original / unprocessed photos
+2026-*.jpg
+2026-*.jpeg
+Gemini_Generated_Image_*
+anh_*.jpg
+doi_*.jpg
+z*.jpg
+
+# Internal drafts (not deployed)
+HSNL-NAK-2025.html
+NAK-Editorial-2025.html
+cover-nak.html
+cover-nak.png
+NAK-Landing-Copy-AIDA.md
+
+# Build artifacts / temp
+generated/
+*.error.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (if added later)
+node_modules/
+.env
+.env.local
