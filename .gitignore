@@ -2,8 +2,11 @@
 *.xlsx
 *.xls
 *.pdf
-*.mp4
-*.mov
+/*.mp4
+/*.mov
+
+# Backup originals (kept local for safety, not for repo)
+images/*.original.*
 
 # Original / unprocessed photos
 2026-*.jpg

@@ -425,119 +425,188 @@ section, nav, footer { position: relative; z-index: 1; }
 .about {
   background: linear-gradient(180deg, #fff 0%, var(--bg-1) 100%);
 }
-.about-grid {
+.about-bento {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
+}
+.about-card {
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
 }
 .about-image {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow-xl);
-  aspect-ratio: 5/4;
+  min-height: 380px;
+  background: #0B1F3A;
 }
-.about-image img {
+.about-image img,
+.about-image video {
   width: 100%; height: 100%;
   object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 1s cubic-bezier(.2,.8,.2,1);
+  display: block;
 }
+.about-image:hover img,
+.about-image:hover video { transform: scale(1.05); }
+.about-video { background: #0B1F3A; }
 .about-image::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(2,115,190,.18), transparent 50%);
+  background: linear-gradient(180deg, rgba(11,31,58,.25) 0%, transparent 35%, rgba(11,31,58,.55) 100%);
   pointer-events: none;
 }
-.about-image-badge {
+.about-badge {
   position: absolute;
-  bottom: 16px; left: 16px;
-  background: #fff;
-  padding: 14px 18px;
-  border-radius: 16px;
-  box-shadow: var(--shadow-lg);
-  display: flex;
+  z-index: 2;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-}
-.about-image-badge .big {
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--blue-600);
-  line-height: 1;
-  letter-spacing: -1px;
-}
-.about-image-badge .sml {
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: var(--ink-400);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.about-copy h2 {
-  font-size: clamp(32px, 4vw, 48px);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -1.2px;
-  margin-bottom: 20px;
-  color: var(--ink-100);
+  letter-spacing: 1.5px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
-.about-copy h2 .accent {
-  background: var(--grad-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.about-badge.since {
+  top: 16px; left: 16px;
+  background: rgba(255,255,255,.95);
+  color: var(--blue-600);
+  box-shadow: 0 6px 16px rgba(11,31,58,.18);
 }
-.about-copy p {
-  font-size: 16px;
+.about-badge.tracking {
+  bottom: 16px; right: 16px;
+  background: linear-gradient(135deg, var(--orange-500), #FFB347);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(243,146,0,.45);
+}
+.about-badge-dot {
+  width: 7px; height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #fff;
+  animation: pulse 1.4s infinite;
+}
+
+.about-mission {
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(255,255,255,.18), transparent 60%),
+    linear-gradient(135deg, var(--orange-500) 0%, #E8740B 60%, #C4660B 100%);
+  color: #fff;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 380px;
+}
+.about-mission-quote-mark {
+  font-size: 88px;
+  font-weight: 900;
+  line-height: .6;
+  font-family: Georgia, serif;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 8px;
+}
+.about-mission-quote {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -.4px;
+  margin: 0 0 18px;
+  font-style: italic;
+  color: #fff;
+}
+.about-mission-attr {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: .92;
+  letter-spacing: .3px;
+  border-top: 1px solid rgba(255,255,255,.25);
+  padding-top: 14px;
+}
+.about-mission-attr strong { font-weight: 900; }
+
+.about-story {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  background: #fff;
+  border-radius: 22px;
+  padding: 32px 36px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+.about-story p {
+  font-size: 15.5px;
   color: var(--ink-300);
   line-height: 1.7;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
-.about-quote {
-  margin: 24px 0;
-  padding: 20px 24px;
-  background: #fff;
-  border-left: 4px solid var(--orange-500);
-  border-radius: 0 12px 12px 0;
-  font-style: italic;
-  font-size: 17px;
+.about-story p:last-of-type { margin-bottom: 22px; }
+.about-story strong { color: var(--ink-100); font-weight: 800; }
+.about-usp {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.about-usp-chip {
+  background: linear-gradient(135deg, rgba(18,143,209,.06), rgba(243,146,0,.06));
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
   color: var(--ink-100);
-  box-shadow: var(--shadow-sm);
-  font-weight: 500;
+  letter-spacing: .2px;
+  transition: border-color .25s, background .25s;
+}
+.about-usp-chip:hover {
+  border-color: var(--orange-500);
+  background: linear-gradient(135deg, rgba(243,146,0,.10), rgba(243,146,0,.04));
 }
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 28px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .about-stat {
-  padding: 22px 20px;
+  padding: 24px 20px;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   transition: all .3s;
+  border-top: 4px solid var(--blue-600);
 }
-.about-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.about-stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .about-stat-icon {
   width: 48px; height: 48px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: #fff;
 }
 .about-stat-icon .icon-lg { width: 26px; height: 26px; }
-.about-stat:nth-child(1) .about-stat-icon { background: var(--grad-blue); }
-.about-stat:nth-child(2) .about-stat-icon { background: var(--grad-orange); }
-.about-stat:nth-child(3) .about-stat-icon { background: linear-gradient(135deg, var(--blue-500), var(--orange-500)); }
+.about-stat:nth-child(1) { border-top-color: var(--orange-500); }
+.about-stat:nth-child(1) .about-stat-icon { background: var(--grad-orange); }
+.about-stat:nth-child(2) { border-top-color: var(--blue-600); }
+.about-stat:nth-child(2) .about-stat-icon { background: var(--grad-blue); }
+.about-stat:nth-child(3) { border-top-color: #16A34A; }
+.about-stat:nth-child(3) .about-stat-icon { background: linear-gradient(135deg, #16A34A, #22C55E); }
+.about-stat:nth-child(4) { border-top-color: #1860B0; }
+.about-stat:nth-child(4) .about-stat-icon { background: linear-gradient(135deg, var(--blue-500), var(--orange-500)); }
 .about-stat .big {
   font-size: 32px;
   font-weight: 900;
@@ -613,6 +682,12 @@ section, nav, footer { position: relative; z-index: 1; }
   filter: saturate(1.05) contrast(1.02);
 }
 .flip-card:hover .flip-card-img { transform: scale(1.12); filter: saturate(1.15) contrast(1.05); }
+.flip-card-img.fit-contain {
+  object-fit: contain;
+  background: #0B1F3A;
+  transform: scale(1);
+}
+.flip-card:hover .flip-card-img.fit-contain { transform: scale(1.04); }
 .flip-card-shade {
   position: absolute;
   inset: 0;
@@ -884,10 +959,9 @@ section, nav, footer { position: relative; z-index: 1; }
    =========================================================== */
 .network-sec { background: linear-gradient(180deg, #fff 0%, var(--bg-1) 100%); }
 .network-layout {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 44px;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -898,11 +972,10 @@ section, nav, footer { position: relative; z-index: 1; }
   background: linear-gradient(135deg, #0B1F3A 0%, #1860B0 55%, #2778D4 100%);
   color: #fff;
   border-radius: 20px;
-  padding: 22px 26px;
+  padding: 22px 30px;
   box-shadow: 0 18px 38px rgba(24,96,176,.32);
   position: relative;
   overflow: hidden;
-  margin-bottom: 28px;
 }
 .leadtime-hero::before {
   content: "";
@@ -943,18 +1016,23 @@ section, nav, footer { position: relative; z-index: 1; }
   text-shadow: 0 0 28px rgba(245,158,11,.7);
   position: relative; z-index: 2;
 }
-.noc-list { display: flex; flex-direction: column; gap: 14px; }
+.noc-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 .noc-card {
   background: #fff;
   border-radius: 16px;
-  padding: 18px 22px;
-  border-left: 4px solid #1860B0;
+  padding: 20px 22px;
+  border-top: 4px solid #1860B0;
   box-shadow: 0 4px 14px rgba(11,31,58,.06);
   transition: transform .3s, box-shadow .3s;
+  height: 100%;
 }
-.noc-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(11,31,58,.12); }
-.noc-card:nth-child(2) { border-left-color: #0E3F7E; }
-.noc-card.hub { border-left-color: var(--orange-500); }
+.noc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(11,31,58,.14); }
+.noc-card:nth-child(2) { border-top-color: #0E3F7E; }
+.noc-card.hub { border-top-color: var(--orange-500); }
 .noc-tag {
   font-size: 11px;
   letter-spacing: 2px;
@@ -976,14 +1054,43 @@ section, nav, footer { position: relative; z-index: 1; }
 .netmap-frame {
   position: relative;
   width: 100%;
-  max-width: 560px;
-  height: 100%;
+  aspect-ratio: 1.91 / 1;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(11,31,58,.22), 0 0 0 1px rgba(24,96,176,.1);
-  background: linear-gradient(180deg, #fff, #F6F8FC);
+  background: linear-gradient(180deg, #fff 0%, #F6F8FC 100%);
 }
-.netmap-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.netmap-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.01);
+  transition: transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.netmap-frame:hover img { transform: scale(1.06); }
+.netmap-frame img.netmap-logo {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 88px;
+  height: auto;
+  inset: auto;
+  object-fit: contain;
+  background: rgba(255,255,255,.95);
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(11,31,58,.15), inset 0 0 0 1px rgba(11,31,58,.06);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 3;
+  transform: none;
+  transition: transform .3s;
+}
+.netmap-frame:hover img.netmap-logo { transform: scale(1.05); }
 .netmap-status {
   position: absolute;
   top: 16px; left: 16px;
@@ -1785,7 +1892,7 @@ section, nav, footer { position: relative; z-index: 1; }
 .tech-sec { background: linear-gradient(180deg, var(--bg-1) 0%, #fff 100%); }
 .tech-grid-lp {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   max-width: 1280px;
   margin: 0 auto;
@@ -1833,7 +1940,8 @@ section, nav, footer { position: relative; z-index: 1; }
   margin-bottom: 14px;
   width: fit-content;
 }
-.tech-zalo .tech-tag-lp { background: rgba(243,146,0,.14); color: var(--orange-600); }
+.tech-zalo .tech-tag-lp,
+.tech-gps  .tech-tag-lp { background: rgba(243,146,0,.14); color: var(--orange-600); }
 .tech-body-lp h3 {
   font-size: 22px;
   font-weight: 800;
@@ -1855,7 +1963,108 @@ section, nav, footer { position: relative; z-index: 1; }
   font-weight: 700;
   letter-spacing: .3px;
 }
-.tech-zalo .tech-chips-lp span { background: rgba(243,146,0,.08); color: var(--orange-600); border-color: rgba(243,146,0,.2); }
+.tech-zalo .tech-chips-lp span,
+.tech-gps  .tech-chips-lp span { background: rgba(243,146,0,.08); color: var(--orange-600); border-color: rgba(243,146,0,.2); }
+
+/* ---- GPS Real-time dashboard banner (real screenshot + overlays) ---- */
+.gps-mockup-lp {
+  position: relative;
+  background: #0B1F3A;
+  padding: 0;
+  overflow: hidden;
+}
+.gps-mockup-lp::after { display: none !important; }
+.gps-m-shot {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.tech-card-lp:hover .gps-m-shot { transform: scale(1.04); }
+.gps-mockup-lp::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11,31,58,.45) 0%, rgba(11,31,58,0) 30%, rgba(11,31,58,0) 60%, rgba(11,31,58,.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.gps-m-head {
+  position: absolute;
+  top: 12px; left: 12px;
+  display: inline-flex;
+  z-index: 2;
+}
+.gps-m-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(11,31,58,.85);
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.gps-m-dot {
+  width: 7px; height: 7px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22C55E;
+  animation: pulse 1.4s infinite;
+}
+.gps-m-stats {
+  position: absolute;
+  bottom: 10px; left: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 6px;
+  z-index: 2;
+}
+.gps-m-stat {
+  background: rgba(11,31,58,.85);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 5px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 56px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.gps-m-stat.eta {
+  background: linear-gradient(135deg, var(--orange-500), #FFB347);
+  border-color: rgba(255,255,255,.3);
+  box-shadow: 0 4px 12px rgba(243,146,0,.5);
+}
+.gps-m-val {
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -.3px;
+  line-height: 1;
+}
+.gps-m-val small { font-size: 9px; opacity: .75; margin-left: 1px; font-weight: 700; }
+.gps-m-lbl {
+  font-size: 8.5px;
+  letter-spacing: 1.3px;
+  font-weight: 800;
+  color: rgba(255,255,255,.75);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.gps-m-stat.eta .gps-m-lbl { color: rgba(255,255,255,.95); }
 
 /* Zalo mockup banner */
 .zalo-mockup-lp {
@@ -1906,14 +2115,14 @@ section, nav, footer { position: relative; z-index: 1; }
 }
 
 @media (max-width: 960px) {
-  .network-layout { grid-template-columns: 1fr; }
-  .netmap-frame { height: auto; }
-  .netmap-frame img { height: auto; object-fit: contain; }
+  .noc-list { grid-template-columns: 1fr; gap: 12px; }
+  .leadtime-hero { padding: 18px 20px; }
+  .leadtime-hero-val { font-size: 38px; }
+  .leadtime-hero-arrow { font-size: 38px; }
   .fleet-split { grid-template-columns: 1fr; }
   .tech-grid-lp { grid-template-columns: 1fr; }
   .dim-numbers { gap: 10px; }
   .dim-val { font-size: 44px; }
-  .leadtime-hero-val { font-size: 40px; }
 }
 
 /* ===========================================================
@@ -2077,38 +2286,1249 @@ section, nav, footer { position: relative; z-index: 1; }
 .partners:hover .partners-track { animation-play-state: paused; }
 .partner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  padding: 20px 28px;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
   min-width: 220px;
+  height: 96px;
   transition: all .3s;
+  filter: grayscale(40%);
+  opacity: .9;
 }
-.partner:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.partner:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  filter: grayscale(0);
+  opacity: 1;
+}
+.partner-logo {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.partner-logo svg,
+.partner-logo img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 180px;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Featured partners — chỉ phóng to logo, giữ nguyên kích thước thẻ */
+.partner.featured {
+  padding: 6px 12px;
+  gap: 2px;
+  filter: grayscale(0);
+  opacity: 1;
+}
+.partner.featured .partner-logo { height: 72px; }
+.partner.featured .partner-logo img,
+.partner.featured .partner-logo svg { max-width: 200px; }
 .partner-name {
-  font-weight: 800;
-  font-size: 18px;
+  font-weight: 900;
+  font-size: 17px;
   letter-spacing: -.3px;
   line-height: 1;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 .partner-tag {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--ink-400);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  font-weight: 600;
+  font-weight: 700;
   display: block;
-  margin-top: 3px;
 }
 @keyframes partnerScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+/* ===========================================================
+   MARKETPLACE · SÀN LỘ TRÌNH
+   =========================================================== */
+.market { background: linear-gradient(180deg, #F6F8FC 0%, #ECF1F8 100%); }
+.market-toolbar {
+  max-width: 1280px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(11,31,58,.06);
+  border: 1px solid var(--gray-100);
+}
+.market-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 260px;
+  background: var(--bg-1, #F6F8FC);
+  border-radius: 100px;
+  padding: 8px 14px;
+  border: 1px solid var(--gray-100);
+  transition: border-color .25s, box-shadow .25s;
+}
+.market-search:focus-within {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(18,143,209,.15);
+}
+.market-search svg { width: 16px; height: 16px; color: var(--ink-400); flex-shrink: 0; }
+.market-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--ink-100);
+}
+.market-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-chip {
+  background: var(--bg-1, #F6F8FC);
+  color: var(--ink-soft, #4a5b76);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--gray-100);
+  cursor: pointer;
+  transition: all .25s cubic-bezier(.2,.8,.2,1);
+  letter-spacing: .3px;
+  font-family: inherit;
+}
+.filter-chip:hover { border-color: var(--blue-500); color: var(--blue-600); }
+.filter-chip.active {
+  background: var(--blue-600);
+  color: #fff;
+  border-color: var(--blue-600);
+  box-shadow: 0 4px 10px rgba(2,115,190,.3);
+}
+.market-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.market-stats strong { color: #0B1F3A; font-weight: 800; }
+.market-dot {
+  width: 8px; height: 8px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22C55E;
+  animation: pulse 1.6s infinite;
+  display: inline-block;
+}
+
+.market-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.market-empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px dashed var(--gray-100);
+}
+
+.route-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 6px 18px rgba(11,31,58,.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+  position: relative;
+  isolation: isolate;
+}
+.route-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(11,31,58,.14);
+  border-color: rgba(18,143,209,.4);
+}
+.route-thumb {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  background: #0B1F3A;
+}
+.route-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1), filter .4s;
+}
+.route-card:hover .route-thumb img { transform: scale(1.1); }
+.route-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,31,58,.15) 0%, transparent 40%, rgba(11,31,58,.78) 100%);
+  pointer-events: none;
+}
+.route-status {
+  position: absolute;
+  top: 12px; left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2;
+}
+.route-status.open    { background: rgba(34,197,94,.92); color: #fff; }
+.route-status.filling { background: rgba(243,146,0,.92); color: #fff; }
+.route-status.full    { background: rgba(11,31,58,.85); color: #fff; }
+.route-status::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+.route-status.open::before    { animation: pulse 1.4s infinite; }
+.route-status.filling::before { animation: pulse 1.4s infinite; }
+.route-vehicle-tag {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,.96);
+  color: #0B1F3A;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 6px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+.route-route-overlay {
+  position: absolute;
+  bottom: 12px; left: 14px; right: 14px;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.route-cities {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .3px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+.route-cities .city { white-space: nowrap; }
+.route-cities .arrow { color: var(--orange-400, #ff9d2c); font-weight: 900; }
+.route-distance {
+  background: rgba(11,31,58,.6);
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.route-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.route-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  font-size: 12px;
+}
+.route-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.route-meta-label {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  color: var(--ink-400);
+  text-transform: uppercase;
+}
+.route-meta-val {
+  font-size: 13px;
+  color: #0B1F3A;
+  font-weight: 800;
+}
+.route-meta-val.accent { color: var(--orange-600, #c4660b); }
+
+.route-capacity {
+  background: var(--bg-1, #F6F8FC);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.route-capacity-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(11,31,58,.08);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.route-capacity-bar > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #22C55E, #16A34A);
+  border-radius: 100px;
+  transition: width .8s cubic-bezier(.2,.8,.2,1);
+}
+.route-capacity.warn .route-capacity-bar > span { background: linear-gradient(90deg, var(--orange-500,#F39200), #FFB347); }
+.route-capacity.full .route-capacity-bar > span { background: linear-gradient(90deg, #94A3B8, #64748B); }
+.route-capacity-txt {
+  font-size: 11px;
+  font-weight: 800;
+  color: #0B1F3A;
+  white-space: nowrap;
+  letter-spacing: .3px;
+}
+
+.route-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--gray-100);
+}
+.route-price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.route-price {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0B1F3A;
+  letter-spacing: -.4px;
+  line-height: 1;
+}
+.route-price-unit { font-size: 12px; color: var(--ink-soft); font-weight: 700; }
+.route-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--grad-orange, linear-gradient(135deg, var(--orange-500), #FFB347));
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 800;
+  padding: 9px 16px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .3px;
+  box-shadow: 0 6px 14px rgba(241,168,43,.35);
+  transition: gap .3s, transform .25s, box-shadow .3s;
+  font-family: inherit;
+}
+.route-book:hover {
+  gap: 10px;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(241,168,43,.5);
+}
+.route-book:disabled {
+  background: #94A3B8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.route-book::after { content: "→"; transition: transform .3s; }
+.route-book:hover::after { transform: translateX(2px); }
+
+.route-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18,143,209,.08);
+  color: var(--blue-600);
+  border: 1px dashed rgba(18,143,209,.35);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .25s, border-color .25s, color .25s;
+}
+.route-detail-btn:hover {
+  background: var(--blue-600);
+  color: #fff;
+  border-color: var(--blue-600);
+  border-style: solid;
+}
+.route-detail-btn svg { width: 14px; height: 14px; }
+
+/* ---- Route detail modal ---- */
+.rmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.rmodal[hidden] { display: none; }
+.rmodal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(11,31,58,.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: rmFade .25s ease-out;
+}
+.rmodal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  max-height: 92vh;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: rmPop .35s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes rmFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rmPop  { from { opacity: 0; transform: translateY(16px) scale(.96); } to { opacity: 1; transform: none; } }
+.rmodal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(11,31,58,.85);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .25s, transform .25s;
+}
+.rmodal-close:hover { background: var(--orange-500); transform: rotate(90deg); }
+.rmodal-content {
+  overflow-y: auto;
+  flex: 1;
+}
+.rm-hero {
+  position: relative;
+  height: 280px;
+  background: #0B1F3A;
+  overflow: hidden;
+}
+.rm-hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity .4s;
+}
+.rm-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(11,31,58,.85) 100%);
+  pointer-events: none;
+}
+.rm-hero-overlay {
+  position: absolute;
+  bottom: 16px; left: 22px; right: 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  color: #fff;
+  z-index: 2;
+}
+.rm-hero-route {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -.4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+.rm-hero-route .arrow { color: var(--orange-400, #ff9d2c); margin: 0 8px; }
+.rm-hero-meta {
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(11,31,58,.65);
+  padding: 6px 12px;
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+  letter-spacing: .3px;
+}
+.rm-thumbs {
+  position: absolute;
+  bottom: 12px; left: 22px;
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.rm-hero:hover .rm-thumbs { opacity: 1; }
+.rm-thumb {
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,.6);
+  cursor: pointer;
+  transition: transform .25s, border-color .25s;
+}
+.rm-thumb.active { border-color: var(--orange-500); }
+.rm-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.rm-thumb:hover { transform: translateY(-3px); }
+
+.rm-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rm-section-head {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+  color: var(--blue-600);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.rm-section-head::before {
+  content: "";
+  width: 16px; height: 2px;
+  background: var(--blue-600);
+  border-radius: 2px;
+}
+
+.rm-vehicle-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: linear-gradient(135deg, #0E3F7E, #1860B0);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+.rm-vehicle-model { font-size: 16px; font-weight: 900; letter-spacing: -.2px; }
+.rm-vehicle-plate {
+  background: #FFD700;
+  color: #0B1F3A;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 900;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border: 2px solid #0B1F3A;
+}
+.rm-vehicle-misc { font-size: 12px; opacity: .85; font-weight: 600; }
+
+.rm-dims {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  background: var(--bg-1, #F6F8FC);
+  border-radius: 12px;
+  padding: 14px;
+}
+.rm-dim {
+  text-align: center;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.rm-dim-val { font-size: 18px; font-weight: 900; color: #0B1F3A; line-height: 1; letter-spacing: -.3px; }
+.rm-dim-val small { font-size: 10px; color: var(--ink-soft); margin-left: 2px; font-weight: 700; }
+.rm-dim-lbl {
+  font-size: 9px; font-weight: 700; color: var(--ink-soft);
+  letter-spacing: 1.2px; text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.rm-docs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.rm-doc {
+  background: #fff;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rm-doc-ic {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  background: rgba(34,197,94,.12);
+  color: #16A34A;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.rm-doc-ic svg { width: 18px; height: 18px; }
+.rm-doc.soon  .rm-doc-ic { background: rgba(243,146,0,.15); color: var(--orange-600,#c4660b); }
+.rm-doc.expired .rm-doc-ic { background: rgba(239,68,68,.15); color: #DC2626; }
+.rm-doc-info { flex: 1; min-width: 0; }
+.rm-doc-name { font-size: 12px; font-weight: 800; color: #0B1F3A; }
+.rm-doc-meta { font-size: 11px; color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; }
+.rm-doc-status {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.rm-doc.valid .rm-doc-status   { background: rgba(34,197,94,.15);  color: #16A34A; }
+.rm-doc.soon  .rm-doc-status   { background: rgba(243,146,0,.18);  color: var(--orange-600,#c4660b); }
+.rm-doc.expired .rm-doc-status { background: rgba(239,68,68,.15);  color: #DC2626; }
+
+.rm-driver {
+  background: linear-gradient(135deg, #F6F8FC, #ECF1F8);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.rm-driver-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(11,31,58,.18);
+}
+.rm-driver-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.rm-driver-info { flex: 1; min-width: 0; }
+.rm-driver-name {
+  font-size: 16px;
+  font-weight: 900;
+  color: #0B1F3A;
+  letter-spacing: -.2px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.rm-driver-rating {
+  background: #FFB347;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: .3px;
+}
+.rm-driver-line {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-top: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.rm-driver-line strong { color: #0B1F3A; font-weight: 800; }
+
+.rm-driver-actions {
+  display: flex; flex-direction: column; gap: 6px; align-items: stretch;
+}
+.rm-driver-call {
+  background: #16A34A;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 800;
+  padding: 9px 14px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-family: inherit;
+  white-space: nowrap;
+  box-shadow: 0 6px 14px rgba(22,163,74,.3);
+  transition: transform .25s, box-shadow .25s;
+}
+.rm-driver-call:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(22,163,74,.45); }
+
+.rm-foot {
+  margin-top: 4px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #FFF7E5, #FFE9C4);
+  border-radius: 12px;
+  border: 1px solid rgba(243,146,0,.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.rm-foot-left { display: flex; flex-direction: column; gap: 2px; }
+.rm-foot-price { font-size: 24px; font-weight: 900; color: #0B1F3A; letter-spacing: -.4px; line-height: 1; }
+.rm-foot-note { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
+.rm-foot-cta {
+  background: var(--grad-orange);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 12px 22px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .3px;
+  font-family: inherit;
+  box-shadow: 0 8px 18px rgba(241,168,43,.45);
+  transition: transform .25s, box-shadow .3s, gap .3s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.rm-foot-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(241,168,43,.6); gap: 12px; }
+.rm-foot-cta:disabled { background: #94A3B8; cursor: not-allowed; box-shadow: none; transform: none; }
+
+@media (max-width: 640px) {
+  .rmodal-panel { max-height: 96vh; border-radius: 18px; }
+  .rm-hero { height: 200px; }
+  .rm-body { padding: 18px 16px 22px; }
+  .rm-vehicle-head { flex-direction: column; align-items: flex-start; }
+  .rm-dims { grid-template-columns: repeat(2, 1fr); }
+  .rm-docs { grid-template-columns: 1fr; }
+  .rm-driver { flex-direction: column; text-align: center; }
+}
+
+.market-cta {
+  max-width: 1280px;
+  margin: 28px auto 0;
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #fff, #F6F8FC);
+  border-radius: 16px;
+  border: 1px dashed var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .market-toolbar { flex-direction: column; align-items: stretch; }
+  .market-grid { grid-template-columns: 1fr; }
+  .route-cities { font-size: 13px; }
+}
+
+/* ===========================================================
+   AUTH · MY BOOKINGS · GPS TRACKING
+   =========================================================== */
+.nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--ink-100);
+  border: 1.5px solid var(--gray-100);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color .25s, color .25s;
+}
+.nav-login:hover { border-color: var(--blue-600); color: var(--blue-600); }
+.nav-login svg { width: 14px; height: 14px; }
+
+.nav-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-1, #F6F8FC);
+  border: 1px solid var(--gray-100);
+  border-radius: 100px;
+  padding: 4px 12px 4px 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0B1F3A;
+  letter-spacing: .2px;
+}
+.nav-user:hover { border-color: var(--blue-600); }
+.nav-user-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.nav-user-avatar img { width: 100%; height: 100%; }
+.nav-user-caret { font-size: 10px; opacity: .6; margin-left: 2px; }
+
+/* Auth modal — reuses .rmodal base */
+.auth-panel { max-width: 440px; }
+.auth-body { padding: 36px 32px 32px; text-align: center; }
+.auth-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, #1860B0, var(--orange-500));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(24,96,176,.35);
+}
+.auth-icon svg { width: 28px; height: 28px; }
+.auth-title { font-size: 20px; font-weight: 900; color: #0B1F3A; letter-spacing: -.3px; }
+.auth-sub { font-size: 13.5px; color: var(--ink-soft); margin: 6px 0 22px; line-height: 1.5; }
+.auth-input {
+  width: 100%;
+  background: var(--bg-1, #F6F8FC);
+  border: 1.5px solid var(--gray-100);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0B1F3A;
+  outline: none;
+  letter-spacing: .5px;
+  font-family: inherit;
+  text-align: center;
+  transition: border-color .2s, box-shadow .2s;
+}
+.auth-input:focus { border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(18,143,209,.12); background: #fff; }
+.auth-otp {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.auth-otp input {
+  width: 46px; height: 56px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  border: 1.5px solid var(--gray-100);
+  border-radius: 10px;
+  background: var(--bg-1, #F6F8FC);
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  color: #0B1F3A;
+  transition: border-color .2s, transform .15s;
+}
+.auth-otp input:focus { border-color: var(--blue-500); transform: scale(1.05); background: #fff; }
+.auth-otp-hint { font-size: 11.5px; color: var(--ink-soft); margin: 8px 0 18px; font-family: 'JetBrains Mono', monospace; }
+.auth-otp-hint strong { color: var(--orange-600,#c4660b); }
+.auth-btn {
+  width: 100%;
+  background: var(--grad-orange);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .4px;
+  font-family: inherit;
+  margin-top: 8px;
+  box-shadow: 0 8px 18px rgba(241,168,43,.35);
+  transition: transform .25s, box-shadow .25s;
+}
+.auth-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(241,168,43,.5); }
+.auth-btn:disabled { background: #94A3B8; box-shadow: none; cursor: not-allowed; transform: none; }
+.auth-back { background: none; border: none; color: var(--blue-600); font-size: 12.5px; font-weight: 700; cursor: pointer; margin-top: 12px; font-family: inherit; }
+.auth-foot { font-size: 11px; color: var(--ink-400); margin-top: 18px; }
+
+/* My Bookings panel */
+.bk-panel { max-width: 720px; }
+.bk-header {
+  padding: 22px 26px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, #0E3F7E, #1860B0);
+  color: #fff;
+}
+.bk-header-info { display: flex; align-items: center; gap: 14px; }
+.bk-header-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,.2);
+}
+.bk-header-avatar img { width: 100%; height: 100%; }
+.bk-header-name { font-size: 16px; font-weight: 900; letter-spacing: -.2px; }
+.bk-header-meta { font-size: 12px; opacity: .85; }
+.bk-logout {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 6px 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.bk-logout:hover { background: rgba(255,255,255,.2); }
+
+.bk-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 14px 26px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+.bk-tab {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-family: inherit;
+  letter-spacing: .3px;
+  transition: color .2s, border-color .2s;
+}
+.bk-tab.active { color: var(--blue-600); border-color: var(--blue-600); }
+.bk-tab .badge {
+  background: var(--bg-1, #F6F8FC);
+  color: var(--ink-soft);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 100px;
+  margin-left: 4px;
+  font-weight: 800;
+}
+.bk-tab.active .badge { background: var(--blue-600); color: #fff; }
+
+.bk-list {
+  padding: 18px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.bk-empty { text-align: center; color: var(--ink-soft); font-size: 13px; padding: 40px 0; }
+
+.bk-item {
+  background: #fff;
+  border: 1px solid var(--gray-100);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  transition: border-color .2s, box-shadow .2s;
+}
+.bk-item:hover { border-color: var(--blue-600); box-shadow: 0 6px 16px rgba(11,31,58,.08); }
+.bk-thumb {
+  width: 70px; height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: #0B1F3A;
+}
+.bk-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.bk-info { min-width: 0; }
+.bk-route {
+  font-size: 14px; font-weight: 900; color: #0B1F3A;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.bk-route .arrow { color: var(--orange-500); font-weight: 900; }
+.bk-meta { font-size: 11px; color: var(--ink-soft); margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+.bk-status-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 6px;
+}
+.bk-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+.bk-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.bk-status.pickup    { background: rgba(120,180,255,.18); color: #1860B0; }
+.bk-status.transit   { background: rgba(243,146,0,.18);  color: var(--orange-600,#c4660b); animation: bkPulseBg 2s ease-in-out infinite; }
+.bk-status.delivered { background: rgba(34,197,94,.18);  color: #16A34A; }
+.bk-status.cancelled { background: rgba(148,163,184,.25); color: #475569; }
+@keyframes bkPulseBg {
+  0%, 100% { background: rgba(243,146,0,.18); }
+  50%      { background: rgba(243,146,0,.32); }
+}
+.bk-progress {
+  flex: 1; height: 4px; background: rgba(11,31,58,.08); border-radius: 100px; overflow: hidden;
+}
+.bk-progress > span { display: block; height: 100%; background: linear-gradient(90deg, #16A34A, #22C55E); border-radius: 100px; transition: width .6s; }
+.bk-status.transit ~ .bk-progress > span { background: linear-gradient(90deg, var(--orange-500), #FFB347); }
+
+.bk-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.bk-track-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--blue-600); color: #fff;
+  font-size: 11.5px; font-weight: 800; letter-spacing: .3px;
+  padding: 8px 12px; border-radius: 100px;
+  border: none; cursor: pointer; font-family: inherit;
+  box-shadow: 0 4px 10px rgba(2,115,190,.25);
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.bk-track-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 16px rgba(2,115,190,.4); }
+.bk-track-btn:disabled { background: #94A3B8; cursor: not-allowed; box-shadow: none; }
+.bk-track-btn .live-dot {
+  width: 6px; height: 6px; background: #22C55E; border-radius: 50%;
+  box-shadow: 0 0 6px #22C55E; animation: pulse 1.4s infinite;
+}
+
+/* GPS Tracking modal */
+.tr-panel { max-width: 980px; }
+.tr-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 540px;
+}
+@media (max-width: 720px) { .tr-grid { grid-template-columns: 1fr; } }
+
+.tr-map {
+  position: relative;
+  background: linear-gradient(180deg, #0B2444 0%, #06101F 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tr-map svg { width: 100%; height: 100%; max-height: 540px; }
+.tr-map-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(120,180,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,180,255,.06) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+.tr-map-overlay {
+  position: absolute;
+  top: 14px; left: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(11,31,58,.88);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 7px 12px;
+  border-radius: 100px;
+  letter-spacing: 1.5px;
+  z-index: 5;
+}
+.tr-map-overlay .live-dot {
+  width: 7px; height: 7px; background: #22C55E; border-radius: 50%;
+  box-shadow: 0 0 8px #22C55E; animation: pulse 1.4s infinite;
+}
+.tr-map .city-marker {
+  fill: #FFD494;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+.tr-map .city-label {
+  fill: #fff;
+  font-family: ui-sans-serif, system-ui;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.tr-map .city-pin.active .pin-circle { fill: var(--orange-400, #ff9d2c); stroke: #fff; }
+.tr-map .city-pin.active .city-label { fill: var(--orange-300, #FFB347); }
+.tr-map .route-line {
+  fill: none;
+  stroke: rgba(120,180,255,.35);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+.tr-map .route-progress {
+  fill: none;
+  stroke: var(--orange-500, #F39200);
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(243,146,0,.6));
+}
+.tr-map .truck-marker {
+  fill: var(--orange-500);
+  stroke: #fff;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgba(243,146,0,.9));
+}
+.tr-map .truck-pulse {
+  fill: rgba(243,146,0,.4);
+  animation: trPulse 1.6s ease-out infinite;
+}
+@keyframes trPulse {
+  0%   { r: 6; opacity: .8; }
+  100% { r: 22; opacity: 0; }
+}
+
+.tr-info {
+  background: #fff;
+  padding: 22px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+  overflow-y: auto;
+}
+.tr-info-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.tr-info-route { font-size: 16px; font-weight: 900; color: #0B1F3A; }
+.tr-info-route .arrow { color: var(--orange-500); margin: 0 6px; }
+.tr-info-id { font-size: 11px; color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
+.tr-eta-box {
+  background: linear-gradient(135deg, var(--orange-500), #FFB347);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-align: center;
+  min-width: 88px;
+}
+.tr-eta-val { font-size: 22px; font-weight: 900; line-height: 1; letter-spacing: -.3px; }
+.tr-eta-lbl { font-size: 9.5px; letter-spacing: 1.5px; font-weight: 800; opacity: .92; margin-top: 4px; }
+
+.tr-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.tr-stat {
+  background: var(--bg-1, #F6F8FC);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.tr-stat-val { font-size: 16px; font-weight: 900; color: #0B1F3A; line-height: 1; }
+.tr-stat-val small { font-size: 10px; color: var(--ink-soft); margin-left: 2px; }
+.tr-stat-lbl { font-size: 9.5px; color: var(--ink-soft); margin-top: 4px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
+
+.tr-progress-wrap { background: var(--bg-1, #F6F8FC); border-radius: 10px; padding: 12px; }
+.tr-progress-bar {
+  height: 8px; background: rgba(11,31,58,.08); border-radius: 100px; overflow: hidden;
+}
+.tr-progress-bar > span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--orange-500), #FFB347);
+  border-radius: 100px;
+  transition: width 1s linear;
+}
+.tr-progress-meta {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--ink-soft); font-weight: 700; margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.tr-driver-mini {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-1, #F6F8FC); border-radius: 10px; padding: 10px 12px;
+}
+.tr-driver-mini-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+.tr-driver-mini-avatar img { width: 100%; height: 100%; }
+.tr-driver-mini-info { flex: 1; min-width: 0; }
+.tr-driver-mini-name { font-size: 13px; font-weight: 800; color: #0B1F3A; }
+.tr-driver-mini-vehicle { font-size: 11px; color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; }
+.tr-call-mini {
+  background: #16A34A;
+  color: #fff;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(22,163,74,.35);
+}
+.tr-call-mini:hover { transform: scale(1.05); }
+
+.tr-pings {
+  border-top: 1px dashed var(--gray-100);
+  padding-top: 14px;
+}
+.tr-pings-title {
+  font-size: 10.5px; font-weight: 800; letter-spacing: 1.8px; color: var(--blue-600);
+  text-transform: uppercase; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.tr-pings-title .live-dot {
+  width: 6px; height: 6px; background: #22C55E; border-radius: 50%;
+  box-shadow: 0 0 6px #22C55E; animation: pulse 1.4s infinite;
+}
+.tr-ping-list {
+  display: flex; flex-direction: column; gap: 6px;
+  max-height: 140px; overflow-y: auto; padding-right: 4px;
+}
+.tr-ping {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11.5px; color: var(--ink-soft);
+  padding: 4px 0;
+}
+.tr-ping-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; color: #0B1F3A;
+  background: var(--bg-1, #F6F8FC);
+  padding: 2px 8px; border-radius: 6px;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+.tr-ping-event { flex: 1; min-width: 0; }
+.tr-ping-event strong { color: #0B1F3A; font-weight: 800; }
 
 /* ===========================================================
    LEAD FORM
@@ -2389,8 +3809,12 @@ section, nav, footer { position: relative; z-index: 1; }
   .hero { grid-template-columns: 1fr; padding: 120px 5vw 60px; gap: 40px; min-height: auto; }
   .hero-visual { height: 400px; }
   .hero-stats-mini { max-width: 100%; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-stats { grid-template-columns: 1fr; gap: 12px; }
+  .about-bento { grid-template-columns: 1fr; gap: 16px; }
+  .about-image { min-height: 260px; }
+  .about-mission { min-height: auto; padding: 28px 24px; }
+  .about-story { padding: 24px 22px; }
+  .about-usp { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .services-grid { grid-template-columns: 1fr; }
   .flip-card { aspect-ratio: 4/2.5; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
@@ -2510,6 +3934,14 @@ section, nav, footer { position: relative; z-index: 1; }
   <a href="#tech">Công nghệ</a>
   <a href="#process">Quy trình</a>
   <a href="#partners">Đối tác</a>
+  <!-- DISABLED · Sàn lộ trình (re-enable: bỏ HTML comment) -->
+  <!-- <a href="#market">Sàn lộ trình</a> -->
+  <span id="navAuthSlot">
+    <button class="nav-login" type="button" id="navLoginBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Đăng nhập
+    </button>
+  </span>
   <a href="#contact" class="nav-cta">Nhận báo giá</a>
 </nav>
 
@@ -2567,36 +3999,60 @@ section, nav, footer { position: relative; z-index: 1; }
 
 <!-- ========== ABOUT US ========== -->
 <section class="section about" id="about">
-  <div class="about-grid">
-    <div class="about-image r">
-      <img src="images/05-driver-team.webp" alt="Tài xế NAK Logistics"/>
-      <div class="about-image-badge">
-        <div class="big">06<span style="font-size:18px; color:var(--orange-500);">+</span></div>
-        <div class="sml">NĂM KINH NGHIỆM<br/>VẬN CHUYỂN</div>
-      </div>
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Về chúng tôi</span>
+    <h2 class="sec-title">Tự hào đồng hành cùng <span class="accent">doanh nghiệp Việt</span>.</h2>
+  </div>
+
+  <div class="about-bento">
+    <div class="about-card about-image r">
+      <video class="about-video" poster="videos/about-poster.jpg"
+             autoplay muted loop playsinline preload="metadata"
+             aria-label="NAK Logistics in action">
+        <source src="videos/about-clip.mp4" type="video/mp4">
+      </video>
+      <span class="about-badge since">★ SINCE 2019</span>
+      <span class="about-badge tracking"><span class="about-badge-dot"></span> 100% E-TRUCKING</span>
     </div>
-    <div class="about-copy r">
-      <span class="sec-kicker">§ Về chúng tôi</span>
-      <h2>Tự hào đồng hành<br/>cùng <span class="accent">doanh nghiệp Việt</span>.</h2>
-      <p>Được thành lập từ <strong>năm 2019</strong>, Công ty CPTM Dịch Vụ và Vận Tải N.A.K Việt Nam tự hào là đối tác vận tải uy tín, luôn đặt lợi ích khách hàng lên hàng đầu.</p>
-      <div class="about-quote">“Chăm sóc khách hàng là để tồn tại và phát triển.”</div>
-      <div class="about-stats">
-        <div class="about-stat">
-          <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-hub"/></svg></div>
-          <div class="big">3<span class="unit">+</span></div>
-          <div class="lbl">Trung tâm khai thác lớn<br/>Hà Nội · Đà Nẵng · TP.HCM</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-fleet"/></svg></div>
-          <div class="big">120<span class="unit">+</span></div>
-          <div class="lbl">Phương tiện đa dạng<br/>1.4 tấn → 15 tấn</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-tech"/></svg></div>
-          <div class="big">100<span class="unit">%</span></div>
-          <div class="lbl">Phương tiện giám sát bằng<br/>công nghệ E-Trucking</div>
-        </div>
-      </div>
+
+    <div class="about-card about-mission r">
+      <div class="about-mission-quote-mark">"</div>
+      <blockquote class="about-mission-quote">Chăm sóc khách hàng là để tồn tại và phát triển.</blockquote>
+      <div class="about-mission-attr">Kim chỉ nam vận hành của NAK suốt <strong>6+ năm</strong> qua</div>
+    </div>
+  </div>
+
+  <div class="about-story r">
+    <p>Khởi đầu năm <strong>2019</strong> với khát vọng đồng hành cùng doanh nghiệp Việt vươn xa. Sau hơn 6 năm, <strong>NAK Logistics</strong> đã xây dựng đội xe <strong>120+ chiếc</strong>, hệ thống NOC tại 3 miền Hà Nội — Đà Nẵng — TP.HCM, kết nối toàn quốc với leadtime trục Bắc-Nam chuẩn xác <strong>48-60h door-to-door</strong>.</p>
+    <p>Mọi quyết định vận hành đều xuất phát từ lợi ích bền vững của khách hàng — không chạy theo doanh thu ngắn hạn, không thoả hiệp về chất lượng dịch vụ.</p>
+    <div class="about-usp">
+      <span class="about-usp-chip">✓ Cam kết SLA theo hợp đồng</span>
+      <span class="about-usp-chip">✓ Giảm 30% CPK nhờ AI Routing</span>
+      <span class="about-usp-chip">✓ E-Trucking · 100% GPS giám sát</span>
+      <span class="about-usp-chip">✓ Đối tác top sàn TMĐT · Shopee · GHN · Tiki · J&amp;T</span>
+    </div>
+  </div>
+
+  <div class="about-stats">
+    <div class="about-stat r">
+      <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-lightning"/></svg></div>
+      <div class="big">6<span class="unit">+</span></div>
+      <div class="lbl">NĂM KINH NGHIỆM<br/>vận hành B2B</div>
+    </div>
+    <div class="about-stat r">
+      <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-hub"/></svg></div>
+      <div class="big">3</div>
+      <div class="lbl">TRUNG TÂM 3 MIỀN<br/>Hà Nội · Đà Nẵng · TP.HCM</div>
+    </div>
+    <div class="about-stat r">
+      <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-fleet"/></svg></div>
+      <div class="big">120<span class="unit">+</span></div>
+      <div class="lbl">PHƯƠNG TIỆN<br/>tải trọng 1.4T → 15T</div>
+    </div>
+    <div class="about-stat r">
+      <div class="about-stat-icon"><svg class="icon icon-lg"><use href="#i-tech"/></svg></div>
+      <div class="big">100<span class="unit">%</span></div>
+      <div class="lbl">GIÁM SÁT GPS<br/>E-Trucking 24/7</div>
     </div>
   </div>
 </section>
@@ -2613,7 +4069,7 @@ section, nav, footer { position: relative; z-index: 1; }
     <div class="flip-card r">
       <div class="flip-card-inner">
         <div class="flip-card-front has-img">
-          <img class="flip-card-img" src="images/01-hero-trucks-branded.webp" alt="Vận tải nguyên chuyến NAK"/>
+          <img class="flip-card-img" src="images/01-hero-ftl-branded.webp" alt="Vận tải nguyên chuyến NAK"/>
           <div class="flip-card-shade"></div>
           <div class="flip-card-top">
             <div class="icon service-ic"><svg><use href="#i-package"/></svg></div>
@@ -2639,7 +4095,7 @@ section, nav, footer { position: relative; z-index: 1; }
     <div class="flip-card r">
       <div class="flip-card-inner">
         <div class="flip-card-front has-img">
-          <img class="flip-card-img" src="images/06-vietnam-3d-network.webp" alt="Mạng lưới phân phối toàn quốc"/>
+          <img class="flip-card-img" src="images/02-multidrop-network.webp" alt="Mạng lưới phân phối toàn quốc"/>
           <div class="flip-card-shade"></div>
           <div class="flip-card-top">
             <div class="icon service-ic"><svg><use href="#i-route"/></svg></div>
@@ -2665,7 +4121,7 @@ section, nav, footer { position: relative; z-index: 1; }
     <div class="flip-card r">
       <div class="flip-card-inner">
         <div class="flip-card-front has-img">
-          <img class="flip-card-img" src="images/03-warehouse.webp" alt="Kho trung tâm phân phối"/>
+          <img class="flip-card-img" src="images/03-w2w-warehouse.webp" alt="Kho trung tâm phân phối"/>
           <div class="flip-card-shade"></div>
           <div class="flip-card-top">
             <div class="icon service-ic"><svg><use href="#i-warehouse"/></svg></div>
@@ -2691,7 +4147,7 @@ section, nav, footer { position: relative; z-index: 1; }
     <div class="flip-card r">
       <div class="flip-card-inner">
         <div class="flip-card-front has-img">
-          <img class="flip-card-img" src="images/05-driver-team.webp" alt="Đội ngũ giao hàng tận cửa"/>
+          <img class="flip-card-img" src="images/04-d2d-driver-team.webp" alt="Đội ngũ giao hàng tận cửa"/>
           <div class="flip-card-shade"></div>
           <div class="flip-card-top">
             <div class="icon service-ic"><svg><use href="#i-pin"/></svg></div>
@@ -2726,46 +4182,37 @@ section, nav, footer { position: relative; z-index: 1; }
   </div>
 
   <div class="network-layout">
-    <div class="network-info r">
-      <div class="leadtime-hero">
-        <div class="leadtime-hero-icon">⏱</div>
-        <div class="leadtime-hero-text">
-          <div class="leadtime-hero-val">48<span>–</span>60<small>h</small></div>
-          <div class="leadtime-hero-lbl">DOOR-TO-DOOR · TRỤC BẮC ↔ NAM</div>
-        </div>
-        <div class="leadtime-hero-arrow">↯</div>
+    <div class="leadtime-hero r">
+      <div class="leadtime-hero-icon">⏱</div>
+      <div class="leadtime-hero-text">
+        <div class="leadtime-hero-val">48<span>–</span>60<small>h</small></div>
+        <div class="leadtime-hero-lbl">DOOR-TO-DOOR · TRỤC BẮC ↔ NAM</div>
       </div>
-
-      <div class="noc-list">
-        <div class="noc-card">
-          <div class="noc-tag"><span class="noc-pin n"></span> NOC MIỀN BẮC</div>
-          <h4>Hà Nội</h4>
-          <p>Trung tâm điều hành phụ trách các tỉnh phía Bắc: Hải Phòng · Quảng Ninh · Bắc Ninh · Hưng Yên · Nam Định · Thanh Hoá · Nghệ An…</p>
-        </div>
-        <div class="noc-card">
-          <div class="noc-tag"><span class="noc-pin s"></span> NOC MIỀN NAM</div>
-          <h4>TP. Hồ Chí Minh</h4>
-          <p>Điều phối mạng lưới phân phối các tỉnh phía Nam: Bình Dương · Đồng Nai · Long An · Vũng Tàu · Cần Thơ · An Giang · Cà Mau…</p>
-        </div>
-        <div class="noc-card hub">
-          <div class="noc-tag"><span class="noc-pin h"></span> HUB TRUNG CHUYỂN</div>
-          <h4>Đà Nẵng</h4>
-          <p>Điểm trung chuyển đường trục miền Trung — AI Routing & cân tải 2 chiều Bắc ↔ Nam, đảm bảo tần suất chạy liên tục 24/7.</p>
-        </div>
-      </div>
+      <div class="leadtime-hero-arrow">↯</div>
     </div>
 
     <div class="network-map r">
       <div class="netmap-frame">
-        <img src="images/06-vietnam-3d-network.webp" alt="Bản đồ mạng lưới NAK Logistics"/>
+        <img src="images/06-network-operation.webp" alt="Bản đồ mạng lưới NAK Logistics Operation Network"/>
         <div class="netmap-status"><span class="netmap-dot"></span> LIVE NETWORK · 24/7</div>
-        <div class="netmap-route">
-          <svg viewBox="0 0 100 100"><use href="#i-arrow"/></svg>
-          <div>
-            <strong>HÀ NỘI → TP.HCM</strong>
-            <span>1,720 km · 48h Door-to-Door</span>
-          </div>
-        </div>
+      </div>
+    </div>
+
+    <div class="noc-list">
+      <div class="noc-card r">
+        <div class="noc-tag"><span class="noc-pin n"></span> NOC MIỀN BẮC</div>
+        <h4>Hà Nội</h4>
+        <p>Trung tâm điều hành phụ trách các tỉnh phía Bắc: Hải Phòng · Quảng Ninh · Bắc Ninh · Hưng Yên · Nam Định · Thanh Hoá · Nghệ An…</p>
+      </div>
+      <div class="noc-card r">
+        <div class="noc-tag"><span class="noc-pin s"></span> NOC MIỀN NAM</div>
+        <h4>TP. Hồ Chí Minh</h4>
+        <p>Điều phối mạng lưới phân phối các tỉnh phía Nam: Bình Dương · Đồng Nai · Long An · Vũng Tàu · Cần Thơ · An Giang · Cà Mau…</p>
+      </div>
+      <div class="noc-card hub r">
+        <div class="noc-tag"><span class="noc-pin h"></span> HUB TRUNG CHUYỂN</div>
+        <h4>Đà Nẵng</h4>
+        <p>Điểm trung chuyển đường trục miền Trung — AI Routing & cân tải 2 chiều Bắc ↔ Nam, đảm bảo tần suất chạy liên tục 24/7.</p>
       </div>
     </div>
   </div>
@@ -3202,58 +4649,47 @@ section, nav, footer { position: relative; z-index: 1; }
 <section class="section tech-sec" id="tech">
   <div class="sec-head r">
     <span class="sec-kicker">§ Công nghệ vận hành số</span>
-    <h2 class="sec-title">Smart & <span class="accent">Green Logistics</span> — TMS tích hợp AI.</h2>
-    <p class="sec-dek">Nền tảng số hợp nhất TMS – AI – Camera – Zalo App Truck, hiện thực hóa cam kết minh bạch và giảm phát thải.</p>
+    <h2 class="sec-title">TMS · GPS Real-time — <span class="accent">Vận hành minh bạch</span>, kiểm soát từng chuyến.</h2>
+    <p class="sec-dek">Hai trụ cột công nghệ giúp khách hàng yên tâm tuyệt đối: <strong>TMS</strong> quản lý toàn bộ chuỗi vận hành, <strong>GPS</strong> hiển thị vị trí xe theo thời gian thực.</p>
   </div>
 
   <div class="tech-grid-lp">
     <article class="tech-card-lp r tech-tms">
       <div class="tech-banner-lp"><img src="images/04-tech-dashboard.webp" alt="TMS Dashboard NAK"/></div>
       <div class="tech-body-lp">
-        <span class="tech-tag-lp">TMS · AI ROUTING</span>
-        <h3>Hệ thống TMS tích hợp <span class="accent">AI</span></h3>
-        <p>Smart Routing tối ưu lộ trình theo lưu lượng – tải trọng – giờ cao điểm. Thúc đẩy <strong>Green Logistics</strong>: gộp chuyến, giảm km rỗng, cắt giảm phát thải CO₂ trên mỗi tấn.km.</p>
+        <span class="tech-tag-lp">TMS · OPERATION CONTROL</span>
+        <h3>Hệ thống <span class="accent">TMS</span> quản lý vận hành toàn diện</h3>
+        <p>Số hóa toàn bộ chuỗi vận hành trên 1 nền tảng — từ tiếp nhận đơn, điều phối xe, theo dõi tiến độ tới đối soát chứng từ. Giảm sai sót thủ công, tăng tốc độ xử lý đơn <strong>5-10×</strong>.</p>
         <div class="tech-chips-lp">
-          <span>Smart Routing</span>
-          <span>Load Balancing</span>
-          <span>CO₂ Tracking</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="tech-card-lp r tech-zalo">
-      <div class="tech-banner-lp zalo-mockup-lp">
-        <div class="zalo-m-head">
-          <span class="zalo-m-brand">◈ Zalo App Truck · NAK</span>
-          <span class="zalo-m-live">● LIVE</span>
-        </div>
-        <div class="zalo-m-msg driver">🚛 NAK-2025 · Đang trên đường · ETA 14:25</div>
-        <div class="zalo-m-msg me">✔ Đã nhận hàng tại kho Bình Dương</div>
-        <div class="zalo-m-msg driver">📍 Cao tốc Long Thành — 48km còn lại</div>
-        <div class="zalo-m-msg me">👍 Xác nhận, cảm ơn bác tài</div>
-      </div>
-      <div class="tech-body-lp">
-        <span class="tech-tag-lp">E-TRACKING · ZALO MINI APP</span>
-        <h3>E-tracking & <span class="accent">Zalo App Truck</span></h3>
-        <p>Real-time Visibility trên từng đơn hàng — vị trí xe, trạng thái giao, ETA tự động. Tích hợp thẳng vào <strong>Zalo Mini App</strong>, khách hàng tương tác siêu tốc không cần cài thêm app.</p>
-        <div class="tech-chips-lp">
-          <span>Real-time GPS</span>
+          <span>Order Management</span>
+          <span>Fleet Dispatch</span>
           <span>ePOD</span>
-          <span>Zalo Mini App</span>
+          <span>Auto-billing</span>
         </div>
       </div>
     </article>
 
-    <article class="tech-card-lp r tech-cam">
-      <div class="tech-banner-lp"><img src="images/05-driver-team.webp" alt="Camera giám sát AI 24/7"/></div>
+    <article class="tech-card-lp r tech-gps">
+      <div class="tech-banner-lp gps-mockup-lp">
+        <img class="gps-m-shot" src="images/07-tms-gps-dashboard.webp" alt="NAK GPS Tracking Dashboard"/>
+        <div class="gps-m-head">
+          <span class="gps-m-brand"><span class="gps-m-dot"></span> GPS LIVE · NAK FLEET</span>
+        </div>
+        <div class="gps-m-stats">
+          <div class="gps-m-stat"><span class="gps-m-val">88</span><span class="gps-m-lbl">Đang chạy</span></div>
+          <div class="gps-m-stat"><span class="gps-m-val">14</span><span class="gps-m-lbl">Nghỉ</span></div>
+          <div class="gps-m-stat eta"><span class="gps-m-val">100%</span><span class="gps-m-lbl">Live</span></div>
+        </div>
+      </div>
       <div class="tech-body-lp">
-        <span class="tech-tag-lp">AI CAMERA · 24/7</span>
-        <h3>Camera giám sát <span class="accent">AI kép</span></h3>
-        <p>Hệ camera kép (Cabin + Thùng xe) chạy AI 24/7: cảnh báo hành vi lái xe (mất tập trung, mệt mỏi), giám sát toàn vẹn hàng hóa, chống cạy phá khoang hàng.</p>
+        <span class="tech-tag-lp">GPS · REAL-TIME TRACKING</span>
+        <h3>Theo dõi <span class="accent">hành trình xe</span> theo thời gian thực</h3>
+        <p>Tích hợp GPS thiết bị xe (Bình Anh · Viettel TMS · VECOM) — cập nhật vị trí mỗi <strong>3-5 giây</strong>. Khách hàng xem live trên web/app, ETA tự động tính theo lưu lượng giao thông, cảnh báo lệch tuyến tức thời.</p>
         <div class="tech-chips-lp">
-          <span>Driver Behavior</span>
-          <span>Cargo Integrity</span>
-          <span>Anti-tamper</span>
+          <span>Live Position</span>
+          <span>ETA Auto</span>
+          <span>Geofencing</span>
+          <span>Route Replay</span>
         </div>
       </div>
     </article>
@@ -3299,25 +4735,48 @@ section, nav, footer { position: relative; z-index: 1; }
     <h2 class="sec-title" style="font-size: clamp(26px, 3.5vw, 40px); margin-top: 12px;">Được tin dùng bởi các <span class="accent">thương hiệu hàng đầu</span>.</h2>
   </div>
   <div class="partners-strip">
-    <div class="partners-track">
-      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">NINJA VAN</div><span class="partner-tag">Last-mile</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#F58220;">GHN</div><span class="partner-tag">Giao Hàng Nhanh</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#EE4D2D;">SHOPEE XPRESS</div><span class="partner-tag">eCommerce</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#189EFF;">TIKI</div><span class="partner-tag">Marketplace</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">BEST EXPRESS</div><span class="partner-tag">Express</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#F7B500;">GHTK</div><span class="partner-tag">Giao Hàng Tiết Kiệm</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#E60012;">J&amp;T EXPRESS</div><span class="partner-tag">Express</span></div></div>
-
-      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">NINJA VAN</div><span class="partner-tag">Last-mile</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#F58220;">GHN</div><span class="partner-tag">Giao Hàng Nhanh</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#EE4D2D;">SHOPEE XPRESS</div><span class="partner-tag">eCommerce</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#189EFF;">TIKI</div><span class="partner-tag">Marketplace</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#C8102E;">BEST EXPRESS</div><span class="partner-tag">Express</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#F7B500;">GHTK</div><span class="partner-tag">Giao Hàng Tiết Kiệm</span></div></div>
-      <div class="partner"><div><div class="partner-name" style="color:#E60012;">J&amp;T EXPRESS</div><span class="partner-tag">Express</span></div></div>
-    </div>
+    <div class="partners-track" id="partnersTrack"></div>
   </div>
 </section>
+
+<!-- ========== MARKETPLACE · SÀN LỘ TRÌNH · DISABLED ==========
+     Re-enable: bỏ outer HTML comment (dòng này + dòng `</section>` ENDDISABLED bên dưới)
+     Note: JS initMarket() đã có guard, MOCK_ROUTES vẫn giữ cho bookings/tracking modal.
+==================================================================== -->
+<!--
+<section class="section market" id="market">
+  <div class="sec-head r">
+    <span class="sec-kicker">§ Sàn lộ trình NAK</span>
+    <h2 class="sec-title">Lộ trình <span class="accent">đang mở đặt</span> · Cập nhật theo ngày.</h2>
+    <p class="sec-dek">Đặt chỗ trên các chuyến đường trục cố định của NAK — chia sẻ chi phí với khách hàng khác, giảm 30–40% so với thuê nguyên chuyến. Booking trực tiếp, không qua môi giới.</p>
+  </div>
+
+  <div class="market-toolbar r">
+    <div class="market-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="marketSearchInput" type="search" placeholder="Tìm điểm đi · điểm đến (vd: TP.HCM, Hà Nội, Đà Nẵng)…"/>
+    </div>
+    <div class="market-filters" id="marketFilters">
+      <button class="filter-chip active" data-filter="all">Tất cả</button>
+      <button class="filter-chip" data-filter="trunk">Bắc ↔ Nam</button>
+      <button class="filter-chip" data-filter="region">Liên vùng</button>
+      <button class="filter-chip" data-filter="local">Nội tỉnh · Nội đô</button>
+    </div>
+    <div class="market-stats">
+      <span class="market-dot"></span>
+      <span><strong id="marketCount">0</strong> lộ trình mở · cập nhật <strong id="marketTime">--:--</strong></span>
+    </div>
+  </div>
+
+  <div class="market-grid" id="marketGrid"></div>
+
+  <div class="market-cta r">
+    <span>Không tìm thấy lộ trình phù hợp?</span>
+    <a href="#contact" class="btn btn-orange">Yêu cầu chuyến tuỳ chỉnh →</a>
+  </div>
+</section>
+-->
+<!-- ENDDISABLED MARKETPLACE -->
 
 <!-- ========== LEAD FORM ========== -->
 <section class="section lead" id="contact">
@@ -3411,6 +4870,42 @@ section, nav, footer { position: relative; z-index: 1; }
   </div>
 </footer>
 
+<!-- Route detail modal -->
+<div class="rmodal" id="routeModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
+  <div class="rmodal-backdrop" data-close="1"></div>
+  <div class="rmodal-panel">
+    <button class="rmodal-close" data-close="1" aria-label="Đóng">×</button>
+    <div class="rmodal-content" id="routeModalContent"></div>
+  </div>
+</div>
+
+<!-- Auth modal (login + OTP) -->
+<div class="rmodal" id="authModal" hidden aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="rmodal-backdrop" data-close="1"></div>
+  <div class="rmodal-panel auth-panel">
+    <button class="rmodal-close" data-close="1" aria-label="Đóng">×</button>
+    <div class="rmodal-content" id="authModalContent"></div>
+  </div>
+</div>
+
+<!-- My Bookings modal -->
+<div class="rmodal" id="bookingsModal" hidden aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="rmodal-backdrop" data-close="1"></div>
+  <div class="rmodal-panel bk-panel">
+    <button class="rmodal-close" data-close="1" aria-label="Đóng">×</button>
+    <div class="rmodal-content" id="bookingsContent"></div>
+  </div>
+</div>
+
+<!-- Live GPS Tracking modal -->
+<div class="rmodal" id="trackingModal" hidden aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="rmodal-backdrop" data-close="1"></div>
+  <div class="rmodal-panel tr-panel">
+    <button class="rmodal-close" data-close="1" aria-label="Đóng">×</button>
+    <div class="rmodal-content" id="trackingContent"></div>
+  </div>
+</div>
+
 <script>
   const io = new IntersectionObserver((es) => {
     es.forEach(e => {
@@ -3454,6 +4949,806 @@ section, nav, footer { position: relative; z-index: 1; }
       setTimeout(() => { c.style.setProperty('--vol-fill', pct + '%'); }, 600 + i * 100);
     });
   }
+
+  /* ===== MARKETPLACE · SÀN LỘ TRÌNH ===== */
+  // Vehicle templates (shared by routes via vehicleId)
+  const VEHICLES = {
+    'isuzu-fvr-8t': {
+      model: 'ISUZU FVR 34S · 8T',
+      plate: '29C-789.45',
+      year: 2023,
+      fuel: 'Diesel · Euro 5',
+      photos: ['images/01-hero-trucks-branded.webp', 'images/01-hero-trucks.webp', 'images/02-fleet-depot.webp'],
+      dims: { length: 6.20, width: 2.43, height: 2.58, volume: 38.9, weight: 8 },
+      docs: {
+        registration:   { code: 'NAK-789***45', status: 'valid', expires: '2027-08-12' },
+        inspection:     { code: 'KĐ-2026-***98', status: 'valid', expires: '2026-11-30' },
+        insurance:      { code: 'BH-PVI-***12', status: 'valid', expires: '2026-12-31' },
+        transport_lic:  { code: 'GPVT-89/***/2024', status: 'valid', expires: '2029-01-15' }
+      }
+    },
+    'hino-500-5t': {
+      model: 'HINO 500 FG · 5T',
+      plate: '51C-456.78',
+      year: 2022,
+      fuel: 'Diesel · Euro 5',
+      photos: ['images/01-hero-trucks.webp', 'images/02-fleet-depot.webp', 'images/01-hero-trucks-branded.webp'],
+      dims: { length: 6.70, width: 2.30, height: 2.50, volume: 27, weight: 5 },
+      docs: {
+        registration:   { code: 'NAK-456***78', status: 'valid', expires: '2027-03-22' },
+        inspection:     { code: 'KĐ-2026-***34', status: 'soon', expires: '2026-06-15' },
+        insurance:      { code: 'BH-BMI-***44', status: 'valid', expires: '2026-10-20' },
+        transport_lic:  { code: 'GPVT-56/***/2023', status: 'valid', expires: '2028-04-10' }
+      }
+    },
+    'isuzu-nqr-2t': {
+      model: 'ISUZU NQR 75 · 2T',
+      plate: '30C-321.99',
+      year: 2024,
+      fuel: 'Diesel · Euro 5',
+      photos: ['images/05-driver-team.webp', 'images/02-fleet-depot.webp', 'images/01-hero-trucks-branded.webp'],
+      dims: { length: 4.30, width: 2.00, height: 2.00, volume: 17.2, weight: 2 },
+      docs: {
+        registration:   { code: 'NAK-321***99', status: 'valid', expires: '2028-09-05' },
+        inspection:     { code: 'KĐ-2026-***02', status: 'valid', expires: '2027-01-18' },
+        insurance:      { code: 'BH-PVI-***88', status: 'valid', expires: '2026-12-15' },
+        transport_lic:  { code: 'GPVT-21/***/2024', status: 'valid', expires: '2029-08-22' }
+      }
+    }
+  };
+
+  const DRIVERS = {
+    'tuan-nv': {
+      name: 'Nguyễn Văn Tuấn', age: 34, experience: 8, trips: 1250,
+      license: 'GPLX hạng C', licenseExpires: '2028-05-14',
+      phone: '0986 524 ***', rating: 4.9,
+      avatar: 'https://api.dicebear.com/9.x/initials/svg?seed=Nguyễn Văn Tuấn&backgroundColor=1860B0&fontSize=42'
+    },
+    'minh-le': {
+      name: 'Lê Quang Minh', age: 41, experience: 14, trips: 2180,
+      license: 'GPLX hạng FC', licenseExpires: '2027-11-08',
+      phone: '0983 983 ***', rating: 5.0,
+      avatar: 'https://api.dicebear.com/9.x/initials/svg?seed=Lê Quang Minh&backgroundColor=F39200&fontSize=42'
+    },
+    'hoang-nq': {
+      name: 'Nguyễn Quang Hoàng', age: 29, experience: 5, trips: 720,
+      license: 'GPLX hạng C', licenseExpires: '2029-02-20',
+      phone: '0976 215 ***', rating: 4.8,
+      avatar: 'https://api.dicebear.com/9.x/initials/svg?seed=Nguyễn Quang Hoàng&backgroundColor=0E3F7E&fontSize=42'
+    }
+  };
+
+  // Mock data — replace with `await fetch('/api/routes')` when backend ready
+  const MOCK_ROUTES = [
+    { id: 'R-2026-001', origin: 'TP. Hồ Chí Minh', dest: 'Hà Nội',     distance: 1720, leadtimeH: 48, vehicle: '8T · Tải thùng kín', img: 'images/01-hero-trucks-branded.webp', capTotal: 8, capLeft: 3.2, price: 28500000, depart: 'Khởi hành 06:00 ngày mai',  category: 'trunk',  status: 'open',    vehicleId: 'isuzu-fvr-8t', driverId: 'minh-le' },
+    { id: 'R-2026-002', origin: 'TP. Hồ Chí Minh', dest: 'Đà Nẵng',    distance: 950,  leadtimeH: 24, vehicle: '5T · Tải thùng kín', img: 'images/01-hero-trucks.webp',          capTotal: 5, capLeft: 1.5, price: 18200000, depart: 'Khởi hành 07:00 ngày mai',  category: 'trunk',  status: 'filling', vehicleId: 'hino-500-5t',  driverId: 'tuan-nv' },
+    { id: 'R-2026-003', origin: 'Hà Nội',          dest: 'Đà Nẵng',    distance: 770,  leadtimeH: 18, vehicle: '8T · Tải thùng kín', img: 'images/02-fleet-depot.webp',          capTotal: 8, capLeft: 5.8, price: 14800000, depart: 'Khởi hành 08:00 hôm nay',   category: 'trunk',  status: 'open',    vehicleId: 'isuzu-fvr-8t', driverId: 'hoang-nq' },
+    { id: 'R-2026-004', origin: 'TP.HCM',          dest: 'Cần Thơ',    distance: 175,  leadtimeH: 4,  vehicle: '2T · Van nội đô',     img: 'images/02-fleet-depot.webp',          capTotal: 2, capLeft: 0,   price: 4500000,  depart: 'Khởi hành 14:00 chiều nay', category: 'region', status: 'full',    vehicleId: 'isuzu-nqr-2t', driverId: 'tuan-nv' },
+    { id: 'R-2026-005', origin: 'Hà Nội',          dest: 'Hải Phòng',  distance: 120,  leadtimeH: 3,  vehicle: '5T · Tải thùng kín', img: 'images/01-hero-trucks-branded.webp', capTotal: 5, capLeft: 4.2, price: 3800000,  depart: 'Mở chuyến mỗi 4h · 24/7',   category: 'region', status: 'open',    vehicleId: 'hino-500-5t',  driverId: 'minh-le' },
+    { id: 'R-2026-006', origin: 'TP.HCM',          dest: 'Bình Dương', distance: 30,   leadtimeH: 1,  vehicle: '2T · Van nội đô',     img: 'images/05-driver-team.webp',          capTotal: 2, capLeft: 1.6, price: 1800000,  depart: 'Pick-up trong 30 phút',     category: 'local',  status: 'open',    vehicleId: 'isuzu-nqr-2t', driverId: 'hoang-nq' },
+    { id: 'R-2026-007', origin: 'TP. Hồ Chí Minh', dest: 'Vũng Tàu',   distance: 125,  leadtimeH: 3,  vehicle: '8T · Tải thùng kín', img: 'images/01-hero-trucks.webp',          capTotal: 8, capLeft: 2.4, price: 4200000,  depart: 'Khởi hành 16:00 chiều nay', category: 'region', status: 'filling', vehicleId: 'isuzu-fvr-8t', driverId: 'minh-le' },
+    { id: 'R-2026-008', origin: 'Đà Nẵng',         dest: 'Quảng Ngãi', distance: 130,  leadtimeH: 3,  vehicle: '5T · Tải thùng kín', img: 'images/02-fleet-depot.webp',          capTotal: 5, capLeft: 4.5, price: 3500000,  depart: 'Mở chuyến mỗi 6h',          category: 'region', status: 'open',    vehicleId: 'hino-500-5t',  driverId: 'tuan-nv' },
+    { id: 'R-2026-009', origin: 'Hà Nội',          dest: 'Vinh',       distance: 300,  leadtimeH: 6,  vehicle: '8T · Tải thùng kín', img: 'images/01-hero-trucks-branded.webp', capTotal: 8, capLeft: 6.5, price: 7800000,  depart: 'Khởi hành 05:00 ngày mai',  category: 'trunk',  status: 'open',    vehicleId: 'isuzu-fvr-8t', driverId: 'hoang-nq' }
+  ];
+
+  const fmtVND = (n) => new Intl.NumberFormat('vi-VN').format(n);
+  const statusLabel = { open: 'CÒN CHỖ', filling: 'SẮP FULL', full: 'ĐÃ FULL' };
+
+  function renderRouteCard(r) {
+    const pctLeft = Math.round((r.capLeft / r.capTotal) * 100);
+    const capState = r.status === 'full' ? 'full' : (pctLeft <= 35 ? 'warn' : '');
+    const isFull = r.status === 'full';
+    return `
+      <article class="route-card" data-category="${r.category}" data-status="${r.status}" data-search="${(r.origin + ' ' + r.dest).toLowerCase()}">
+        <div class="route-thumb">
+          <img src="${r.img}" alt="${r.origin} → ${r.dest}" loading="lazy"/>
+          <span class="route-status ${r.status}">${statusLabel[r.status]}</span>
+          <span class="route-vehicle-tag">${r.vehicle.split('·')[0].trim()}</span>
+          <div class="route-route-overlay">
+            <div class="route-cities">
+              <span class="city">${shortCity(r.origin)}</span>
+              <span class="arrow">→</span>
+              <span class="city">${shortCity(r.dest)}</span>
+            </div>
+            <span class="route-distance">${r.distance.toLocaleString('vi-VN')} km</span>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="route-meta">
+            <div class="route-meta-item">
+              <span class="route-meta-label">Xe</span>
+              <span class="route-meta-val">${r.vehicle}</span>
+            </div>
+            <div class="route-meta-item">
+              <span class="route-meta-label">Lead-time</span>
+              <span class="route-meta-val accent">${r.leadtimeH}h Door-to-Door</span>
+            </div>
+            <div class="route-meta-item" style="grid-column: 1/-1">
+              <span class="route-meta-label">Lịch khởi hành</span>
+              <span class="route-meta-val">${r.depart}</span>
+            </div>
+          </div>
+          <div class="route-capacity ${capState}">
+            <div class="route-capacity-bar"><span style="width: ${100 - pctLeft}%"></span></div>
+            <span class="route-capacity-txt">${r.capLeft}T / ${r.capTotal}T trống</span>
+          </div>
+          <button class="route-detail-btn" data-detail="${r.id}" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+            Xem xe · giấy tờ · tài xế
+          </button>
+          <div class="route-foot">
+            <div class="route-price-block">
+              <span class="route-price">${fmtVND(r.price)}<span style="font-size:13px;opacity:.6;font-weight:700">đ</span></span>
+              <span class="route-price-unit">trọn chuyến · đã VAT</span>
+            </div>
+            <button class="route-book" data-id="${r.id}" ${isFull ? 'disabled' : ''}>${isFull ? 'Hết chỗ' : 'Đặt ngay'}</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function shortCity(s) {
+    return s.replace('TP. Hồ Chí Minh', 'TP.HCM').replace('Thành phố ', '').trim();
+  }
+
+  function renderMarket(filter = 'all', query = '') {
+    const grid = document.getElementById('marketGrid');
+    if (!grid) return;
+    const q = query.trim().toLowerCase();
+    const list = MOCK_ROUTES.filter(r => {
+      const matchCat = filter === 'all' || r.category === filter;
+      const matchQ = !q || (r.origin + ' ' + r.dest).toLowerCase().includes(q);
+      return matchCat && matchQ;
+    });
+    if (!list.length) {
+      grid.innerHTML = `<div class="market-empty">Không có lộ trình phù hợp với bộ lọc hiện tại.<br/>Liên hệ hotline <strong>0986.524.228</strong> để yêu cầu chuyến tuỳ chỉnh.</div>`;
+    } else {
+      grid.innerHTML = list.map(renderRouteCard).join('');
+    }
+    document.getElementById('marketCount').textContent = list.length;
+    document.getElementById('marketTime').textContent = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function initMarket() {
+    if (!document.getElementById('marketGrid')) return;
+    let curFilter = 'all';
+    let curQuery = '';
+    renderMarket();
+
+    document.getElementById('marketFilters').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      document.querySelectorAll('#marketFilters .filter-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      curFilter = btn.dataset.filter;
+      renderMarket(curFilter, curQuery);
+    });
+
+    const search = document.getElementById('marketSearchInput');
+    let t;
+    search.addEventListener('input', (e) => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        curQuery = e.target.value;
+        renderMarket(curFilter, curQuery);
+      }, 200);
+    });
+
+    document.getElementById('marketGrid').addEventListener('click', (e) => {
+      const detailBtn = e.target.closest('.route-detail-btn');
+      if (detailBtn) {
+        openRouteModal(detailBtn.dataset.detail);
+        return;
+      }
+      const btn = e.target.closest('.route-book');
+      if (!btn || btn.disabled) return;
+      const id = btn.dataset.id;
+      const route = MOCK_ROUTES.find(r => r.id === id);
+      if (!route) return;
+      // TODO: thay alert bằng modal đặt chuyến / call API /api/bookings
+      alert(`✓ Đã ghi nhận yêu cầu đặt chuyến\n\nMã lộ trình: ${id}\n${route.origin} → ${route.dest}\nXe: ${route.vehicle}\nGiá: ${fmtVND(route.price)}đ\n\nNAK sẽ liên hệ xác nhận trong 15 phút qua hotline 0986.524.228.`);
+    });
+  }
+  initMarket();
+
+  /* ===== ROUTE DETAIL MODAL ===== */
+  const DOC_LABELS = {
+    registration:  { name: 'Đăng ký xe',          icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/>' },
+    inspection:    { name: 'Sổ đăng kiểm',         icon: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>' },
+    insurance:     { name: 'Bảo hiểm hàng hoá',    icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
+    transport_lic: { name: 'GP vận tải',           icon: '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M8 14h2"/>' }
+  };
+  const DOC_STATUS_LABELS = { valid: 'Còn hiệu lực', soon: 'Sắp hết hạn', expired: 'Hết hạn' };
+
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  }
+
+  function renderRouteModal(route) {
+    const v = VEHICLES[route.vehicleId];
+    const d = DRIVERS[route.driverId];
+    if (!v || !d) return '<div style="padding:40px;text-align:center;color:#6B7280">Không tìm thấy thông tin xe.</div>';
+    const isFull = route.status === 'full';
+    const docs = Object.entries(v.docs).map(([key, doc]) => {
+      const meta = DOC_LABELS[key];
+      return `
+        <div class="rm-doc ${doc.status}">
+          <div class="rm-doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${meta.icon}</svg></div>
+          <div class="rm-doc-info">
+            <div class="rm-doc-name">${meta.name}</div>
+            <div class="rm-doc-meta">${doc.code} · HSD ${fmtDate(doc.expires)}</div>
+          </div>
+          <span class="rm-doc-status">${DOC_STATUS_LABELS[doc.status]}</span>
+        </div>`;
+    }).join('');
+    const thumbs = v.photos.map((p, i) => `
+      <button class="rm-thumb${i === 0 ? ' active' : ''}" data-photo="${p}" type="button"><img src="${p}" alt=""/></button>
+    `).join('');
+    return `
+      <div class="rm-hero">
+        <img class="rm-hero-img" id="rmHeroImg" src="${v.photos[0]}" alt="${v.model}"/>
+        <div class="rm-thumbs">${thumbs}</div>
+        <div class="rm-hero-overlay">
+          <div>
+            <div id="rmTitle" class="rm-hero-route">${shortCity(route.origin)} <span class="arrow">→</span> ${shortCity(route.dest)}</div>
+            <div style="font-size:12px;font-weight:700;opacity:.85;margin-top:2px">Mã: ${route.id}</div>
+          </div>
+          <div class="rm-hero-meta">${route.distance.toLocaleString('vi-VN')} km · ${route.leadtimeH}h Door-to-Door</div>
+        </div>
+      </div>
+      <div class="rm-body">
+        <div>
+          <div class="rm-section-head">Phương tiện</div>
+          <div class="rm-vehicle-head">
+            <div>
+              <div class="rm-vehicle-model">${v.model}</div>
+              <div class="rm-vehicle-misc">${v.fuel} · Đời ${v.year} · ${route.depart}</div>
+            </div>
+            <span class="rm-vehicle-plate">${v.plate}</span>
+          </div>
+        </div>
+        <div>
+          <div class="rm-section-head">Kích thước thùng & Tải trọng</div>
+          <div class="rm-dims">
+            <div class="rm-dim"><div class="rm-dim-val">${v.dims.length.toFixed(2)}<small>m</small></div><div class="rm-dim-lbl">Dài</div></div>
+            <div class="rm-dim"><div class="rm-dim-val">${v.dims.width.toFixed(2)}<small>m</small></div><div class="rm-dim-lbl">Rộng</div></div>
+            <div class="rm-dim"><div class="rm-dim-val">${v.dims.height.toFixed(2)}<small>m</small></div><div class="rm-dim-lbl">Cao</div></div>
+            <div class="rm-dim"><div class="rm-dim-val">${v.dims.volume}<small>m³</small></div><div class="rm-dim-lbl">Thể tích</div></div>
+            <div class="rm-dim"><div class="rm-dim-val">${v.dims.weight}<small>T</small></div><div class="rm-dim-lbl">Tải trọng</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="rm-section-head">Giấy tờ phương tiện · Đã xác minh ✓</div>
+          <div class="rm-docs">${docs}</div>
+        </div>
+        <div>
+          <div class="rm-section-head">Tài xế phụ trách</div>
+          <div class="rm-driver">
+            <div class="rm-driver-avatar"><img src="${d.avatar}" alt="${d.name}"/></div>
+            <div class="rm-driver-info">
+              <div class="rm-driver-name">${d.name} <span class="rm-driver-rating">★ ${d.rating.toFixed(1)}</span></div>
+              <div class="rm-driver-line">
+                <span><strong>${d.age}</strong> tuổi · <strong>${d.experience}</strong> năm KN</span>
+                <span><strong>${d.trips.toLocaleString('vi-VN')}</strong> chuyến đã giao</span>
+              </div>
+              <div class="rm-driver-line">
+                <span>${d.license} · HSD ${fmtDate(d.licenseExpires)}</span>
+              </div>
+            </div>
+            <div class="rm-driver-actions">
+              <a class="rm-driver-call" href="tel:${d.phone.replace(/\D/g,'')}">📞 ${d.phone}</a>
+            </div>
+          </div>
+        </div>
+        <div class="rm-foot">
+          <div class="rm-foot-left">
+            <div class="rm-foot-price">${fmtVND(route.price)}đ</div>
+            <div class="rm-foot-note">Trọn chuyến · đã VAT · ${route.capLeft}T / ${route.capTotal}T còn trống</div>
+          </div>
+          <button class="rm-foot-cta" data-book="${route.id}" ${isFull ? 'disabled' : ''}>${isFull ? 'Hết chỗ' : 'Đặt chuyến này →'}</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function openRouteModal(id) {
+    const route = MOCK_ROUTES.find(r => r.id === id);
+    if (!route) return;
+    const modal = document.getElementById('routeModal');
+    const content = document.getElementById('routeModalContent');
+    content.innerHTML = renderRouteModal(route);
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    content.scrollTop = 0;
+  }
+  function closeRouteModal() {
+    const modal = document.getElementById('routeModal');
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('routeModal').addEventListener('click', (e) => {
+    if (e.target.dataset.close) { closeRouteModal(); return; }
+    const thumb = e.target.closest('.rm-thumb');
+    if (thumb) {
+      document.querySelectorAll('.rm-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      document.getElementById('rmHeroImg').src = thumb.dataset.photo;
+      return;
+    }
+    const book = e.target.closest('[data-book]');
+    if (book && !book.disabled) {
+      const route = MOCK_ROUTES.find(r => r.id === book.dataset.book);
+      closeRouteModal();
+      alert(`✓ Đã ghi nhận yêu cầu đặt chuyến\n\nMã lộ trình: ${route.id}\n${route.origin} → ${route.dest}\nXe: ${route.vehicle}\nGiá: ${fmtVND(route.price)}đ\n\nNAK sẽ liên hệ xác nhận trong 15 phút.`);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !document.getElementById('routeModal').hidden) closeRouteModal();
+  });
+
+  /* ===== AUTH · MY BOOKINGS · LIVE GPS TRACKING ===== */
+
+  // City coordinates on SVG canvas (260 × 540), normalized from VN lat/lng
+  const CITY_XY = {
+    'Hà Nội':            { x: 165, y: 70  },
+    'Hải Phòng':         { x: 195, y: 90  },
+    'Vinh':              { x: 145, y: 165 },
+    'Đà Nẵng':           { x: 175, y: 245 },
+    'Quảng Ngãi':        { x: 175, y: 285 },
+    'TP. Hồ Chí Minh':   { x: 130, y: 460 },
+    'TP.HCM':            { x: 130, y: 460 },
+    'Cần Thơ':           { x: 100, y: 495 },
+    'Vũng Tàu':          { x: 145, y: 480 },
+    'Bình Dương':        { x: 130, y: 450 }
+  };
+
+  // Auth state
+  let AUTH_USER = null;
+  try { AUTH_USER = JSON.parse(localStorage.getItem('nak_user') || 'null'); } catch (e) {}
+
+  // User bookings (mock — keyed by phone)
+  let USER_BOOKINGS = [];
+
+  function avatarFor(name) {
+    const seed = encodeURIComponent(name || 'Khách');
+    return `https://api.dicebear.com/9.x/initials/svg?seed=${seed}&backgroundColor=1860B0&fontSize=42`;
+  }
+  function nameFromPhone(phone) {
+    // Auto-name placeholder until backend returns real profile
+    return 'KH ' + phone.slice(-4);
+  }
+
+  function seedBookings(user) {
+    // 3 bookings: 1 transit (live GPS), 1 pickup (queued), 1 delivered (historical)
+    USER_BOOKINGS = [
+      {
+        bookingId: 'BK-26041501', routeId: 'R-2026-001',
+        bookedAt: '2026-04-23 09:42', amount: 28500000,
+        status: 'transit', progress: 0.42,
+        startedAt: Date.now() - 18 * 3600 * 1000  // 18h ago
+      },
+      {
+        bookingId: 'BK-26042403', routeId: 'R-2026-005',
+        bookedAt: '2026-04-24 11:15', amount: 3800000,
+        status: 'pickup', progress: 0,
+        startedAt: null
+      },
+      {
+        bookingId: 'BK-26041204', routeId: 'R-2026-003',
+        bookedAt: '2026-04-12 06:30', amount: 14800000,
+        status: 'delivered', progress: 1,
+        startedAt: Date.now() - 12 * 86400 * 1000
+      }
+    ];
+  }
+
+  /* ---- Auth UI ---- */
+  function openAuth() {
+    const modal = document.getElementById('authModal');
+    document.getElementById('authModalContent').innerHTML = `
+      <div class="auth-body">
+        <div class="auth-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="auth-title">Đăng nhập NAK</div>
+        <div class="auth-sub">Theo dõi booking & vị trí xe trực tiếp.<br/>Nhập số điện thoại để nhận mã OTP.</div>
+        <input class="auth-input" id="authPhone" type="tel" inputmode="numeric" placeholder="0986 524 228" maxlength="11"/>
+        <button class="auth-btn" id="authSendOtp" disabled>Gửi mã OTP →</button>
+        <div class="auth-foot">Tiếp tục đồng nghĩa bạn đồng ý với Điều khoản sử dụng & Chính sách bảo mật của NAK.</div>
+      </div>`;
+    modal.hidden = false; modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const phoneEl = document.getElementById('authPhone');
+    const sendBtn = document.getElementById('authSendOtp');
+    phoneEl.focus();
+    phoneEl.addEventListener('input', () => {
+      const v = phoneEl.value.replace(/\D/g, '').slice(0, 11);
+      phoneEl.value = v;
+      sendBtn.disabled = v.length < 9;
+    });
+    sendBtn.addEventListener('click', () => showOtpStep(phoneEl.value));
+  }
+  function showOtpStep(phone) {
+    document.getElementById('authModalContent').innerHTML = `
+      <div class="auth-body">
+        <div class="auth-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="auth-title">Nhập mã OTP</div>
+        <div class="auth-sub">Đã gửi mã 6 số đến <strong>${phone.replace(/(\d{4})(\d{3})(\d{3,4})/, '$1 $2 $3')}</strong></div>
+        <div class="auth-otp" id="otpBoxes">
+          ${[0,1,2,3,4,5].map(i => `<input maxlength="1" inputmode="numeric" data-idx="${i}"/>`).join('')}
+        </div>
+        <div class="auth-otp-hint">Demo: nhập bất kỳ <strong>6 chữ số</strong> để vào hệ thống</div>
+        <button class="auth-btn" id="otpVerify" disabled>Xác nhận →</button>
+        <button class="auth-back" id="otpBack">← Đổi số điện thoại</button>
+      </div>`;
+    const boxes = [...document.querySelectorAll('#otpBoxes input')];
+    const verify = document.getElementById('otpVerify');
+    boxes[0].focus();
+    boxes.forEach((box, i) => {
+      box.addEventListener('input', () => {
+        box.value = box.value.replace(/\D/g, '');
+        if (box.value && i < 5) boxes[i+1].focus();
+        verify.disabled = boxes.some(b => !b.value);
+      });
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !box.value && i > 0) boxes[i-1].focus();
+      });
+    });
+    verify.addEventListener('click', () => loginSuccess(phone));
+    document.getElementById('otpBack').addEventListener('click', openAuth);
+  }
+  function loginSuccess(phone) {
+    AUTH_USER = { phone, name: nameFromPhone(phone), avatar: avatarFor(nameFromPhone(phone)) };
+    localStorage.setItem('nak_user', JSON.stringify(AUTH_USER));
+    seedBookings(AUTH_USER);
+    refreshNavAuth();
+    closeAuthModal();
+    setTimeout(openBookings, 250);
+  }
+  function logout() {
+    AUTH_USER = null;
+    USER_BOOKINGS = [];
+    localStorage.removeItem('nak_user');
+    refreshNavAuth();
+    closeBookings();
+  }
+  function refreshNavAuth() {
+    const slot = document.getElementById('navAuthSlot');
+    if (!slot) return;
+    if (AUTH_USER) {
+      slot.innerHTML = `
+        <button class="nav-user" type="button" id="navUserBtn" title="Booking của tôi">
+          <span class="nav-user-avatar"><img src="${AUTH_USER.avatar}" alt=""/></span>
+          <span>${AUTH_USER.name}</span>
+          <span class="nav-user-caret">▾</span>
+        </button>`;
+      document.getElementById('navUserBtn').addEventListener('click', openBookings);
+    } else {
+      slot.innerHTML = `
+        <button class="nav-login" type="button" id="navLoginBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Đăng nhập
+        </button>`;
+      document.getElementById('navLoginBtn').addEventListener('click', openAuth);
+    }
+  }
+  function closeAuthModal() {
+    const m = document.getElementById('authModal');
+    m.hidden = true; m.setAttribute('aria-hidden', 'true');
+    if (document.getElementById('bookingsModal').hidden && document.getElementById('trackingModal').hidden) document.body.style.overflow = '';
+  }
+  document.getElementById('authModal').addEventListener('click', (e) => {
+    if (e.target.dataset.close) closeAuthModal();
+  });
+
+  /* ---- My Bookings UI ---- */
+  const STATUS_LABELS = {
+    pickup: 'CHỜ NHẬN HÀNG', transit: 'ĐANG VẬN CHUYỂN', delivered: 'ĐÃ GIAO', cancelled: 'HUỶ'
+  };
+  function bookingItem(bk) {
+    const r = MOCK_ROUTES.find(x => x.id === bk.routeId);
+    if (!r) return '';
+    const isLive = bk.status === 'transit';
+    return `
+      <div class="bk-item" data-bid="${bk.bookingId}">
+        <div class="bk-thumb"><img src="${r.img}" alt=""/></div>
+        <div class="bk-info">
+          <div class="bk-route">${shortCity(r.origin)} <span class="arrow">→</span> ${shortCity(r.dest)}</div>
+          <div class="bk-meta">${bk.bookingId} · ${r.distance.toLocaleString('vi-VN')} km · ${fmtVND(bk.amount)}đ</div>
+          <div class="bk-status-row">
+            <span class="bk-status ${bk.status}">${STATUS_LABELS[bk.status]}</span>
+            <div class="bk-progress"><span style="width:${Math.round(bk.progress * 100)}%"></span></div>
+          </div>
+        </div>
+        <div class="bk-actions">
+          <button class="bk-track-btn" data-track="${bk.bookingId}" ${isLive ? '' : 'disabled'}>
+            ${isLive ? '<span class="live-dot"></span> Theo dõi LIVE' : (bk.status === 'delivered' ? 'Xem lịch sử' : 'Chưa khởi hành')}
+          </button>
+        </div>
+      </div>`;
+  }
+  function openBookings() {
+    if (!AUTH_USER) { openAuth(); return; }
+    const counts = {
+      all: USER_BOOKINGS.length,
+      transit: USER_BOOKINGS.filter(b => b.status === 'transit').length,
+      pickup: USER_BOOKINGS.filter(b => b.status === 'pickup').length,
+      delivered: USER_BOOKINGS.filter(b => b.status === 'delivered').length
+    };
+    document.getElementById('bookingsContent').innerHTML = `
+      <div class="bk-header">
+        <div class="bk-header-info">
+          <div class="bk-header-avatar"><img src="${AUTH_USER.avatar}" alt=""/></div>
+          <div>
+            <div class="bk-header-name">Xin chào, ${AUTH_USER.name}</div>
+            <div class="bk-header-meta">📞 ${AUTH_USER.phone} · ${USER_BOOKINGS.length} đơn hàng</div>
+          </div>
+        </div>
+        <button class="bk-logout" id="bkLogout">Đăng xuất</button>
+      </div>
+      <div class="bk-tabs" id="bkTabs">
+        <button class="bk-tab active" data-tab="all">Tất cả <span class="badge">${counts.all}</span></button>
+        <button class="bk-tab" data-tab="transit">Đang giao <span class="badge">${counts.transit}</span></button>
+        <button class="bk-tab" data-tab="pickup">Chờ nhận <span class="badge">${counts.pickup}</span></button>
+        <button class="bk-tab" data-tab="delivered">Đã giao <span class="badge">${counts.delivered}</span></button>
+      </div>
+      <div class="bk-list" id="bkList">${USER_BOOKINGS.map(bookingItem).join('') || '<div class="bk-empty">Chưa có booking nào.</div>'}</div>`;
+    const m = document.getElementById('bookingsModal');
+    m.hidden = false; m.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    document.getElementById('bkLogout').addEventListener('click', logout);
+    document.getElementById('bkTabs').addEventListener('click', (e) => {
+      const t = e.target.closest('.bk-tab'); if (!t) return;
+      document.querySelectorAll('#bkTabs .bk-tab').forEach(b => b.classList.remove('active'));
+      t.classList.add('active');
+      const filt = t.dataset.tab;
+      const list = filt === 'all' ? USER_BOOKINGS : USER_BOOKINGS.filter(b => b.status === filt);
+      document.getElementById('bkList').innerHTML = list.map(bookingItem).join('') || '<div class="bk-empty">Không có booking ở trạng thái này.</div>';
+    });
+    document.getElementById('bkList').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-track]'); if (!btn || btn.disabled) return;
+      openTracking(btn.dataset.track);
+    });
+  }
+  function closeBookings() {
+    const m = document.getElementById('bookingsModal');
+    m.hidden = true; m.setAttribute('aria-hidden', 'true');
+    if (document.getElementById('trackingModal').hidden && document.getElementById('authModal').hidden) document.body.style.overflow = '';
+  }
+  document.getElementById('bookingsModal').addEventListener('click', (e) => {
+    if (e.target.dataset.close) closeBookings();
+  });
+
+  /* ---- Live GPS Tracking ---- */
+  let TRACK_TIMER = null;
+  let TRACK_STATE = null;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function distNorm(p1, p2) { return Math.hypot(p2.x - p1.x, p2.y - p1.y); }
+
+  function buildVnMap(activeCities, progress, currentXY) {
+    const cities = Object.entries(CITY_XY)
+      .filter(([n]) => n !== 'TP.HCM') // dedupe alias
+      .map(([name, p]) => {
+        const active = activeCities.includes(name) || activeCities.includes(name === 'TP. Hồ Chí Minh' ? 'TP.HCM' : name);
+        const labelX = name === 'Hải Phòng' ? p.x + 8 : p.x - 8;
+        const anchor = name === 'Hải Phòng' ? 'start' : 'end';
+        return `
+          <g class="city-pin ${active ? 'active' : ''}">
+            <circle class="pin-circle city-marker" cx="${p.x}" cy="${p.y}" r="${active ? 5 : 3.5}"/>
+            <text class="city-label" x="${labelX}" y="${p.y + 3}" text-anchor="${anchor}">${name.replace('TP. Hồ Chí Minh','TP.HCM')}</text>
+          </g>`;
+      }).join('');
+
+    const [from, to] = activeCities.map(c => CITY_XY[c]);
+    if (!from || !to) return '';
+    const totalLen = distNorm(from, to);
+    const cx = lerp(from.x, currentXY.x, 1);
+    const cy = lerp(from.y, currentXY.y, 1);
+
+    return `
+      <svg viewBox="0 0 260 540" preserveAspectRatio="xMidYMid meet">
+        <!-- Stylized VN coastline silhouette -->
+        <path d="M150,30 Q200,55 195,100 Q180,150 165,180 Q150,220 175,250 Q190,290 175,340 Q150,400 130,460 Q100,510 80,520 Q70,510 75,490 Q90,460 110,430 Q130,390 140,330 Q150,270 145,220 Q140,170 130,120 Q135,70 150,30 Z"
+              fill="rgba(120,180,255,.10)" stroke="rgba(120,180,255,.4)" stroke-width="1.2"/>
+        <!-- All cities -->
+        ${cities}
+        <!-- Route line -->
+        <line class="route-line" x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"/>
+        <!-- Progress line -->
+        <line class="route-progress" x1="${from.x}" y1="${from.y}" x2="${currentXY.x}" y2="${currentXY.y}"/>
+        <!-- Truck pulse + marker -->
+        <circle class="truck-pulse" cx="${currentXY.x}" cy="${currentXY.y}" r="6"/>
+        <circle class="truck-marker" cx="${currentXY.x}" cy="${currentXY.y}" r="6"/>
+        <text x="${currentXY.x + 10}" y="${currentXY.y - 10}" fill="#FFD494" font-size="9" font-weight="800" font-family="ui-sans-serif">🚛 LIVE</text>
+      </svg>`;
+  }
+
+  function fmtTime(date) {
+    return date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+  function fmtRel(t) {
+    const sec = Math.floor((Date.now() - t) / 1000);
+    if (sec < 60) return `${sec}s trước`;
+    if (sec < 3600) return `${Math.floor(sec/60)}m trước`;
+    return `${Math.floor(sec/3600)}h trước`;
+  }
+
+  function buildPings(state) {
+    return state.pings.slice(-6).reverse().map(p => `
+      <div class="tr-ping">
+        <span class="tr-ping-time">${fmtTime(new Date(p.t))}</span>
+        <span class="tr-ping-event">${p.event}</span>
+      </div>`).join('');
+  }
+
+  function renderTracking() {
+    const s = TRACK_STATE;
+    if (!s) return;
+    const route = s.route, vehicle = s.vehicle, driver = s.driver, bk = s.booking;
+    const from = CITY_XY[route.origin], to = CITY_XY[route.dest];
+    const cur = { x: lerp(from.x, to.x, s.progress), y: lerp(from.y, to.y, s.progress) };
+    const remainingKm = Math.max(0, route.distance * (1 - s.progress));
+    const elapsedH   = Math.max(0, route.leadtimeH * s.progress);
+    const etaH       = Math.max(0, route.leadtimeH - elapsedH);
+    const etaTime    = new Date(Date.now() + etaH * 3600 * 1000);
+
+    document.getElementById('trackingContent').innerHTML = `
+      <div class="tr-grid">
+        <div class="tr-map">
+          <div class="tr-map-grid"></div>
+          <div class="tr-map-overlay"><span class="live-dot"></span> GPS LIVE · ${fmtTime(new Date())}</div>
+          ${buildVnMap([route.origin, route.dest], s.progress, cur)}
+        </div>
+        <div class="tr-info">
+          <div class="tr-info-head">
+            <div>
+              <div class="tr-info-route">${shortCity(route.origin)} <span class="arrow">→</span> ${shortCity(route.dest)}</div>
+              <div class="tr-info-id">${bk.bookingId} · ${vehicle.plate}</div>
+            </div>
+            <div class="tr-eta-box">
+              <div class="tr-eta-val">${etaH < 1 ? Math.round(etaH * 60) + 'p' : etaH.toFixed(1) + 'h'}</div>
+              <div class="tr-eta-lbl">ETA · ${etaTime.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</div>
+            </div>
+          </div>
+          <div class="tr-stats">
+            <div class="tr-stat"><div class="tr-stat-val">${Math.round(s.speed)}<small>km/h</small></div><div class="tr-stat-lbl">Tốc độ</div></div>
+            <div class="tr-stat"><div class="tr-stat-val">${Math.round(route.distance - remainingKm)}<small>km</small></div><div class="tr-stat-lbl">Đã đi</div></div>
+            <div class="tr-stat"><div class="tr-stat-val">${Math.round(remainingKm)}<small>km</small></div><div class="tr-stat-lbl">Còn lại</div></div>
+          </div>
+          <div class="tr-progress-wrap">
+            <div class="tr-progress-bar"><span style="width:${Math.round(s.progress * 100)}%"></span></div>
+            <div class="tr-progress-meta">
+              <span>${Math.round(s.progress * 100)}% hoàn thành</span>
+              <span>Khởi hành ${fmtRel(s.startTime)}</span>
+            </div>
+          </div>
+          <div class="tr-driver-mini">
+            <div class="tr-driver-mini-avatar"><img src="${driver.avatar}" alt=""/></div>
+            <div class="tr-driver-mini-info">
+              <div class="tr-driver-mini-name">${driver.name} · ★ ${driver.rating.toFixed(1)}</div>
+              <div class="tr-driver-mini-vehicle">${vehicle.model}</div>
+            </div>
+            <a class="tr-call-mini" href="tel:${driver.phone.replace(/\D/g,'')}" title="Gọi tài xế">📞</a>
+          </div>
+          <div class="tr-pings">
+            <div class="tr-pings-title"><span class="live-dot"></span> Sự kiện gần đây</div>
+            <div class="tr-ping-list">${buildPings(s)}</div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  // === GPS API integration point ===
+  // Replace the simulated tick below with:
+  //   const data = await fetch(`/api/gps/${booking.bookingId}`).then(r => r.json());
+  //   TRACK_STATE.progress = data.progress;
+  //   TRACK_STATE.speed    = data.speed;
+  //   TRACK_STATE.pings    = data.pings;
+  function simulateGpsTick() {
+    if (!TRACK_STATE) return;
+    // Move ~0.5-1.2% per 3s, jittered
+    const delta = 0.004 + Math.random() * 0.008;
+    TRACK_STATE.progress = Math.min(1, TRACK_STATE.progress + delta);
+    TRACK_STATE.speed = 55 + Math.random() * 25 - (TRACK_STATE.progress > .9 ? 25 : 0);
+    // Append a synthetic event ping every few ticks
+    if (Math.random() < 0.45) {
+      const events = [
+        'Đang qua trạm thu phí Pháp Vân',
+        'Đang trên QL1A · cao tốc Bắc-Nam',
+        'Vượt mốc 50% lộ trình',
+        'Tài xế nghỉ kỹ thuật 15 phút',
+        'Báo cáo chất lượng kiện hàng: Tốt',
+        'Tốc độ giảm do mật độ giao thông',
+        'Vào địa phận Thanh Hoá',
+        'Nhiệt độ thùng kín: 26°C · ổn định'
+      ];
+      TRACK_STATE.pings.push({ t: Date.now(), event: events[Math.floor(Math.random() * events.length)] });
+      if (TRACK_STATE.pings.length > 30) TRACK_STATE.pings.shift();
+    }
+    // Sync booking object
+    if (TRACK_STATE.booking) TRACK_STATE.booking.progress = TRACK_STATE.progress;
+    renderTracking();
+  }
+
+  function openTracking(bookingId) {
+    const bk = USER_BOOKINGS.find(b => b.bookingId === bookingId);
+    if (!bk) return;
+    const route = MOCK_ROUTES.find(r => r.id === bk.routeId);
+    if (!route) return;
+    const vehicle = VEHICLES[route.vehicleId];
+    const driver = DRIVERS[route.driverId];
+    TRACK_STATE = {
+      booking: bk, route, vehicle, driver,
+      progress: bk.progress || 0.42,
+      speed: 65,
+      startTime: bk.startedAt || (Date.now() - 6 * 3600 * 1000),
+      pings: [
+        { t: Date.now() - 12 * 60000, event: '🟢 Khởi hành từ <strong>' + shortCity(route.origin) + '</strong>' },
+        { t: Date.now() - 8  * 60000, event: 'Vào cao tốc · giữ tốc độ 70 km/h' },
+        { t: Date.now() - 4  * 60000, event: 'Cập nhật vị trí · GPS ổn định' }
+      ]
+    };
+    renderTracking();
+    const m = document.getElementById('trackingModal');
+    m.hidden = false; m.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (TRACK_TIMER) clearInterval(TRACK_TIMER);
+    TRACK_TIMER = setInterval(simulateGpsTick, 3000);
+  }
+  function closeTracking() {
+    const m = document.getElementById('trackingModal');
+    m.hidden = true; m.setAttribute('aria-hidden', 'true');
+    if (TRACK_TIMER) { clearInterval(TRACK_TIMER); TRACK_TIMER = null; }
+    TRACK_STATE = null;
+    if (document.getElementById('bookingsModal').hidden && document.getElementById('authModal').hidden) document.body.style.overflow = '';
+  }
+  document.getElementById('trackingModal').addEventListener('click', (e) => {
+    if (e.target.dataset.close) closeTracking();
+  });
+
+  /* ===== PARTNER LOGOS (real images) ===== */
+  const PARTNERS = [
+    { name: 'GHN',           tag: 'Giao Hàng Nhanh',     img: 'images/partner-ghn.png',    featured: true  },
+    { name: 'Shopee Xpress', tag: 'eCommerce',           img: 'images/partner-shopee.jpg', featured: true  },
+    { name: 'Tiki',          tag: 'Marketplace',         img: 'images/partner-tiki.png' },
+    { name: 'Best Express',  tag: 'Express delivery',    img: 'images/partner-best.png' },
+    { name: 'GHTK',          tag: 'Giao Hàng Tiết Kiệm', img: 'images/partner-ghtk.webp' },
+    { name: 'J&T Express',   tag: 'Express delivery',    img: 'images/partner-jt.webp' }
+  ];
+  function renderPartners() {
+    const track = document.getElementById('partnersTrack');
+    if (!track) return;
+    const oneSet = PARTNERS.map(p => {
+      const inner = p.img
+        ? `<img src="${p.img}" alt="${p.name}" loading="lazy"/>`
+        : p.svg;
+      return `
+      <div class="partner${p.featured ? ' featured' : ''}" title="${p.name}">
+        <div class="partner-logo">${inner}</div>
+        <span class="partner-tag">${p.tag}</span>
+      </div>`;
+    }).join('');
+    track.innerHTML = oneSet + oneSet; // duplicate for seamless marquee
+  }
+  renderPartners();
+
+  // Wire up + restore session on load
+  if (AUTH_USER) seedBookings(AUTH_USER);
+  refreshNavAuth();
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!document.getElementById('trackingModal').hidden) { closeTracking(); return; }
+    if (!document.getElementById('bookingsModal').hidden) { closeBookings(); return; }
+    if (!document.getElementById('authModal').hidden) { closeAuthModal(); return; }
+  });
 </script>
 </body>
 </html>
